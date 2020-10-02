@@ -2,46 +2,261 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\Felipe Ishimine\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Felipe Ishimine\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_PopUpManager.770441496.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Felipe Ishimine\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_PopUpManager.-1130203483.00" t="ExcludeRecursive" />
     <e p="C:\Users\Felipe Ishimine\AppData\Roaming\JetBrains\Rider2020.2\scratches" t="IncludeRecursive" />
-    <e p="E:\GIT\WatercolorDOF\PopUpManager" t="IncludeRecursive">
+    <e p="E:\GIT\PopUpManager" t="IncludeRecursive">
+      <e p="AmimalWorld.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Plugins" t="Include">
-          <e p="Sirenix" t="Include">
-            <e p="Odin Inspector" t="Include">
-              <e p="Scripts" t="Include">
-                <e p="Editor" t="Include">
-                  <e p="AssemblyImportSettingsAutomation.cs" t="Include" />
-                  <e p="BuildAOTAutomation.cs" t="Include" />
-                  <e p="EnsureOdinInspectorDefine.cs" t="Include" />
-                  <e p="FixBrokenUnityObjectWrapperDrawer.cs" t="Include" />
-                  <e p="Sirenix.OdinInspector.CompatibilityLayer.Editor.asmdef" t="Include" />
-                  <e p="SyncListDrawer.cs" t="Include" />
-                  <e p="SyncVarAttributeDrawer.cs" t="Include" />
-                  <e p="Vector2IntMinMaxAttributeDrawer.cs" t="Include" />
-                  <e p="VectorIntDrawers.cs" t="Include" />
-                  <e p="VectorIntPropertyResolvers.cs" t="Include" />
-                </e>
-                <e p="SerializedNetworkBehaviour.cs" t="Include" />
-                <e p="Sirenix.OdinInspector.CompatibilityLayer.asmdef" t="Include" />
-                <e p="VectorIntFormatters.cs" t="Include" />
+        <e p="NaughtyAttributes" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Core" t="Include">
+              <e p="DrawerAttributes" t="Include">
+                <e p="AllowNestingAttribute.cs" t="Include" />
+                <e p="AnimatorParamAttribute.cs" t="Include" />
+                <e p="CurveRangeAttribute.cs" t="Include" />
+                <e p="DrawerAttribute.cs" t="Include" />
+                <e p="DropdownAttribute.cs" t="Include" />
+                <e p="EnumFlagsAttribute.cs" t="Include" />
+                <e p="Expandable.cs" t="Include" />
+                <e p="HorizontalLineAttribute.cs" t="Include" />
+                <e p="InfoBoxAttribute.cs" t="Include" />
+                <e p="InputAxisAttribute.cs" t="Include" />
+                <e p="MinMaxSliderAttribute.cs" t="Include" />
+                <e p="ProgressBarAttribute.cs" t="Include" />
+                <e p="ReadOnlyAttribute.cs" t="Include" />
+                <e p="ResizableTextAreaAttribute.cs" t="Include" />
+                <e p="SceneAttribute.cs" t="Include" />
+                <e p="ShowAssetPreviewAttribute.cs" t="Include" />
+                <e p="TagAttribute.cs" t="Include" />
               </e>
+              <e p="DrawerAttributes_SpecialCase" t="Include">
+                <e p="ButtonAttribute.cs" t="Include" />
+                <e p="ReorderableListAttribute.cs" t="Include" />
+                <e p="ShowNativePropertyAttribute.cs" t="Include" />
+                <e p="ShowNonSerializedFieldAttribute.cs" t="Include" />
+                <e p="SpecialCaseDrawerAttribute.cs" t="Include" />
+              </e>
+              <e p="INaughtyAttribute.cs" t="Include" />
+              <e p="MetaAttributes" t="Include">
+                <e p="BoxGroupAttribute.cs" t="Include" />
+                <e p="DisableIfAttribute.cs" t="Include" />
+                <e p="EnableIfAttribute.cs" t="Include" />
+                <e p="EnableIfAttributeBase.cs" t="Include" />
+                <e p="FoldoutAttribute.cs" t="Include" />
+                <e p="HideIfAttribute.cs" t="Include" />
+                <e p="IGroupAttribute.cs" t="Include" />
+                <e p="LabelAttribute.cs" t="Include" />
+                <e p="MetaAttribute.cs" t="Include" />
+                <e p="OnValueChangedAttribute.cs" t="Include" />
+                <e p="ShowIfAttribute.cs" t="Include" />
+                <e p="ShowIfAttributeBase.cs" t="Include" />
+              </e>
+              <e p="NaughtyAttributes.Core.asmdef" t="Include" />
+              <e p="Utility" t="Include">
+                <e p="EColor.cs" t="Include" />
+                <e p="EConditionOperator.cs" t="Include" />
+              </e>
+              <e p="ValidatorAttributes" t="Include">
+                <e p="MaxValueAttribute.cs" t="Include" />
+                <e p="MinValueAttribute.cs" t="Include" />
+                <e p="RequiredAttribute.cs" t="Include" />
+                <e p="ValidateInputAttribute.cs" t="Include" />
+                <e p="ValidatorAttribute.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Editor" t="Include">
+              <e p="DecoratorDrawers" t="Include">
+                <e p="HorizontalLineDecoratorDrawer.cs" t="Include" />
+                <e p="InfoBoxDecoratorDrawer.cs" t="Include" />
+              </e>
+              <e p="NaughtyAttributes.Editor.asmdef" t="Include" />
+              <e p="NaughtyInspector.cs" t="Include" />
+              <e p="PropertyDrawers" t="Include">
+                <e p="AllowNestingPropertyDrawer.cs" t="Include" />
+                <e p="AnimatorParamPropertyDrawer.cs" t="Include" />
+                <e p="CurveRangePropertyDrawer.cs" t="Include" />
+                <e p="DropdownPropertyDrawer.cs" t="Include" />
+                <e p="EnumFlagsPropertyDrawer.cs" t="Include" />
+                <e p="ExpandablePropertyDrawer.cs" t="Include" />
+                <e p="InputAxisPropertyDrawer.cs" t="Include" />
+                <e p="MinMaxSliderPropertyDrawer.cs" t="Include" />
+                <e p="ProgressBarPropertyDrawer.cs" t="Include" />
+                <e p="PropertyDrawerBase.cs" t="Include" />
+                <e p="ReadOnlyPropertyDrawer.cs" t="Include" />
+                <e p="ResizableTextAreaPropertyDrawer.cs" t="Include" />
+                <e p="ScenePropertyDrawer.cs" t="Include" />
+                <e p="ShowAssetPreviewPropertyDrawer.cs" t="Include" />
+                <e p="TagPropertyDrawer.cs" t="Include" />
+              </e>
+              <e p="PropertyDrawers_SpecialCase" t="Include">
+                <e p="ReorderableListPropertyDrawer.cs" t="Include" />
+                <e p="SpecialCasePropertyDrawerBase.cs" t="Include" />
+              </e>
+              <e p="PropertyValidators" t="Include">
+                <e p="MaxValuePropertyValidator.cs" t="Include" />
+                <e p="MinValuePropertyValidator.cs" t="Include" />
+                <e p="PropertyValidatorBase.cs" t="Include" />
+                <e p="RequiredPropertyValidator.cs" t="Include" />
+                <e p="ValidateInputPropertyValidator.cs" t="Include" />
+              </e>
+              <e p="Utility" t="Include">
+                <e p="ButtonUtility.cs" t="Include" />
+                <e p="NaughtyEditorGUI.cs" t="Include" />
+                <e p="PropertyUtility.cs" t="Include" />
+                <e p="ReflectionUtility.cs" t="Include" />
+                <e p="SavedBool.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Test" t="Include">
+              <e p="_NaughtyComponent.cs" t="Include" />
+              <e p="_NaughtyScriptableObject.cs" t="Include" />
+              <e p="AnimatorParamTest.cs" t="Include" />
+              <e p="BoxGroupTest.cs" t="Include" />
+              <e p="ButtonTest.cs" t="Include" />
+              <e p="CurveRangeTest.cs" t="Include" />
+              <e p="DisableIfTest.cs" t="Include" />
+              <e p="DropdownTest.cs" t="Include" />
+              <e p="EnableIfTest.cs" t="Include" />
+              <e p="EnumFlagsTest.cs" t="Include" />
+              <e p="ExpandableTest.cs" t="Include" />
+              <e p="FoldoutTest.cs" t="Include" />
+              <e p="HideIfTest.cs" t="Include" />
+              <e p="HorizontalLineTest.cs" t="Include" />
+              <e p="InfoBoxTest.cs" t="Include" />
+              <e p="InputAxisTest.cs" t="Include" />
+              <e p="LabelTest.cs" t="Include" />
+              <e p="MinMaxSliderTest.cs" t="Include" />
+              <e p="MinMaxValueTest.cs" t="Include" />
+              <e p="NaughtyAttributes.Test.asmdef" t="Include" />
+              <e p="OnValueChangedTest.cs" t="Include" />
+              <e p="ProgressBarTest.cs" t="Include" />
+              <e p="ReadOnlyTest.cs" t="Include" />
+              <e p="ReorderableListTest.cs" t="Include" />
+              <e p="RequiredTest.cs" t="Include" />
+              <e p="ResizableTextAreaTest.cs" t="Include" />
+              <e p="SceneTest.cs" t="Include" />
+              <e p="ShowAssetPreviewTest.cs" t="Include" />
+              <e p="ShowIfTest.cs" t="Include" />
+              <e p="ShowNativePropertyTest.cs" t="Include" />
+              <e p="ShowNonSerializedFieldTest.cs" t="Include" />
+              <e p="TagTest.cs" t="Include" />
+              <e p="ValidateInputTest.cs" t="Include" />
             </e>
           </e>
         </e>
         <e p="Script" t="Include">
-          <e p="ConfirmPopUp.cs" t="Include" />
-          <e p="MessagePopUp.cs" t="Include" />
-          <e p="PopUpManager.cs" t="Include" />
+          <e p="GenericAnimation" t="Include">
+            <e p="AnchorPosition.cs" t="Include" />
+            <e p="CanvasGroupAlpha.cs" t="Include" />
+            <e p="GenericAnimationModule.cs" t="Include" />
+            <e p="ImageColor.cs" t="Include" />
+            <e p="Interfaces" t="Include">
+              <e p="IAnimationModule.cs" t="Include" />
+              <e p="IPlayAnimation.cs" t="Include" />
+            </e>
+            <e p="Position.cs" t="Include" />
+            <e p="Scale.cs" t="Include" />
+            <e p="SpriteColor.cs" t="Include" />
+          </e>
+          <e p="PopUpManager" t="Include">
+            <e p="Base" t="Include">
+              <e p="BasePopUp.cs" t="Include" />
+              <e p="GenericPopUp.cs" t="Include" />
+              <e p="IInitialize.cs" t="Include" />
+            </e>
+            <e p="Components" t="Include">
+              <e p="BasePopUpClip.cs" t="Include" />
+              <e p="GenericAnimationModuleComponent.cs" t="Include" />
+              <e p="PopUpClip.cs" t="Include" />
+              <e p="PopUpClipOne.cs" t="Include" />
+              <e p="PopUpClipThree.cs" t="Include" />
+              <e p="PopUpClipTwo.cs" t="Include" />
+            </e>
+            <e p="Configs" t="Include">
+              <e p="BasePopUpConfig.cs" t="Include" />
+            </e>
+            <e p="PopUpManager.cs" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="OneOptionPopUp.cs" t="Include" />
+              <e p="ThreeOptionPopUp.cs" t="Include" />
+              <e p="TwoOptionPopUp.cs" t="Include" />
+            </e>
+            <e p="Test" t="Include">
+              <e p="MonoTester.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Textus" t="Include">
+          <e p="SerializeReferenceUI" t="Include">
+            <e p="Core" t="Include">
+              <e p="ManagedReferenceUtility.cs" t="Include" />
+              <e p="SerializeReferenceGenericSelectionMenu.cs" t="Include" />
+              <e p="SerializeReferenceTypeRestrictionFilters.cs" t="Include" />
+            </e>
+            <e p="DefaultAttributes" t="Include">
+              <e p="SerializedReferenceUIDefaultTypeRestrictions.cs" t="Include" />
+              <e p="SerializeReferenceButtonAttribute" t="Include">
+                <e p="SerializeReferenceButtonAttribute.cs" t="Include" />
+                <e p="SerializeReferenceButtonAttributeDrawer.cs" t="Include" />
+              </e>
+              <e p="SerializeReferenceMenuAttribute" t="Include">
+                <e p="SerializeReferenceMenuAttribute.cs" t="Include" />
+                <e p="SerializeReferenceMenuAttributeDrawer.cs" t="Include" />
+              </e>
+              <e p="SerializeReferenceUIRestrictionExcludeTypes" t="Include">
+                <e p="SerializeReferenceUIRestrictionExcludeTypes.cs" t="Include" />
+              </e>
+              <e p="SerializeReferenceUIRestrictionIncludeTypes" t="Include">
+                <e p="SerializeReferenceUIRestrictionIncludeTypes.cs" t="Include" />
+              </e>
+            </e>
+            <e p="DefaultUI" t="Include">
+              <e p="SerializeReferenceInspectorButton.cs" t="Include" />
+              <e p="SerializeReferenceInspectorMiddleMouseMenu.cs" t="Include" />
+            </e>
+            <e p="LICENSE.txt" t="Include" />
+            <e p="Textus.SerializeReferenceUI.asmdef" t="Include" />
+          </e>
+          <e p="SerializeReferenceUIExample" t="Include">
+            <e p="ExampleAnimalWorldAssembly" t="Include">
+              <e p="AmimalWorld.asmdef" t="Include" />
+              <e p="Animals" t="Include">
+                <e p="AnimalBase.cs" t="Include" />
+                <e p="IAnimal.cs" t="Include" />
+                <e p="MammalBase.cs" t="Include" />
+              </e>
+            </e>
+            <e p="ExampleFolderCanBeSafelyRemoved.txt" t="Include" />
+            <e p="ExampleOfUsageFromDifferentAssembly" t="Include">
+              <e p="Animals" t="Include">
+                <e p="AnimalStruct.cs" t="Include" />
+                <e p="ApeBase.cs" t="Include" />
+                <e p="CatBase.cs" t="Include" />
+                <e p="DogBase.cs" t="Include" />
+                <e p="FishBase.cs" t="Include" />
+                <e p="InsectBase.cs" t="Include" />
+              </e>
+              <e p="NotSupportedTypes" t="Include">
+                <e p="ExampleOfNotSupportedTypes.cs" t="Include" />
+              </e>
+              <e p="SerializedReferenceExample.asmdef" t="Include" />
+              <e p="TestingAnimalWorldExample" t="Include">
+                <e p="Test.cs" t="Include" />
+              </e>
+            </e>
+          </e>
         </e>
       </e>
+      <e p="NaughtyAttributes.Core.csproj" t="IncludeRecursive" />
+      <e p="NaughtyAttributes.Editor.csproj" t="IncludeRecursive" />
+      <e p="NaughtyAttributes.Test.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="PopUpManager.sln" t="IncludeFlat" />
-      <e p="Sirenix.OdinInspector.CompatibilityLayer.csproj" t="IncludeRecursive" />
-      <e p="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj" t="IncludeRecursive" />
+      <e p="SerializedReferenceExample.csproj" t="IncludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Textus.SerializeReferenceUI.csproj" t="IncludeRecursive" />
     </e>
   </component>
 </project>
