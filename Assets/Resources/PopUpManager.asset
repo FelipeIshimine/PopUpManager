@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PopUpManager
   m_EditorClassIdentifier: 
   defaultPopUps:
-  - {fileID: 519316118367327461, guid: edc03c01b6e782b46b0c98e701022538, type: 3}
-  - {fileID: 1957636668851519989, guid: aefa41fc357983642b6925cb64eb2fa4, type: 3}
-  - {fileID: 519316118367327461, guid: 98e352373b4f6394ea1351da240a64f7, type: 3}
+  - {fileID: 6150398227892699496, guid: dacb11bfaf0ce2c4aafe0f6c761ccd60, type: 3}
+  - {fileID: 1222415659298611006, guid: 742541d194053d04fbff670dd63960e8, type: 3}
+  - {fileID: 595433791381280941, guid: 64c7320a879061448a82ecd4b241630c, type: 3}

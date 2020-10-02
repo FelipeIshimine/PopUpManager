@@ -169,6 +169,7 @@
               <e p="BasePopUpClip.cs" t="Include" />
               <e p="GenericAnimationModuleComponent.cs" t="Include" />
               <e p="PopUpClip.cs" t="Include" />
+              <e p="PopUpClipComponent.cs" t="Include" />
               <e p="PopUpClipOne.cs" t="Include" />
               <e p="PopUpClipThree.cs" t="Include" />
               <e p="PopUpClipTwo.cs" t="Include" />

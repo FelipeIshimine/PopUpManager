@@ -690,7 +690,16 @@ MonoBehaviour:
   references:
     version: 1
     00000000:
-      type: {class: , ns: , asm: }
+      type: {class: PopUpClipOne, ns: , asm: Assembly-CSharp}
+      data:
+        Config:
+          MainText: 
+          option:
+            name: 
+        Prefab: {fileID: 0}
+        OnPressed:
+          m_PersistentCalls:
+            m_Calls: []
 --- !u!1 &802077796
 GameObject:
   m_ObjectHideFlags: 0
