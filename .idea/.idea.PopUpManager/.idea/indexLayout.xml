@@ -3,7 +3,7 @@
   <component name="ContentModelUserStore">
     <attachedFolders />
     <explicitIncludes>
-      <Path>Library/PackageCache/com.ishimine.runetimescriptablesetting@cc1cc52292</Path>
+      <Path>Library/PackageCache/com.ishimine.runetimescriptablesetting@23306d10ae</Path>
       <Path>Library/PackageCache/com.unity.2d.animation@3.2.3</Path>
       <Path>Library/PackageCache/com.unity.2d.common@2.0.2</Path>
       <Path>Library/PackageCache/com.unity.2d.path@2.0.5</Path>
@@ -28,7 +28,6 @@
       <Path>.idea</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
-      <Path>Temp</Path>
       <Path>obj</Path>
     </explicitExcludes>
   </component>

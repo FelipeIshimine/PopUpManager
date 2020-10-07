@@ -160,28 +160,34 @@
           </e>
         </e>
         <e p="PopUpManager" t="Include">
-          <e p="Base" t="Include">
-            <e p="BasePopUp.cs" t="Include" />
-            <e p="GenericPopUp.cs" t="Include" />
-            <e p="IInitialize.cs" t="Include" />
-          </e>
-          <e p="Components" t="Include">
-            <e p="BasePopUpClip.cs" t="Include" />
-            <e p="GenericAnimationModuleComponent.cs" t="Include" />
-            <e p="PopUpClip.cs" t="Include" />
-            <e p="PopUpClipComponent.cs" t="Include" />
-            <e p="PopUpClipOne.cs" t="Include" />
-            <e p="PopUpClipThree.cs" t="Include" />
-            <e p="PopUpClipTwo.cs" t="Include" />
-          </e>
-          <e p="Configs" t="Include">
-            <e p="BasePopUpConfig.cs" t="Include" />
-          </e>
-          <e p="PopUpManager.cs" t="Include" />
-          <e p="Scripts" t="Include">
-            <e p="OneOptionPopUp.cs" t="Include" />
-            <e p="ThreeOptionPopUp.cs" t="Include" />
-            <e p="TwoOptionPopUp.cs" t="Include" />
+          <e p="Runtime" t="Include">
+            <e p="Components" t="Include">
+              <e p="BasePopUpClip.cs" t="Include" />
+              <e p="GenericAnimationModuleComponent.cs" t="Include" />
+              <e p="PopUpClip.cs" t="Include" />
+              <e p="PopUpClipComponent.cs" t="Include" />
+              <e p="PopUpClipOne.cs" t="Include" />
+              <e p="PopUpClipThree.cs" t="Include" />
+              <e p="PopUpClipTwo.cs" t="Include" />
+            </e>
+            <e p="Configs" t="Include">
+              <e p="BasePopUpConfig.cs" t="Include" />
+              <e p="GenericPopUpConfig.cs" t="Include" />
+              <e p="OneOptionConfig.cs" t="Include" />
+              <e p="ThreeOptionsConfig.cs" t="Include" />
+              <e p="TwoOptionsConfig.cs" t="Include" />
+            </e>
+            <e p="Interface" t="Include">
+              <e p="IInitializeWith.cs" t="Include" />
+            </e>
+            <e p="PopUpManager.cs" t="Include" />
+            <e p="PopUps" t="Include">
+              <e p="BasePopUp.cs" t="Include" />
+              <e p="GenericPopUp.cs" t="Include" />
+              <e p="OneOptionPopUp.cs" t="Include" />
+              <e p="ThreeOptionPopUp.cs" t="Include" />
+              <e p="TwoOptionPopUp.cs" t="Include" />
+            </e>
           </e>
           <e p="Test" t="Include">
             <e p="MonoTester.cs" t="Include" />
@@ -194,24 +200,49 @@
         </e>
         <e p="Shop&amp;CurrencyManager" t="Include">
           <e p="Examples" t="Include">
-            <e p="MainShop.cs" t="Include" />
+            <e p="Script" t="Include">
+              <e p="Canvas" t="Include">
+                <e p="Canvas_MainShop.cs" t="Include" />
+              </e>
+              <e p="PopUp" t="Include">
+                <e p="TwoOptionsOneImageConfig.cs" t="Include" />
+                <e p="TwoOptionsOneImagePopUp.cs" t="Include" />
+              </e>
+              <e p="Shop" t="Include">
+                <e p="SpriteItem.cs" t="Include" />
+              </e>
+            </e>
           </e>
-          <e p="Scripts" t="Include">
-            <e p="AnyProductCatalog.cs" t="Include" />
-            <e p="Catalog.cs" t="Include" />
-            <e p="GenericProductCatalog.cs" t="Include" />
-            <e p="Inventory.cs" t="Include" />
-            <e p="Items" t="Include">
-              <e p="Currency.cs" t="Include" />
-              <e p="Item.cs" t="Include" />
-              <e p="NonGenericItem.cs" t="Include" />
+          <e p="Runtime" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Core" t="Include">
+                <e p="Catalog" t="Include">
+                  <e p="GenericProductCatalog.cs" t="Include" />
+                </e>
+                <e p="InventoryAndCatalog" t="Include">
+                  <e p="Catalog.cs" t="Include" />
+                  <e p="Inventory.cs" t="Include" />
+                </e>
+                <e p="Items" t="Include">
+                  <e p="BaseItem.cs" t="Include" />
+                  <e p="ComplexGenericItem.cs" t="Include" />
+                  <e p="GenericBaseItem.cs" t="Include" />
+                </e>
+                <e p="Product.cs" t="Include" />
+                <e p="Requirement" t="Include">
+                  <e p="ItemRequirement.cs" t="Include" />
+                </e>
+                <e p="ScriptableVariants" t="Include">
+                  <e p="ScriptableInventory.cs" t="Include" />
+                  <e p="ScriptableShop.cs" t="Include" />
+                </e>
+                <e p="Shop.cs" t="Include" />
+              </e>
+              <e p="Default" t="Include">
+                <e p="Currency.cs" t="Include" />
+                <e p="CurrencyCatalog.cs" t="Include" />
+              </e>
             </e>
-            <e p="PlayerSession.cs" t="Include" />
-            <e p="Product.cs" t="Include" />
-            <e p="Requirement" t="Include">
-              <e p="ItemRequirement.cs" t="Include" />
-            </e>
-            <e p="Shop.cs" t="Include" />
           </e>
         </e>
         <e p="Textus" t="Include">
@@ -333,6 +364,9 @@
             </e>
           </e>
         </e>
+        <e p="UI_InventoryItem.cs" t="Include" />
+        <e p="UI_PlayerInventory.cs" t="Include" />
+        <e p="UI_Product.cs" t="Include" />
       </e>
       <e p="NaughtyAttributes.Core.csproj" t="IncludeRecursive" />
       <e p="NaughtyAttributes.Editor.csproj" t="IncludeRecursive" />

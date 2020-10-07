@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ef7442918e47fa8062200bf9c81a30, type: 3}
+  m_Name: GenericItemCatalog
+  m_EditorClassIdentifier: 
+  products:
+  - productName: Cosa Amarilla
+    icon: {fileID: 0}
+    ammount: 1
+    requirement:
+      item: {fileID: 11400000, guid: 1d8ce23a2a2b85d48841a9996209ef9d, type: 2}
+      ammount: 10
+      consumes: 1
+    description: 
+    item: {fileID: 11400000, guid: 202925da33d3bac419a242bb0f9b1f81, type: 2}
+  - productName: Cosa Azul
+    icon: {fileID: 0}
+    ammount: 1
+    requirement:
+      item: {fileID: 11400000, guid: 1d8ce23a2a2b85d48841a9996209ef9d, type: 2}
+      ammount: 20
+      consumes: 1
+    description: 
+    item: {fileID: 11400000, guid: eb6383391d229f74db395f67d04f0282, type: 2}
+  - productName: Rojeto
+    icon: {fileID: 0}
+    ammount: 1
+    requirement:
+      item: {fileID: 11400000, guid: 5da2b292aeec1c04ea76f5d385b85c75, type: 2}
+      ammount: 5
+      consumes: 1
+    description: 
+    item: {fileID: 11400000, guid: 274e6210d035b7a4db963d2d4da3fcc8, type: 2}
+  - productName: Verdocho
+    icon: {fileID: 0}
+    ammount: 1
+    requirement:
+      item: {fileID: 11400000, guid: 5da2b292aeec1c04ea76f5d385b85c75, type: 2}
+      ammount: 15
+      consumes: 1
+    description: 
+    item: {fileID: 11400000, guid: 307971da30afb624f996be188ae615c6, type: 2}
+  - productName: Common
+    icon: {fileID: 0}
+    ammount: 25
+    requirement:
+      item: {fileID: 0}
+      ammount: 0
+      consumes: 0
+    description: 
+    item: {fileID: 11400000, guid: 1d8ce23a2a2b85d48841a9996209ef9d, type: 2}
+  - productName: Premium
+    icon: {fileID: 0}
+    ammount: 25
+    requirement:
+      item: {fileID: 0}
+      ammount: 0
+      consumes: 0
+    description: 
+    item: {fileID: 11400000, guid: 5da2b292aeec1c04ea76f5d385b85c75, type: 2}

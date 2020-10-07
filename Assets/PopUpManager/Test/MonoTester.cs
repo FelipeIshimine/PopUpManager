@@ -22,7 +22,6 @@ public class MonoTester : MonoBehaviour
     [Button]
     public void EnqueueOverride() => PopUpManager.Enqueue(overridePopUp.gameObject, message);
     
-    
     [SerializeReference,SerializeReferenceButton] public BasePopUpClip PopUpClip;
 
     [Button()]

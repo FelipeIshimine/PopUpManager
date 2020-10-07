@@ -11,86 +11,109 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76a39e8b-b539-4674-be20-edf389b91083" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/GenericProductCatalog.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/GenericProductCatalog.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/NonGenericItem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Configs/GenericPopUpConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Configs/GenericPopUpConfig.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Configs/OneOptionConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Configs/OneOptionConfig.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Configs/ThreeOptionsConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Configs/ThreeOptionsConfig.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Configs/TwoOptionsConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Configs/TwoOptionsConfig.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/PopUp/TwoOptionsOneImageConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/PopUp/TwoOptionsOneImageConfig.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI_InventoryItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI_InventoryItem.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Base.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Base/BasePopUp.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Base/BasePopUp.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Base/GenericPopUp.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Base/GenericPopUp.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Base/IInitialize.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Base/IInitialize.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Components.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Components/BasePopUpClip.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Components/BasePopUpClip.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Components/GenericAnimationModuleComponent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Components/GenericAnimationModuleComponent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Components/PopUpClip.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Components/PopUpClip.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Components/PopUpClipComponent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Components/PopUpClipComponent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Components/PopUpClipOne.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Components/PopUpClipOne.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Components/PopUpClipThree.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Components/PopUpClipThree.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Components/PopUpClipTwo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Components/PopUpClipTwo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Configs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Configs/BasePopUpConfig.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Configs/BasePopUpConfig.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/PopUpManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/PopUpManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Prefabs/(Default) CanvasPopUp 1 Option.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Prefabs/(Default) CanvasPopUp 1 Option.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Prefabs/(Default) CanvasPopUp 2 Options.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Prefabs/(Default) CanvasPopUp 2 Options.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Prefabs/(Default) CanvasPopUp 3 Options.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Prefabs/(Default) CanvasPopUp 3 Options.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Prefabs/CanvasPopUp 1 Option Animated.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Prefabs/CanvasPopUp 1 Option Animated.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Prefabs/CanvasPopUp 2 Options Animated.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Prefabs/CanvasPopUp 2 Options Animated.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Prefabs/CanvasPopUp 3 Options Animated.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Prefabs/CanvasPopUp 3 Options Animated.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Scripts/OneOptionPopUp.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Scripts/OneOptionPopUp.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Scripts/ThreeOptionPopUp.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Scripts/ThreeOptionPopUp.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Scripts/TwoOptionPopUp.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Scripts/TwoOptionPopUp.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Test/MonoTester.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PopUpManager/Test/MonoTester.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/AnchorPosition.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/AnchorPosition.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/CanvasGroupAlpha.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/CanvasGroupAlpha.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/GenericAnimationModule.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/GenericAnimationModule.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/ImageColor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/ImageColor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/Interfaces.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/Interfaces/IAnimationModule.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/Interfaces/IAnimationModule.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/Interfaces/IPlayAnimation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/Interfaces/IPlayAnimation.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/Position.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/Position.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/Scale.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/Scale.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/SpriteColor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GenericAnimation/SpriteColor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Base.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Base/BasePopUp.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Base/BasePopUp.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Base/GenericPopUp.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Base/GenericPopUp.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Base/IInitialize.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Base/IInitialize.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Components.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/BasePopUpClip.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/BasePopUpClip.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/GenericAnimationModuleComponent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/GenericAnimationModuleComponent.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUpClip.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUpClip.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUpClipComponent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUpClipComponent.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUpClipOne.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUpClipOne.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUpClipThree.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUpClipThree.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUpClipTwo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUpClipTwo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Configs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Configs/BasePopUpConfig.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Configs/BasePopUpConfig.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/PopUpManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/PopUpManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Prefabs/(Default) CanvasPopUp 1 Option.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Prefabs/(Default) CanvasPopUp 1 Option.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Prefabs/(Default) CanvasPopUp 2 Options.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Prefabs/(Default) CanvasPopUp 2 Options.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Prefabs/(Default) CanvasPopUp 3 Options.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Prefabs/(Default) CanvasPopUp 3 Options.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Prefabs/CanvasPopUp 1 Option Animated.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Prefabs/CanvasPopUp 1 Option Animated.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Prefabs/CanvasPopUp 2 Options Animated.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Prefabs/CanvasPopUp 2 Options Animated.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Prefabs/CanvasPopUp 3 Options Animated.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Prefabs/CanvasPopUp 3 Options Animated.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Scripts/OneOptionPopUp.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Scripts/OneOptionPopUp.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Scripts/ThreeOptionPopUp.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Scripts/ThreeOptionPopUp.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Scripts/TwoOptionPopUp.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Scripts/TwoOptionPopUp.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Test.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Test/MonoTester.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PopUpManager/Test/MonoTester.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/MainShop.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/MainShop.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/AnyProductCatalog.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/AnyProductCatalog.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Catalog.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Catalog.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/GenericProductCatalog.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/GenericProductCatalog.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Inventory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Inventory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/Currency.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/Currency.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/Item.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/Item.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/NonGenericItem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/NonGenericItem.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/PlayerSession.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/PlayerSession.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Product.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Product.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Requirement.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Requirement/ItemRequirement.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Requirement/ItemRequirement.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Shop.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Shop.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Shop.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Shop/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Shop/Resources/Catalog.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Shop/Resources/Catalog/AnyItemCatalog.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Shop/Resources/Catalog/AnyItemCatalog.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Shop/Resources/Items.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Shop/Resources/Items/Generics.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Shop/Resources/Items/Generics/Normal.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Shop/Resources/Items/Generics/Normal.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Shop/Resources/Items/Generics/Premium.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Shop/Resources/Items/Generics/Premium.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,69 +126,73 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../NaughtyAttributes/Assets/NaughtyAttributes/Scripts/Test/EnableIfTest.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UI_Product.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Wave Function Collapse Algorith V2/Assets/Scripts/Tilemap/QTile2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../NaughtyAttributes/Assets/NaughtyAttributes/Scripts/Test/_NaughtyScriptableObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../NaughtyAttributes/Assets/NaughtyAttributes/Scripts/Test/DropdownTest.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UI_PlayerInventory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../NaughtyAttributes/Assets/NaughtyAttributes/Scripts/Test/AnimatorParamTest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Save&amp;LoadSystem/SaveLoadManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/NonGenericItem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Requirement/ItemRequirement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PopUpManager/Runtime/Interface/IInitializeWith.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Wave Function Collapse Algorith V2/Assets/Scripts/EmptyTile.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../NaughtyAttributes/Assets/NaughtyAttributes/Scripts/Test/CurveRangeTest.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../NaughtyAttributes/Assets/NaughtyAttributes/Scripts/Test/_NaughtyScriptableObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../NaughtyAttributes/Assets/NaughtyAttributes/Scripts/Test/ExpandableTest.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../NaughtyAttributes/Assets/NaughtyAttributes/Scripts/Test/DropdownTest.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/PopUp/TwoOptionsOneImagePopUp.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Script/Animation/ScaleAnim.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/Animation/ImageColor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/Animation/SpriteColor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Examples/Scripts/ThreeOptionPopUp.cs" />
-        <option value="$PROJECT_DIR$/Assets/MonoTester.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/Animation/Position.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Examples/Scripts/OneOptionPopUp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Base/BasePopUp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/Animation/GenericAnimationModule.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/Animation/CanvasGroupAlpha.cs" />
-        <option value="$PROJECT_DIR$/Assets/GenericAnimationModuleComponent.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/Animation/Scale.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/GenericAnimation/AnchorPosition.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUp1.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Scripts/ThreeOptionPopUp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUp_One.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Scripts/TwoOptionPopUp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Scripts/OneOptionPopUp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Configs/BasePopUpConfig.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUp_1.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/BasePopUpClip.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Test/MonoTester.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUpClip.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUpClipComponent.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUpClipOne.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/PopUpManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUpClipThree.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PopUpManager/Components/PopUpClipTwo.cs" />
-        <option value="$PROJECT_DIR$/Assets/CurrencyManager/CurrencyManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/CurrencyManager/ItemManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/CurrencyManager/Currency.cs" />
-        <option value="$PROJECT_DIR$/Assets/CurrencyManager/PlayerSession.cs" />
-        <option value="$PROJECT_DIR$/Assets/CurrencyManager/ShopManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/CurrencyManager/MainShop.cs" />
-        <option value="$PROJECT_DIR$/Assets/CurrencyManager/Catalog.cs" />
         <option value="$PROJECT_DIR$/Assets/CurrencyManager/Shop.cs" />
         <option value="$PROJECT_DIR$/Assets/CurrencyManager/Inventory.cs" />
         <option value="$PROJECT_DIR$/Assets/CurrencyManager/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/CurrencyManager/GenericItem.cs" />
         <option value="$PROJECT_DIR$/Assets/Save&amp;LoadSystem/SaveAndLoadManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Save&amp;LoadSystem/SaveLoadManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Inventory.cs" />
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/GenericItem.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/Currency.cs" />
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Requirement/ItemRequirement.cs" />
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/GenericItem.cs" />
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/NonGenericItem.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Product.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/AnyProductCatalog.cs" />
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Catalog.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Catalog/CurrencyCatalog.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Product.cs" />
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Shop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Inventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/ScriptableInventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/MainShop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/ScriptableShop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/ScriptableVariants/ScriptableShop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/Currency.cs" />
+        <option value="$PROJECT_DIR$/Assets/NaughtyAttributes/Scripts/Editor/PropertyDrawers/ShowAssetPreviewPropertyDrawer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/BaseItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/NonGenericBaseItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/SpriteBaseItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Core/Items/NonGenericBaseItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Core/Items/BaseItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Core/GenericProduct.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Core/Product.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Live/Currency.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/SpriteProduct.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/SpriteItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Live/CurrencyCatalog.cs" />
+        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Interface/IInitializeWith.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/PopUp/BuyItemPopUp.cs" />
+        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Configs/BasePopUpConfig.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Shop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Items/BaseItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/UI_InventoryItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/PopUps/BasePopUp.cs" />
+        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Components/PopUpClip.cs" />
+        <option value="$PROJECT_DIR$/Assets/PopUpManager/Test/MonoTester.cs" />
+        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/PopUpManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/PopUp/TwoOptionsOneImagePopUp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Product.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Requirement/ItemRequirement.cs" />
+        <option value="$PROJECT_DIR$/Assets/UI_Product.cs" />
+        <option value="$PROJECT_DIR$/Assets/UI_PlayerInventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/InventoryAndCatalog/Inventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Canvas/Canvas_MainShop.cs" />
       </list>
     </option>
   </component>
@@ -222,7 +249,7 @@
       <workItem from="1601660785155" duration="8634000" />
       <workItem from="1601674588683" duration="6637000" />
       <workItem from="1601904995590" duration="4851000" />
-      <workItem from="1602080031052" duration="5650000" />
+      <workItem from="1602080031052" duration="25969000" />
     </task>
     <servers />
   </component>
@@ -247,11 +274,11 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="794" y="241" key="RiderGenerateDialog" timestamp="1602080694030">
+    <state x="794" y="241" key="RiderGenerateDialog" timestamp="1602103394826">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="794" y="241" key="RiderGenerateDialog/-1440.278.1440.870/1920.172.1600.870/0.0.1920.1050@0.0.1920.1050" timestamp="1601667684205" />
-    <state x="794" y="241" key="RiderGenerateDialog/0.0.1920.1050/1920.668.1440.870@0.0.1920.1050" timestamp="1602080694030" />
+    <state x="794" y="241" key="RiderGenerateDialog/0.0.1920.1050/1920.668.1440.870@0.0.1920.1050" timestamp="1602103394826" />
     <state x="794" y="241" key="RiderGenerateDialog/1920.186.1600.870/0.0.1920.1050@0.0.1920.1050" timestamp="1601676111797" />
     <state x="606" y="140" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1601572235489">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -266,10 +293,10 @@
     </state>
     <state x="616" y="243" key="run.anything.popup/-1440.278.1440.870/1920.172.1600.870/0.0.1920.1050@0.0.1920.1050" timestamp="1601653103972" />
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050/1920.668.1440.870@0.0.1920.1050" timestamp="1601909834681" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1602084541457">
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1602112042857">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/-1440.278.1440.870/1920.172.1600.870/0.0.1920.1050@0.0.1920.1050" timestamp="1601661100273" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.668.1440.870@0.0.1920.1050" timestamp="1602084541457" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.668.1440.870@0.0.1920.1050" timestamp="1602112042857" />
   </component>
 </project>
