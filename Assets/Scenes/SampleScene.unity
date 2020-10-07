@@ -690,14 +690,19 @@ MonoBehaviour:
   references:
     version: 1
     00000000:
-      type: {class: PopUpClipOne, ns: , asm: Assembly-CSharp}
+      type: {class: PopUpClipTwo, ns: , asm: Assembly-CSharp}
       data:
         Config:
           MainText: 
-          option:
+          confirm:
+            name: 
+          cancel:
             name: 
         Prefab: {fileID: 0}
-        OnPressed:
+        OnConfirm:
+          m_PersistentCalls:
+            m_Calls: []
+        OnCancel:
           m_PersistentCalls:
             m_Calls: []
 --- !u!1 &802077796

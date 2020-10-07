@@ -6,8 +6,22 @@
     <e p="C:\Users\Felipe Ishimine\AppData\Roaming\JetBrains\Rider2020.2\scratches" t="IncludeRecursive" />
     <e p="E:\GIT\PopUpManager" t="IncludeRecursive">
       <e p="AmimalWorld.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="GenericAnimation" t="Include">
+          <e p="AnchorPosition.cs" t="Include" />
+          <e p="CanvasGroupAlpha.cs" t="Include" />
+          <e p="GenericAnimationModule.cs" t="Include" />
+          <e p="ImageColor.cs" t="Include" />
+          <e p="Interfaces" t="Include">
+            <e p="IAnimationModule.cs" t="Include" />
+            <e p="IPlayAnimation.cs" t="Include" />
+          </e>
+          <e p="Position.cs" t="Include" />
+          <e p="Scale.cs" t="Include" />
+          <e p="SpriteColor.cs" t="Include" />
+        </e>
         <e p="NaughtyAttributes" t="Include">
           <e p="Scripts" t="Include">
             <e p="Core" t="Include">
@@ -145,47 +159,59 @@
             </e>
           </e>
         </e>
-        <e p="Script" t="Include">
-          <e p="GenericAnimation" t="Include">
-            <e p="AnchorPosition.cs" t="Include" />
-            <e p="CanvasGroupAlpha.cs" t="Include" />
-            <e p="GenericAnimationModule.cs" t="Include" />
-            <e p="ImageColor.cs" t="Include" />
-            <e p="Interfaces" t="Include">
-              <e p="IAnimationModule.cs" t="Include" />
-              <e p="IPlayAnimation.cs" t="Include" />
-            </e>
-            <e p="Position.cs" t="Include" />
-            <e p="Scale.cs" t="Include" />
-            <e p="SpriteColor.cs" t="Include" />
+        <e p="PopUpManager" t="Include">
+          <e p="Base" t="Include">
+            <e p="BasePopUp.cs" t="Include" />
+            <e p="GenericPopUp.cs" t="Include" />
+            <e p="IInitialize.cs" t="Include" />
           </e>
-          <e p="PopUpManager" t="Include">
-            <e p="Base" t="Include">
-              <e p="BasePopUp.cs" t="Include" />
-              <e p="GenericPopUp.cs" t="Include" />
-              <e p="IInitialize.cs" t="Include" />
+          <e p="Components" t="Include">
+            <e p="BasePopUpClip.cs" t="Include" />
+            <e p="GenericAnimationModuleComponent.cs" t="Include" />
+            <e p="PopUpClip.cs" t="Include" />
+            <e p="PopUpClipComponent.cs" t="Include" />
+            <e p="PopUpClipOne.cs" t="Include" />
+            <e p="PopUpClipThree.cs" t="Include" />
+            <e p="PopUpClipTwo.cs" t="Include" />
+          </e>
+          <e p="Configs" t="Include">
+            <e p="BasePopUpConfig.cs" t="Include" />
+          </e>
+          <e p="PopUpManager.cs" t="Include" />
+          <e p="Scripts" t="Include">
+            <e p="OneOptionPopUp.cs" t="Include" />
+            <e p="ThreeOptionPopUp.cs" t="Include" />
+            <e p="TwoOptionPopUp.cs" t="Include" />
+          </e>
+          <e p="Test" t="Include">
+            <e p="MonoTester.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Save&amp;LoadSystem" t="Include">
+          <e p="ISaveLoadAs.cs" t="Include" />
+          <e p="ISaveLoadAsJson.cs" t="Include" />
+          <e p="SaveLoadManager.cs" t="Include" />
+        </e>
+        <e p="Shop&amp;CurrencyManager" t="Include">
+          <e p="Examples" t="Include">
+            <e p="MainShop.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="AnyProductCatalog.cs" t="Include" />
+            <e p="Catalog.cs" t="Include" />
+            <e p="GenericProductCatalog.cs" t="Include" />
+            <e p="Inventory.cs" t="Include" />
+            <e p="Items" t="Include">
+              <e p="Currency.cs" t="Include" />
+              <e p="Item.cs" t="Include" />
+              <e p="NonGenericItem.cs" t="Include" />
             </e>
-            <e p="Components" t="Include">
-              <e p="BasePopUpClip.cs" t="Include" />
-              <e p="GenericAnimationModuleComponent.cs" t="Include" />
-              <e p="PopUpClip.cs" t="Include" />
-              <e p="PopUpClipComponent.cs" t="Include" />
-              <e p="PopUpClipOne.cs" t="Include" />
-              <e p="PopUpClipThree.cs" t="Include" />
-              <e p="PopUpClipTwo.cs" t="Include" />
+            <e p="PlayerSession.cs" t="Include" />
+            <e p="Product.cs" t="Include" />
+            <e p="Requirement" t="Include">
+              <e p="ItemRequirement.cs" t="Include" />
             </e>
-            <e p="Configs" t="Include">
-              <e p="BasePopUpConfig.cs" t="Include" />
-            </e>
-            <e p="PopUpManager.cs" t="Include" />
-            <e p="Scripts" t="Include">
-              <e p="OneOptionPopUp.cs" t="Include" />
-              <e p="ThreeOptionPopUp.cs" t="Include" />
-              <e p="TwoOptionPopUp.cs" t="Include" />
-            </e>
-            <e p="Test" t="Include">
-              <e p="MonoTester.cs" t="Include" />
-            </e>
+            <e p="Shop.cs" t="Include" />
           </e>
         </e>
         <e p="Textus" t="Include">
@@ -245,6 +271,65 @@
               <e p="TestingAnimalWorldExample" t="Include">
                 <e p="Test.cs" t="Include" />
               </e>
+            </e>
+          </e>
+        </e>
+        <e p="TotalJSON" t="Include">
+          <e p="Examples" t="Include">
+            <e p="CreateAndModifyJSON.cs" t="Include" />
+            <e p="ExampleSerializeObjects" t="Include">
+              <e p="ExamplePlayerItemObject.cs" t="Include" />
+              <e p="ExamplePlayerObject.cs" t="Include" />
+            </e>
+            <e p="ParseAndHandleJSON.cs" t="Include" />
+            <e p="SaveAndLoadFile.cs" t="Include" />
+            <e p="SerializeAndDeserialize.cs" t="Include" />
+          </e>
+          <e p="Internal" t="Include">
+            <e p="CreateStringRunner.cs" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="JSONRuntimeDebug.cs" t="Include" />
+              <e p="JSONValidator.cs" t="Include" />
+            </e>
+            <e p="InternalTools.cs" t="Include" />
+            <e p="JSONRuntimeDebugContainer.cs" t="Include" />
+            <e p="ParseStringRunner.cs" t="Include" />
+            <e p="StringPointer.cs" t="Include" />
+          </e>
+          <e p="ReadMe.txt" t="Include" />
+          <e p="Scripts" t="Include">
+            <e p="Attributes" t="Include">
+              <e p="ExcludeFromJSONSerializeAttribute.cs" t="Include" />
+              <e p="IncludeToJSONSerializeAttribute.cs" t="Include" />
+            </e>
+            <e p="Exceptions" t="Include">
+              <e p="DeserializeException.cs" t="Include" />
+              <e p="JArgumentException.cs" t="Include" />
+              <e p="JArgumentNullException.cs" t="Include" />
+              <e p="JArrayIndexOutOfRangeException.cs" t="Include" />
+              <e p="JNumberFormatException.cs" t="Include" />
+              <e p="JNumberOverflowException.cs" t="Include" />
+              <e p="JSONKeyAlreadyExistsException.cs" t="Include" />
+              <e p="JSONKeyNotFoundException.cs" t="Include" />
+              <e p="JValueNullException.cs" t="Include" />
+              <e p="JValueTypeException.cs" t="Include" />
+              <e p="ParseException.cs" t="Include" />
+              <e p="ProtectedException.cs" t="Include" />
+              <e p="SerializeException.cs" t="Include" />
+              <e p="UnknownObjectTypeException.cs" t="Include" />
+            </e>
+            <e p="JArray.cs" t="Include" />
+            <e p="JBoolean.cs" t="Include" />
+            <e p="JNull.cs" t="Include" />
+            <e p="JNumber.cs" t="Include" />
+            <e p="JSON.cs" t="Include" />
+            <e p="JString.cs" t="Include" />
+            <e p="JValue.cs" t="Include" />
+            <e p="Settings" t="Include">
+              <e p="CreateStringSettings.cs" t="Include" />
+              <e p="DeserializeSettings.cs" t="Include" />
+              <e p="ParseStringSettings.cs" t="Include" />
+              <e p="SerializeSettings.cs" t="Include" />
             </e>
           </e>
         </e>
