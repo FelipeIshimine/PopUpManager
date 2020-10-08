@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-
+using PopUp;
+using UnityEngine.Events;
 
 [AddComponentMenu("PopUp/2 Options")]
 public class TwoOptionPopUp : GenericPopUp<PopUp.TwoOptionsConfig>
@@ -21,7 +22,7 @@ public class TwoOptionPopUp : GenericPopUp<PopUp.TwoOptionsConfig>
     }
 
     protected override void _Open(Action onDone)
-    {       
+    {
         gameObject.SetActive(true);
         onDone?.Invoke();
     }
@@ -38,10 +39,37 @@ public class TwoOptionPopUp : GenericPopUp<PopUp.TwoOptionsConfig>
         config.confirm.callback?.Invoke();
         Close();
     }
-    
+
     public void CancelPressed()
     {
         config.cancel.callback?.Invoke();
         Close();
+    }
+
+    [System.Serializable]
+    public class Clip : GenericPopUpClip<TwoOptionsConfig, TwoOptionPopUp>
+    {
+        public UnityEvent OnConfirm;
+        public UnityEvent OnCancel;
+
+        private void Register(TwoOptionsConfig config)
+        {
+            config.confirm.callback -= OnConfirm.Invoke;
+            config.confirm.callback += OnConfirm.Invoke;
+            config.cancel.callback -= OnCancel.Invoke;
+            config.cancel.callback += OnCancel.Invoke;
+        }
+
+        public override void Show(TwoOptionsConfig config)
+        {
+            Register(config);
+            base.Show(config);
+        }
+
+        public override void Enqueue(TwoOptionsConfig config)
+        {
+            Register(config);
+            base.Enqueue(config);
+        }
     }
 }

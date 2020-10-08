@@ -12,7 +12,6 @@ public class Canvas_MainShop : MonoBehaviour
     public RectTransform productsContainer;
 
     public GameObject uiProductPrefab;
-
     
     [SerializeField] private ScriptableShop scriptableShop;
 
@@ -20,15 +19,15 @@ public class Canvas_MainShop : MonoBehaviour
 
     public ScriptableInventory playerInventory;
     public Inventory PlayerInventory => playerInventory.value;
-    
+
     [Header("PopUps")]
-    public TwoOptionsOneImagePopUp confirmationPopUpPrefab;
+    public TwoOptionsOneImagePopUp.Clip confirmationPopUp;
     public string baseMessage = "you are about to buy <b>'{0}'</b>x{1}, are you sure?";
 
-    public OneOptionPopUp cantBuyPopUp;
-    public string cantBuyMessage = "you dont have enough <b>'{0}'</b>";
+    public OneOptionPopUp.Clip cantBuyPopUp;
+    public string cantBuyMessage = "you dont have enough <b>'{0}'</b> to buy";
 
-    public OneOptionPopUp buySuccessPopUp;
+    public OneOptionPopUp.Clip buySuccessPopUp;
     public string successBuyMessage = "you got <b>'{0}x{1}'</b>";
 
     public bool showConfirmation = false;
@@ -58,8 +57,7 @@ public class Canvas_MainShop : MonoBehaviour
         else
         {
             if (showConfirmation)
-                PopUpManager.Show(
-                    confirmationPopUpPrefab,
+                confirmationPopUp.Show(
                     new PopUp.TwoOptionsOneImageConfig(
                         string.Format(baseMessage, product.ProductName, product.ammount),
                         product.Icon,
@@ -73,8 +71,7 @@ public class Canvas_MainShop : MonoBehaviour
 
     private void ShowCantBuyPopUp(BaseProduct product)
     {
-        PopUpManager.Show(
-            cantBuyPopUp,
+        cantBuyPopUp.Show(
             new OneOptionConfig(
                 string.Format(cantBuyMessage, product.requirement.item.itemName),
                 new PopUpOption(string.Empty, null)));
@@ -82,12 +79,12 @@ public class Canvas_MainShop : MonoBehaviour
 
     private void BuyProduct(BaseProduct product)
     {
-        if (PlayerInventory.TryConsume(product.requirement))
-            PopUpManager.Show(
-                buySuccessPopUp,
+        
+        if (PlayerInventory.TryBuy(product))
+            buySuccessPopUp.Show(
                 new OneOptionConfig(
                     string.Format(successBuyMessage, product.ProductName, product.ammount),
-                    new PopUpOption("OK", ()=> PlayerInventory[product.Item] += product.ammount)));
+                    new PopUpOption("OK", null)));
         else
             ShowCantBuyPopUp(product);
     }

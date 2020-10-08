@@ -62,14 +62,26 @@ namespace ShopSystem
             throw new NotImplementedException();
         }
 
-        public bool TryConsume(ItemRequirement productRequirement) => !productRequirement.consumes || TryConsume(productRequirement.item, productRequirement.ammount);
-
         public bool TryConsume(BaseItem id, int ammount)
         {
              //No tiene suficiente
             if (!Items.ContainsKey(id) || Items[id] < ammount) return false;
-          
-            Items[id] -= ammount;
+            Modify(id, -ammount);
+            return true;
+        }
+
+        public bool TryBuy(BaseProduct product)
+        {
+            if (product.requirement == null || product.requirement.ammount <= 0)
+            { 
+                Modify(product.Item, product.ammount);
+                return true;
+            }
+
+            if (product.requirement.ammount > Items[product.requirement.item]) return false;
+            
+            Modify(product.requirement.item, -product.requirement.ammount);
+            Modify(product.Item, product.ammount);
             return true;
         }
     }

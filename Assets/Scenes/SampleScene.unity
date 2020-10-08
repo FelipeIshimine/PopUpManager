@@ -690,21 +690,7 @@ MonoBehaviour:
   references:
     version: 1
     00000000:
-      type: {class: PopUpClipTwo, ns: , asm: Assembly-CSharp}
-      data:
-        Config:
-          MainText: 
-          confirm:
-            name: 
-          cancel:
-            name: 
-        Prefab: {fileID: 0}
-        OnConfirm:
-          m_PersistentCalls:
-            m_Calls: []
-        OnCancel:
-          m_PersistentCalls:
-            m_Calls: []
+      type: {class: , ns: , asm: }
 --- !u!1 &802077796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,6 +1362,21 @@ PrefabInstance:
       propertyPath: successBuyMessage
       value: you got <b>'{0}x{1}'</b>
       objectReference: {fileID: 0}
+    - target: {fileID: 1847493092, guid: 5be2785400152fb478fead27be0c5a4a, type: 3}
+      propertyPath: cantBuyPopUp.Prefab
+      value: 
+      objectReference: {fileID: 6743934809057198891, guid: dacb11bfaf0ce2c4aafe0f6c761ccd60,
+        type: 3}
+    - target: {fileID: 1847493092, guid: 5be2785400152fb478fead27be0c5a4a, type: 3}
+      propertyPath: buySuccessPopUp.Prefab
+      value: 
+      objectReference: {fileID: 6743934809057198891, guid: dacb11bfaf0ce2c4aafe0f6c761ccd60,
+        type: 3}
+    - target: {fileID: 1847493092, guid: 5be2785400152fb478fead27be0c5a4a, type: 3}
+      propertyPath: confirmationPopUp.Prefab
+      value: 
+      objectReference: {fileID: 5779655997978139760, guid: 9e33344716cdb2748aead00c2df00906,
+        type: 3}
     - target: {fileID: 6537327699909298399, guid: 5be2785400152fb478fead27be0c5a4a,
         type: 3}
       propertyPath: m_AnchorMin.y

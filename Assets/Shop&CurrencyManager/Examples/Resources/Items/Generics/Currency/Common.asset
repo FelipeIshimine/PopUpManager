@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01977538d25470eaaf0bfc35647bfdc, type: 3}
   m_Name: Common
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Common Coin
   icon: {fileID: 21300000, guid: 9c801a0e21974554593aef24bb9af096, type: 3}

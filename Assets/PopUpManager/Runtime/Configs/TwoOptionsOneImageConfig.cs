@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace PopUp
 {
+    [System.Serializable]
     public class TwoOptionsOneImageConfig : GenericPopUpConfig<TwoOptionsOneImageConfig>
     {
         public string mainText;
@@ -14,5 +15,7 @@ namespace PopUp
             this.firstOption = firstOption;
             this.secondOption = secondOption;
         }
+
     }
 }
+

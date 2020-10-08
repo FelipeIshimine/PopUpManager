@@ -164,29 +164,35 @@
             <e p="Components" t="Include">
               <e p="BasePopUpClip.cs" t="Include" />
               <e p="GenericAnimationModuleComponent.cs" t="Include" />
-              <e p="PopUpClip.cs" t="Include" />
+              <e p="GenericPopUpClip.cs" t="Include" />
               <e p="PopUpClipComponent.cs" t="Include" />
-              <e p="PopUpClipOne.cs" t="Include" />
-              <e p="PopUpClipThree.cs" t="Include" />
-              <e p="PopUpClipTwo.cs" t="Include" />
             </e>
             <e p="Configs" t="Include">
-              <e p="BasePopUpConfig.cs" t="Include" />
-              <e p="GenericPopUpConfig.cs" t="Include" />
+              <e p="Base" t="Include">
+                <e p="BasePopUpConfig.cs" t="Include" />
+                <e p="GenericPopUpConfig.cs" t="Include" />
+              </e>
               <e p="OneOptionConfig.cs" t="Include" />
               <e p="ThreeOptionsConfig.cs" t="Include" />
               <e p="TwoOptionsConfig.cs" t="Include" />
+              <e p="TwoOptionsOneImageConfig.cs" t="Include" />
             </e>
             <e p="Interface" t="Include">
               <e p="IInitializeWith.cs" t="Include" />
             </e>
+            <e p="Other" t="Include">
+              <e p="SelectPrefabsOfType.cs" t="Include" />
+            </e>
             <e p="PopUpManager.cs" t="Include" />
             <e p="PopUps" t="Include">
-              <e p="BasePopUp.cs" t="Include" />
-              <e p="GenericPopUp.cs" t="Include" />
+              <e p="Base" t="Include">
+                <e p="BasePopUp.cs" t="Include" />
+                <e p="GenericPopUp.cs" t="Include" />
+              </e>
               <e p="OneOptionPopUp.cs" t="Include" />
               <e p="ThreeOptionPopUp.cs" t="Include" />
               <e p="TwoOptionPopUp.cs" t="Include" />
+              <e p="TwoOptionsOneImagePopUp.cs" t="Include" />
             </e>
           </e>
           <e p="Test" t="Include">
@@ -203,10 +209,6 @@
             <e p="Script" t="Include">
               <e p="Canvas" t="Include">
                 <e p="Canvas_MainShop.cs" t="Include" />
-              </e>
-              <e p="PopUp" t="Include">
-                <e p="TwoOptionsOneImageConfig.cs" t="Include" />
-                <e p="TwoOptionsOneImagePopUp.cs" t="Include" />
               </e>
               <e p="Shop" t="Include">
                 <e p="SpriteItem.cs" t="Include" />

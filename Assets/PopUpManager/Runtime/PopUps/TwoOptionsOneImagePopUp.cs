@@ -34,4 +34,11 @@ public class TwoOptionsOneImagePopUp : GenericPopUp<PopUp.TwoOptionsOneImageConf
         config.secondOption.callback?.Invoke();
         Close();
     }
+
+
+    [System.Serializable]
+    public class Clip : GenericPopUpClip<TwoOptionsOneImageConfig, TwoOptionsOneImagePopUp>
+    {
+
+    }
 }
