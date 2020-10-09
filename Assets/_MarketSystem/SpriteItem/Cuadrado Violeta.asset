@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69f191e5a4cb426c873bd2d94dbef4b3, type: 3}
-  m_Name: Rojo_SpriteItem
+  m_Name: Cuadrado Violeta
   m_EditorClassIdentifier: 
-  itemName: Rojardio
-  icon: {fileID: 21300000, guid: 0e2d9e1b6ffac4d4b830c6f0d19e5f8e, type: 3}
-  Value: {fileID: 21300000, guid: 0e2d9e1b6ffac4d4b830c6f0d19e5f8e, type: 3}
+  itemName: Violet
+  icon: {fileID: 21300000, guid: 82a398b7619b3b0438165c86c2e2474e, type: 3}
+  Value: {fileID: 0}

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ShopSystem
+namespace MarketSystem
 {
     public abstract class BaseCatalog : ScriptableObject
     {

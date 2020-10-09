@@ -205,19 +205,36 @@
           <e p="SaveLoadManager.cs" t="Include" />
         </e>
         <e p="Shop&amp;CurrencyManager" t="Include">
+          <e p="Editor" t="Include">
+            <e p="ChangeTabNameWindow.cs" t="Include" />
+            <e p="CreateNewTagWindow.cs" t="Include" />
+            <e p="MarketSystemWindow.cs" t="Include" />
+            <e p="Resources" t="Include">
+              <e p="MarketManager_Main.uxml" t="Include" />
+              <e p="MarketManager_Style.uss" t="Include" />
+              <e p="NewTag_Main.uxml" t="Include" />
+              <e p="RenameTab_Main.uxml" t="Include" />
+            </e>
+          </e>
           <e p="Examples" t="Include">
             <e p="Script" t="Include">
               <e p="Canvas" t="Include">
                 <e p="Canvas_MainShop.cs" t="Include" />
+                <e p="UI_InventoryItem.cs" t="Include" />
+                <e p="UI_PlayerInventory.cs" t="Include" />
+                <e p="UI_Product.cs" t="Include" />
               </e>
               <e p="Shop" t="Include">
+                <e p="AudioItem.cs" t="Include" />
                 <e p="SpriteItem.cs" t="Include" />
               </e>
             </e>
           </e>
           <e p="Runtime" t="Include">
+            <e p="MarketManager.cs" t="Include" />
             <e p="Scripts" t="Include">
               <e p="Core" t="Include">
+                <e p="AnyItemProduct.cs" t="Include" />
                 <e p="Catalog" t="Include">
                   <e p="GenericProductCatalog.cs" t="Include" />
                 </e>
@@ -366,9 +383,6 @@
             </e>
           </e>
         </e>
-        <e p="UI_InventoryItem.cs" t="Include" />
-        <e p="UI_PlayerInventory.cs" t="Include" />
-        <e p="UI_Product.cs" t="Include" />
       </e>
       <e p="NaughtyAttributes.Core.csproj" t="IncludeRecursive" />
       <e p="NaughtyAttributes.Editor.csproj" t="IncludeRecursive" />

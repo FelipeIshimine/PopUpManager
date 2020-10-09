@@ -4,7 +4,7 @@ using UnityEditor;
 #endif
 using UnityEngine;
 
-namespace ShopSystem
+namespace MarketSystem
 {
     public abstract class GenericItem<T> : BaseItem
     {

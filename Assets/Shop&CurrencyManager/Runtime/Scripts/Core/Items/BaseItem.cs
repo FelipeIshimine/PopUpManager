@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ShopSystem
+namespace MarketSystem
 {
     public abstract class BaseItem : ScriptableObject
     {

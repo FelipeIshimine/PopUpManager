@@ -4,7 +4,7 @@ using Leguar.TotalJSON;
 using SaveSystem;
 using UnityEngine;
 
-namespace ShopSystem
+namespace MarketSystem
 {
     [System.Serializable]
     public class Inventory : ISaveLoadAsJson

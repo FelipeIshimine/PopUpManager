@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ShopSystem
+namespace MarketSystem
 {
     [CreateAssetMenu(menuName = "ShopSystem/ScriptableInventory", fileName = "ScriptableInventory", order = 0)]
     public class ScriptableInventory : ScriptableObject

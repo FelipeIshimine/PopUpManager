@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69f191e5a4cb426c873bd2d94dbef4b3, type: 3}
-  m_Name: Amarillo_SpriteItem
+  m_Script: {fileID: 11500000, guid: d01977538d25470eaaf0bfc35647bfdc, type: 3}
+  m_Name: Premium
   m_EditorClassIdentifier: 
-  itemName: Amarelo
-  icon: {fileID: 21300000, guid: fc579598c2aef7d43964839bb33132ea, type: 3}
-  Value: {fileID: 21300000, guid: fc579598c2aef7d43964839bb33132ea, type: 3}
+  itemName: Premium
+  icon: {fileID: 21300000, guid: 809216efaad187446a1b570101b5a11a, type: 3}

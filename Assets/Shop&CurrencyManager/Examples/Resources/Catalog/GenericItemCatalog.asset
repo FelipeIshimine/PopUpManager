@@ -13,57 +13,9 @@ MonoBehaviour:
   m_Name: GenericItemCatalog
   m_EditorClassIdentifier: 
   products:
-  - productName: Cosa Amarilla
-    icon: {fileID: 0}
-    ammount: 1
-    requirement:
-      item: {fileID: 11400000, guid: 1d8ce23a2a2b85d48841a9996209ef9d, type: 2}
-      ammount: 10
-      consumes: 1
-    description: 
-    item: {fileID: 11400000, guid: 202925da33d3bac419a242bb0f9b1f81, type: 2}
-  - productName: Cosa Azul
-    icon: {fileID: 0}
-    ammount: 1
-    requirement:
-      item: {fileID: 11400000, guid: 1d8ce23a2a2b85d48841a9996209ef9d, type: 2}
-      ammount: 20
-      consumes: 1
-    description: 
-    item: {fileID: 11400000, guid: eb6383391d229f74db395f67d04f0282, type: 2}
-  - productName: Rojeto
-    icon: {fileID: 0}
-    ammount: 1
-    requirement:
-      item: {fileID: 11400000, guid: 5da2b292aeec1c04ea76f5d385b85c75, type: 2}
-      ammount: 5
-      consumes: 1
-    description: 
-    item: {fileID: 11400000, guid: 274e6210d035b7a4db963d2d4da3fcc8, type: 2}
-  - productName: Verdocho
-    icon: {fileID: 0}
-    ammount: 1
-    requirement:
-      item: {fileID: 11400000, guid: 5da2b292aeec1c04ea76f5d385b85c75, type: 2}
-      ammount: 15
-      consumes: 1
-    description: 
-    item: {fileID: 11400000, guid: 307971da30afb624f996be188ae615c6, type: 2}
-  - productName: Common
-    icon: {fileID: 0}
-    ammount: 25
-    requirement:
-      item: {fileID: 0}
-      ammount: 0
-      consumes: 0
-    description: 
-    item: {fileID: 11400000, guid: 1d8ce23a2a2b85d48841a9996209ef9d, type: 2}
-  - productName: Premium
-    icon: {fileID: 0}
-    ammount: 25
-    requirement:
-      item: {fileID: 0}
-      ammount: 0
-      consumes: 0
-    description: 
-    item: {fileID: 11400000, guid: 5da2b292aeec1c04ea76f5d385b85c75, type: 2}
+  - {fileID: 11400000, guid: 966a638534c7ee04295fdec880bffb29, type: 2}
+  - {fileID: 11400000, guid: e9f3dd92cde6c7349b1b1e2817a90761, type: 2}
+  - {fileID: 11400000, guid: 3bf5da187521eee48b92f66af2c6220a, type: 2}
+  - {fileID: 11400000, guid: 5163f31b494467a40b1147d820b56a31, type: 2}
+  - {fileID: 11400000, guid: 7f7b5319a2d4a9a408af79aff28cf645, type: 2}
+  - {fileID: 11400000, guid: b4ce0efbc45701949b8b7074a1f0fdfc, type: 2}

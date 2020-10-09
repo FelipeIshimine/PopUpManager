@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using PopUp;
-using ShopSystem;
+using MarketSystem;
 using UnityEngine.UI;
 
 public class TwoOptionsOneImagePopUp : GenericPopUp<PopUp.TwoOptionsOneImageConfig>

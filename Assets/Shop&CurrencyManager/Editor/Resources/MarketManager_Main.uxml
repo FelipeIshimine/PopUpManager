@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement style="flex-grow: 1;">
+        <uie:Toolbar style="flex-shrink: 0;">
+            <uie:ToolbarButton text="Items" name="ItemsButton" />
+            <uie:ToolbarButton text="Products" name="ProductsButton" />
+            <uie:ToolbarButton text="Catalogs" name="CatalogsButton" />
+        </uie:Toolbar>
+        <ui:VisualElement name="body" />
+    </ui:VisualElement>
+</ui:UXML>

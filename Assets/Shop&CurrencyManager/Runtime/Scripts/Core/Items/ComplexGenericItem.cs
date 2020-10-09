@@ -2,7 +2,7 @@ using Leguar.TotalJSON;
 using SaveSystem;
 using UnityEngine;
 
-namespace ShopSystem
+namespace MarketSystem
 {
     public abstract class ComplexGenericItem<T> : BaseItem, ISaveLoadAsJson  where T : ISaveLoadAsJson
     {

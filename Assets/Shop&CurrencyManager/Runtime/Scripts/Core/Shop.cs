@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ShopSystem
+namespace MarketSystem
 {
     [System.Serializable]
     public class Shop
