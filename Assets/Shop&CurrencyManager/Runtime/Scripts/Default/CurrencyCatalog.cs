@@ -6,7 +6,7 @@ using UnityEngine;
 namespace MarketSystem
 {
     [CreateAssetMenu(menuName = "ShopSystem/Catalog/CurrencyCatalog", fileName = "CurrencyCatalog", order = 0)]
-    public class CurrencyCatalog : Catalog<Currency.Product>
+    public class CurrencyCatalog : Catalog<CurrencyProduct>
     {
 
     }

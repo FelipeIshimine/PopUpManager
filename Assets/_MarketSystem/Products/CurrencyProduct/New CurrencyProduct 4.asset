@@ -9,11 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dff4144a4c0b99449c8761619cd93a9, type: 3}
-  m_Name: MarketManager
+  m_Script: {fileID: 11500000, guid: 51c99d807aba467980f9823e85db663f, type: 3}
+  m_Name: New CurrencyProduct 4
   m_EditorClassIdentifier: 
-  Items: []
-  Products: []
-  Catalogs:
-  - {fileID: 11400000, guid: e7620ac18d8d8aa4b9822d825efe24ee, type: 2}
-  folderName: _MarketSystem
+  productName: 
+  icon: {fileID: 0}
+  ammount: 1
+  requirement:
+    item: {fileID: 0}
+    ammount: 0
+    consumes: 0
+  description: 
+  item: {fileID: 0}

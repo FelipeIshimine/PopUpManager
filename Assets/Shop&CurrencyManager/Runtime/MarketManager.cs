@@ -12,6 +12,7 @@ namespace MarketSystem
     {
         public override MarketManager Myself => this;
         public List<BaseItem> Items = new List<BaseItem>();
+        public List<BaseProduct> Products = new List<BaseProduct>();
         public List<BaseCatalog> Catalogs = new List<BaseCatalog>();
 
         public string folderName = "_MarketSystem";
@@ -19,7 +20,7 @@ namespace MarketSystem
         public Dictionary<string,List<BaseProduct>> GetItemsPerClassFromCatalog(BaseCatalog catalog)
         {
             RemoveNullEmpty(Catalogs);
-            Catalogs.Sort(CatalogsComprarer);
+            Catalogs.Sort(ScriptableObjectComparer);
             Dictionary<string,List<BaseProduct>> products = new Dictionary<string, List<BaseProduct>>();
             foreach (BaseProduct baseProduct in catalog.Products)
             {
@@ -30,12 +31,11 @@ namespace MarketSystem
             }
             return products;
         }
-
       
-        public Dictionary<string,List<BaseItem>> GetItemsPerClass()
+        public Dictionary<string,List<BaseItem>> GetItemsByClass()
         {
             RemoveNullEmpty(Items);
-            Items.Sort(ItemComparer);
+            Items.Sort(ScriptableObjectComparer);
             Dictionary<string,List<BaseItem>> items = new Dictionary<string, List<BaseItem>>();
             foreach (BaseItem baseItem in Items)
             {
@@ -47,8 +47,22 @@ namespace MarketSystem
             return items;
         }
         
-        private int CatalogsComprarer(BaseCatalog x, BaseCatalog y)=> String.Compare(x.name, y.name, StringComparison.Ordinal);
-        private int ItemComparer(BaseItem x, BaseItem y) => String.Compare(x.name, y.name, StringComparison.Ordinal);
+        public Dictionary<string,List<BaseProduct>> GetProductsByClass()
+        {
+            RemoveNullEmpty(Products);
+            Products.Sort(ScriptableObjectComparer);
+            Dictionary<string,List<BaseProduct>> items = new Dictionary<string, List<BaseProduct>>();
+            foreach (BaseProduct product in Products)
+            {
+                string key = product.GetType().ToString();
+                if (!items.ContainsKey(key))
+                    items.Add(key,new List<BaseProduct>());
+                items[key].Add(product);
+            }
+            return items;
+        }
+
+        private static int ScriptableObjectComparer(ScriptableObject x, ScriptableObject y) => string.Compare(x.name, y.name, StringComparison.Ordinal);
 
         private void RemoveNullEmpty<T>(List<T> list)
         {
@@ -65,15 +79,28 @@ namespace MarketSystem
                 Items.Add(uObject);
         }
 
-        public bool DoesItemExists(string assetName)
-        {
-            return Items.Find(x => x.name == assetName) != null;
-        }
-
         public void RemoveItem<T>(T item) where T : BaseItem
         {
             if (Items.Contains(item))
                 Items.Remove(item);
+        }
+
+        public void AddNewProduct(BaseProduct uObject)
+        {
+            if(Products.Contains(uObject))
+                Debug.LogError("El objeto ya existe");
+            else
+                Products.Add(uObject);
+        }
+
+        public bool DoesItemExists(string assetName) => Items.Find(x => x.name == assetName) != null;
+
+        public bool DoesProductExists(string assetName) => Products.Find(x => x.name == assetName) != null;
+
+        public void RemoveProduct<T>(T product) where T : BaseProduct
+        {
+            if (Products.Contains(product))
+                Products.Remove(product);
         }
     }
 }

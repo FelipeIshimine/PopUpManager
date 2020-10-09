@@ -11,50 +11,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76a39e8b-b539-4674-be20-edf389b91083" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/AnyItemProduct.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/AnyItemProduct.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyProduct.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyProduct.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PopUpManager/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PopUpManager/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PopUpManager/Runtime/PopUps/TwoOptionsOneImagePopUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PopUpManager/Runtime/PopUps/TwoOptionsOneImagePopUp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Catalog/GenericItemCatalog.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Catalog/GenericItemCatalog.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Items/Generics.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Items/Generics/Currency.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Items/Generics/Currency/Common.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Items/Generics/Currency/Common.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Items/Generics/Currency/Premium.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Items/Generics/Currency/Premium.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Items/Generics/Sprite.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Items/Generics/Sprite/Amarillo_SpriteItem.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Items/Generics/Sprite/Amarillo_SpriteItem.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Items/Generics/Sprite/Azul_SpriteItem.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Items/Generics/Sprite/Azul_SpriteItem.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Items/Generics/Sprite/Rojo_SpriteItem.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Items/Generics/Sprite/Rojo_SpriteItem.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Items/Generics/Sprite/Verde_SpriteItem.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Items/Generics/Sprite/Verde_SpriteItem.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Canvas/Canvas_MainShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Canvas/Canvas_MainShop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Canvas/UI_PlayerInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Canvas/UI_PlayerInventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Canvas/UI_Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Canvas/UI_Product.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/SpriteItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/SpriteItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Catalog/GenericProductCatalog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Catalog/GenericProductCatalog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/InventoryAndCatalog/Catalog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/InventoryAndCatalog/Catalog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/InventoryAndCatalog/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/InventoryAndCatalog/Inventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Items/BaseItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Items/BaseItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Items/ComplexGenericItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Items/ComplexGenericItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Items/GenericBaseItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Items/GenericBaseItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Product.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Requirement/ItemRequirement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Requirement/ItemRequirement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/ScriptableVariants/ScriptableInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/ScriptableVariants/ScriptableInventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/ScriptableVariants/ScriptableShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/ScriptableVariants/ScriptableShop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Shop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Shop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/Currency.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/Currency.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/MarketManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/MarketManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/MarketSystemWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/MarketSystemWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/AudioItem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/AudioItem.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/SpriteItem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/SpriteItem.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/MarketManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/MarketManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Product.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Product.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/Currency.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/Currency.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyItem.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyCatalog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyCatalog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/AudioItem.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Currency/Common Currency.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Currency/Common Currency.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Currency/Premium.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Currency/Premium.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Azul.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Azul.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Blanco.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Blanco.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Naranja.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Naranja.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Rojo.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Rojo.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Rosa.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Rosa.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Violeta.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Violeta.asset.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,12 +75,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/ScriptableShop.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/ScriptableVariants/ScriptableShop.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/Currency.cs" />
-        <option value="$PROJECT_DIR$/Assets/NaughtyAttributes/Scripts/Editor/PropertyDrawers/ShowAssetPreviewPropertyDrawer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/BaseItem.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Items/NonGenericBaseItem.cs" />
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/SpriteBaseItem.cs" />
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Core/Items/NonGenericBaseItem.cs" />
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Core/Items/BaseItem.cs" />
@@ -130,9 +115,15 @@
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/InventoryAndCatalog/Inventory.cs" />
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/ScriptableSettingsWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/ChangeTabNameWindow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Product.cs" />
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/SpriteItem1.cs" />
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/Resources/MarketManager_Style.uss" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Product.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/AudioItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/Product.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/SpriteItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/Currency.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyCatalog.cs" />
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/MarketManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/MarketSystemWindow.cs" />
       </list>
@@ -195,7 +186,7 @@
       <workItem from="1602166611810" duration="12907000" />
       <workItem from="1602188083918" duration="71000" />
       <workItem from="1602188187479" duration="8645000" />
-      <workItem from="1602249345475" duration="23464000" />
+      <workItem from="1602249345475" duration="32307000" />
     </task>
     <servers />
   </component>
@@ -239,10 +230,10 @@
     </state>
     <state x="616" y="243" key="run.anything.popup/-1440.278.1440.870/1920.172.1600.870/0.0.1920.1050@0.0.1920.1050" timestamp="1601653103972" />
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050/1920.668.1440.870@0.0.1920.1050" timestamp="1602273788307" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1602272188534">
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1602283606840">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/-1440.278.1440.870/1920.172.1600.870/0.0.1920.1050@0.0.1920.1050" timestamp="1601661100273" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.668.1440.870@0.0.1920.1050" timestamp="1602272188534" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.668.1440.870@0.0.1920.1050" timestamp="1602283606840" />
   </component>
 </project>

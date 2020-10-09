@@ -24,8 +24,8 @@ public class MarketSystemWindow : EditorWindow
     private BaseProduct selectedProduct;
 
     private List<string> selectedItemCategories = new List<string>();
+    private List<string> selectedProductCategories = new List<string>();
 
-    
     private enum States{Items,Catalogs,Products}
 
     private States currentState;
@@ -93,6 +93,8 @@ public class MarketSystemWindow : EditorWindow
         body.Add(leftPanel);
         leftPanel.style.borderRightWidth = 2;
         leftPanel.style.borderRightColor = new StyleColor(new Color(.3f,.3f,.3f));
+        leftPanel.style.maxWidth = 160;
+        leftPanel.contentContainer.style.maxWidth = 200;
         
         VisualElement midPanel = new VisualElement();
         midPanel.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
@@ -106,7 +108,6 @@ public class MarketSystemWindow : EditorWindow
         rightPanel.style.flexGrow = 1;
         body.Add(rightPanel);
         
-
         foreach (BaseCatalog catalog in MarketManager.Catalogs)
         {
             if (catalog == null) continue;
@@ -122,66 +123,153 @@ public class MarketSystemWindow : EditorWindow
             label.AddToClassList("ItemTypeLabel");
             container.Add(label);
             foreach (BaseProduct baseProduct in keyValuePair.Value)
-                container.Add(CreateProductSelectionButton(baseProduct, () => ProductButtonPressed(baseProduct, rightPanel)));
+                container.Add(CreateProductSelectionButton(baseProduct));
             
             midPanel.Add(container);
         }
     }
-
-    
     #endregion
-
 
     #region Products Panel
-    
+
     private void RenderProductsPanel()
     {
-        //throw new NotImplementedException();
-    }
+        VisualElement body = rootVisualElement.Q<VisualElement>("body");
+        body.Clear();
 
-    #endregion
+        VisualElement upperPanel = new VisualElement {name = "upperPanel"};
+        upperPanel.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
+        upperPanel.style.flexGrow = 1;
 
-    private VisualElement CreateProductSelectionButton(BaseProduct baseProduct, Action onClickAction)
-    {
-        VisualElement visualElement = new VisualElement();
-        Button button = new Button();
-        button.style.height = 50;
-        button.style.width = 50;
-        button.text = string.Empty;
+        ScrollView lowerPanel = new ScrollView {name = "lowerPanel"};
+        lowerPanel.style.flexGrow = 1;
 
-        Sprite icon = baseProduct.Icon;
-        button.style.backgroundImage = new StyleBackground(icon?icon.texture:null);
-        Label label = new Label {text = baseProduct.ProductName};
+        VisualElement leftUpperPanel = new VisualElement {name = "leftUpperPanel"};
+        leftUpperPanel.style.flexGrow = 1;
+        leftUpperPanel.style.maxWidth = 300;
         
-        visualElement.Add(button);
-        visualElement.Add(label);
-        button.clicked += onClickAction;
-        return visualElement;
+        VisualElement rightUpperPanel = new VisualElement {name = "rightUpperPanel"};
+        rightUpperPanel.style.flexGrow = 1;
+    
+        
+        List<Type> types = new List<Type>(GetAllSubclassTypes<BaseProduct>(false));
+        List<string> names = new List<string>();
+        for (int i = 0; i < types.Count; i++)
+            names.Add(types[i].ToString());
+
+        Dictionary<string, List<BaseProduct>> productsByClass = MarketManager.GetProductsByClass();
+
+        Label categoriesLabel = new Label(){ text = "ITEM TYPES"};
+        categoriesLabel.style.fontSize = 20;
+        ListView selectionList = CreateListView(names, selectedProductCategories, OnProductTypeSelected);
+    
+        selectionList.style.flexGrow = 1;
+        selectionList.style.height = 100;
+        selectionList.style.width = 160;
+        
+        for (int i = 0; i < names.Count; i++)
+        {
+            if(!selectedProductCategories.Contains(names[i])) continue;
+            
+            ScrollView categoryContainer = new ScrollView();
+            categoryContainer.style.flexGrow = 0;
+            categoryContainer.style.flexShrink = 1;
+            categoryContainer.contentContainer.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Column);
+            categoryContainer.style.flexWrap = new StyleEnum<Wrap>(Wrap.Wrap);
+            
+            categoryContainer.style.paddingBottom = 5;
+            categoryContainer.style.paddingLeft = 10;
+            categoryContainer.style.paddingRight = 10;
+            
+            categoryContainer.contentContainer.style.flexGrow = 1;
+            categoryContainer.contentContainer.style.height = new StyleLength(StyleKeyword.Auto);
+            categoryContainer.contentContainer.style.width = new StyleLength(StyleKeyword.Auto);
+            categoryContainer.name = "categoryContainer";
+            categoryContainer.contentContainer.name = "categoryContentContainer";
+            
+            Label label = new Label(RemoveUntilFirstPoint(names[i]).Replace("Product",string.Empty));
+            label.style.maxWidth = new StyleLength(StyleKeyword.Auto);
+            label.style.fontSize = 20;    
+            label.style.paddingBottom = 10;
+            label.style.paddingLeft = 10;
+            
+            VisualElement contentContainer = new VisualElement();
+            contentContainer.style.borderBottomColor = new StyleColor(new Color(.2f,.2f,.2f));
+            contentContainer.style.borderBottomWidth = new StyleFloat(1);
+            contentContainer.style.paddingBottom = new StyleLength(10);
+            contentContainer.style.alignContent = new StyleEnum<Align>(Align.FlexStart);
+            contentContainer.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
+            contentContainer.style.flexWrap = new StyleEnum<Wrap>(Wrap.Wrap);
+            
+            categoryContainer.Add(label);
+            categoryContainer.Add(contentContainer);
+            
+            if (productsByClass.ContainsKey(names[i]))
+            {
+                foreach (BaseProduct baseProduct in productsByClass[names[i]])
+                    contentContainer.Add(CreateProductSelectionButton(baseProduct));
+            }
+
+            Type currentType = types[i];
+
+            Button addButton = new Button {text = "+"};
+            addButton.clicked += () => CreateNewProduct(currentType);
+            addButton.style.alignSelf = new StyleEnum<Align>(Align.Center);
+            addButton.AddToClassList("AddButton");
+            contentContainer.Add(addButton);
+            lowerPanel.contentContainer.Add(categoryContainer);
+        }
+        
+        
+        leftUpperPanel.Add(selectionList);
+        rightUpperPanel.Add(CreateSelectedProductView(selectedProduct));
+
+        body.Add(upperPanel);
+        body.Add(lowerPanel);
+        
+        upperPanel.Add(leftUpperPanel);
+        upperPanel.Add(rightUpperPanel);
     }
 
-    private VisualElement CreateSelectCatalogButton(BaseCatalog catalog)
+    private void CreateNewProduct(Type type)
     {
-        Button button = new Button();
-        button.text = catalog.name;
-        button.clicked += () => SelectCatalog(catalog);
-        return button;
-    }
-
-    private void SelectCatalog(BaseCatalog catalog)
-    {
-        selectedCatalog = catalog;
+        AssetDatabase.Refresh();
+        Object uObject = CreateInstance(type);
+        MarketSystem.MarketManager.Instance.AddNewProduct(uObject as BaseProduct);
+        BaseProduct nItem = uObject as BaseProduct;
+        
+        int i = -1;
+        string assetName;
+        string baseName = RemoveUntilFirstPoint(type.Name);
+        do
+        {
+            i++;
+            assetName = $"New {baseName} {i}";
+        } while (MarketManager.DoesProductExists(assetName));
+        
+        nItem.name = assetName;
+        
+        string filePath = CreateFoldersForAsset("Products", nItem);
+        AssetDatabase.CreateAsset(nItem,filePath + ".asset");
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
         Render();
     }
 
-    private void ProductButtonPressed(BaseProduct baseProduct, VisualElement rightPanel)
+    private void OnProductTypeSelected(bool value, string selectedProductType)
     {
-        selectedProduct = baseProduct;
-        rightPanel.Clear();
-        if (selectedItem != null)
-            rightPanel.Add(CreateProductIMGUI(selectedProduct));
+        if (value && !selectedProductCategories.Contains(selectedProductType))
+            selectedProductCategories.Add(selectedProductType);
+        else if (!value && selectedProductCategories.Contains(selectedProductType))
+            selectedProductCategories.Remove(selectedProductType);
+        
+        Render();
     }
 
+    #endregion
+
     #region Items
+    
     private void RenderItemsPanel()
     {
         VisualElement body = rootVisualElement.Q<VisualElement>("body");
@@ -217,19 +305,17 @@ public class MarketSystemWindow : EditorWindow
         rightPanel.style.flexShrink = 1;
         upper.Add(rightPanel);
         
-
         List<Type> types = new List<Type>(GetAllSubclassTypes<BaseItem>(false));
-        
-        
         List<string> names = new List<string>();
-
         for (int i = 0; i < types.Count; i++)
             names.Add(types[i].ToString());
         
-        Dictionary<string, List<BaseItem>> itemsPerClass = MarketManager.GetItemsPerClass();
+        Dictionary<string, List<BaseItem>> itemsPerClass = MarketManager.GetItemsByClass();
         Label categoriesLabel = new Label(){ text = "ITEM TYPES"};
         categoriesLabel.style.fontSize = 20;
         ListView selectionList = CreateListView(names, selectedItemCategories, OnItemCategorySelected);
+
+        selectionList.style.flexGrow = 1;
         selectionList.style.height = 100;
         selectionList.style.width = 100;
         
@@ -265,7 +351,7 @@ public class MarketSystemWindow : EditorWindow
             categoryContainer.name = "categoryContainer";
             categoryContainer.contentContainer.name = "categoryContentContainer";
             
-            Label label = new Label(names[i].Replace("MarketSystem.", string.Empty));
+            Label label = new Label(RemoveUntilFirstPoint(names[i].Replace("MarketSystem.", string.Empty)).Replace("Item",string.Empty));
             label.style.maxWidth = new StyleLength(StyleKeyword.Auto);
             label.style.fontSize = 20;
             label.style.paddingBottom = 10;
@@ -298,8 +384,6 @@ public class MarketSystemWindow : EditorWindow
             lower.contentContainer.Add(categoryContainer);
         }
     }
-    
-    
 
     private VisualElement CreateItemSelectionButton(BaseItem baseItem)
     {
@@ -325,10 +409,7 @@ public class MarketSystemWindow : EditorWindow
         return visualElement;
     }
 
-    private void MenuBuilder(ContextualMenuPopulateEvent obj, BaseItem baseItem)
-    {
-        obj.menu.AppendAction("Delete",x => DestroyItem(baseItem));
-    }
+    private void MenuBuilder(ContextualMenuPopulateEvent obj, BaseItem baseItem) => obj.menu.AppendAction("Delete",x => DestroyItem(baseItem));
 
     private void CreateNewItem(Type type)
     {
@@ -346,23 +427,34 @@ public class MarketSystemWindow : EditorWindow
         } while (MarketManager.DoesItemExists(assetName));
 
         nItem.name = assetName;
-        
-        string mainFolderPath = "Assets/" + MarketManager.folderName;
-        if(!AssetDatabase.IsValidFolder(mainFolderPath))
-            AssetDatabase.CreateFolder("Assets", MarketManager.folderName);
 
-        string itemTypeFolder = mainFolderPath + "/" + nItem.GetType().Name;
-        string filePath = itemTypeFolder +"/"+  nItem.name;
-        
-        if(!AssetDatabase.IsValidFolder(itemTypeFolder))
-            AssetDatabase.CreateFolder(mainFolderPath, nItem.GetType().Name);
-        
+        string filePath = CreateFoldersForAsset("Items", nItem);
+
         AssetDatabase.CreateAsset(nItem,filePath + ".asset");
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         Render();
     }
-    
+
+    private static string CreateFoldersForAsset(string folderName, ScriptableObject nItem)
+    {
+        string mainFolderPath = "Assets/" + MarketManager.folderName;
+        if (!AssetDatabase.IsValidFolder(mainFolderPath))
+            AssetDatabase.CreateFolder("Assets", MarketManager.folderName);
+
+        string itemsFolder = mainFolderPath + "/" + folderName;
+
+        if (!AssetDatabase.IsValidFolder(itemsFolder))
+            AssetDatabase.CreateFolder(mainFolderPath, folderName);
+
+        string itemTypeFolder = itemsFolder + "/" + nItem.GetType().Name;
+        string filePath = itemTypeFolder + "/" + nItem.name;
+
+        if (!AssetDatabase.IsValidFolder(itemTypeFolder))
+            AssetDatabase.CreateFolder(itemsFolder, nItem.GetType().Name);
+        return filePath;
+    }
+
     private void OnAllCategorySelected(List<string> allCategories)
     {
         if (selectedItemCategories.Count != allCategories.Count)
@@ -388,57 +480,6 @@ public class MarketSystemWindow : EditorWindow
     #endregion
 
     
-    private static IEnumerable<Type> GetAllSubclassTypes<T>(bool keepAbstracts) 
-    {
-        return from assembly in AppDomain.CurrentDomain.GetAssemblies()
-            from type in assembly.GetTypes()
-            where (type.IsSubclassOf(typeof(T)) && (keepAbstracts || !type.IsAbstract))
-            select type;
-    }
-
-    private static ListView CreateListView(List<string> items, List<string> activeItems, Action<bool, string> onToggleCallback)
-    {
-        ListView listView = new ListView();
-        listView.style.width = StyleKeyword.Auto;
-        listView.style.flexShrink = 0;
-        listView.style.flexGrow = 1;
-        listView.contentContainer.style.flexBasis = new StyleLength(StyleKeyword.Auto);
-     
-        for (int i = 0; i < items.Count; i++)
-        {
-            string itemName = items[i];
-            itemName = RemoveUntilFirstPoint(items, i, itemName);
-
-            Toggle toggle = new Toggle {text = itemName};
-            int index = i;
-            toggle.SetValueWithoutNotify(activeItems.Contains(items[index]));
-            string value = items[index];
-            toggle.RegisterValueChangedCallback(x => onToggleCallback.Invoke(x.newValue, value));
-            listView.contentContainer.Add(toggle);
-        }
-        return listView;
-    }
-
-    private static string RemoveUntilFirstPoint(List<string> items, int i, string itemName)
-    {
-        int pointIndex = items[i].IndexOf('.');
-        if (pointIndex >= 0)
-            itemName = itemName.Remove(0, pointIndex+1);
-        return itemName;
-    }
-
-    private VisualElement RenderSelectedItem()
-    {
-        VisualElement visualElement = new VisualElement();
-        
-        Label selectedLabel = new Label(){text = "Selection"};
-        selectedLabel.style.fontSize = 20;
-        visualElement.Add(selectedLabel);
-        if (selectedItem != null)
-            visualElement.Add(CreateSelectedItemView(selectedItem));
-        return visualElement;
-    }
-
     private void SelectItem(BaseItem baseItem)
     {
         selectedItem = baseItem;
@@ -460,13 +501,11 @@ public class MarketSystemWindow : EditorWindow
         TextField objectFieldName = new TextField() { value = item.name};
         objectFieldName.style.flexGrow = 1;
         
-        
         Button deleteButton = new Button(){text = "X"};
         deleteButton.clicked += () => DestroyItem(item);
         deleteButton.AddToClassList("DangerButton");
-    
             
-        UnityEngine.UIElements.Image image = new Image();
+        Image image = new Image();
         if(item.icon != null)
             image.image = item.icon.texture;
         
@@ -525,6 +564,15 @@ public class MarketSystemWindow : EditorWindow
         return container;
     }
 
+    private void DestroyProduct<T>(T product) where T : BaseProduct
+    {
+           if (!EditorUtility.DisplayDialog("Are you sure?", $"Are you sure you want to permanently delete {product}?",
+            "Delete", "Cancel")) return;
+        MarketManager.RemoveProduct(product);
+        AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(product));
+        Render();
+    }
+
     private void DestroyItem<T>(T item) where T : BaseItem
     {
         if (!EditorUtility.DisplayDialog("Are you sure?", $"Are you sure you want to permanently delete {item}?",
@@ -534,12 +582,122 @@ public class MarketSystemWindow : EditorWindow
         Render();
     }
 
-    private static IMGUIContainer CreateProductIMGUI(ScriptableObject baseItem)
+    private VisualElement CreateSelectedProductView(ScriptableObject baseItem)
     {
-        IMGUIContainer imguiContainer = new IMGUIContainer();
-        Editor editor = UnityEditor.Editor.CreateEditor(baseItem);
-        imguiContainer.onGUIHandler = () => editor.OnInspectorGUI();
-        return imguiContainer;
+        VisualElement container = new VisualElement();
+        container.style.flexGrow = 1;
+        Label label = new Label("Selection");
+        label.style.fontSize = 25;
+        label.style.alignSelf = new StyleEnum<Align>(Align.Auto);
+        container.Add(label);
+        
+        if (selectedProduct != null)
+        {
+            IMGUIContainer imguiContainer = new IMGUIContainer();
+            Editor editor = UnityEditor.Editor.CreateEditor(baseItem);
+            imguiContainer.onGUIHandler = () => editor.OnInspectorGUI();
+            imguiContainer.style.alignSelf = new StyleEnum<Align>(Align.Auto);
+            container.Add(imguiContainer);
+        }
+
+        return container;
+    }
+
+    
+    private static IEnumerable<Type> GetAllSubclassTypes<T>(bool keepAbstracts) 
+    {
+        return from assembly in AppDomain.CurrentDomain.GetAssemblies()
+            from type in assembly.GetTypes()
+            where (type.IsSubclassOf(typeof(T)) && (keepAbstracts || !type.IsAbstract))
+            select type;
+    }
+
+    private VisualElement CreateProductSelectionButton(BaseProduct baseProduct)
+    {
+        VisualElement visualElement = new VisualElement();
+        Button button = new Button();
+        button.style.height = 50;
+        button.style.width = 50;
+        button.text = string.Empty;
+
+        Sprite icon = baseProduct.Icon;
+        button.style.backgroundImage = new StyleBackground(icon?icon.texture:null);
+        Label label = new Label {text = RemoveUntilFirstPoint(baseProduct.name)};
+        
+        visualElement.Add(button);
+        visualElement.Add(label);
+        button.clicked += ()=> ProductButtonPressed(baseProduct);
+        
+        Manipulator manipulator = new ContextualMenuManipulator(x=> ProductMenuBuilder (x, baseProduct)){ target = button};
+        button.AddManipulator(manipulator);
+    
+        return visualElement;
+    }
+
+    private void ProductMenuBuilder(ContextualMenuPopulateEvent obj, BaseProduct baseItem) => obj.menu.AppendAction("Delete",x => DestroyProduct(baseItem));
+
+    private VisualElement CreateSelectCatalogButton(BaseCatalog catalog)
+    {
+        Button button = new Button();
+        button.text = catalog.name;
+        button.clicked += () => SelectCatalog(catalog);
+        return button;
+    }
+
+    private void SelectCatalog(BaseCatalog catalog)
+    {
+        selectedCatalog = catalog;
+        Render();
+    }
+
+    private void ProductButtonPressed(BaseProduct baseProduct)
+    {
+        selectedProduct = baseProduct;
+        Render();
+    }
+    
+    private static ListView CreateListView(List<string> items, List<string> activeItems, Action<bool, string> onToggleCallback)
+    {
+        ListView listView = new ListView();
+        listView.style.width = StyleKeyword.Auto;
+        listView.style.flexShrink = 0;
+        listView.style.flexGrow = 1;
+        listView.style.height = new StyleLength(StyleKeyword.Auto);
+        listView.contentContainer.style.flexBasis = new StyleLength(StyleKeyword.Auto);
+     
+        for (int i = 0; i < items.Count; i++)
+        {
+            string itemName = items[i];
+            itemName = RemoveUntilFirstPoint(itemName);
+
+            Toggle toggle = new Toggle {text = itemName};
+            int index = i;
+            toggle.SetValueWithoutNotify(activeItems.Contains(items[index]));
+            string value = items[index];
+            toggle.RegisterValueChangedCallback(x => onToggleCallback.Invoke(x.newValue, value));
+            listView.contentContainer.Add(toggle);
+        }
+        return listView;
+    }
+
+    private static string RemoveUntilFirstPoint(string itemName)
+    {
+        int pointIndex = itemName.IndexOf('.');
+        if (pointIndex >= 0)
+            itemName = itemName.Remove(0, pointIndex+1);
+        return itemName;
+    }
+
+    private VisualElement RenderSelectedItem()
+    {
+        VisualElement visualElement = new VisualElement();
+        
+        Label selectedLabel = new Label(){text = "Selection"};
+        selectedLabel.style.fontSize = 20;
+        visualElement.Add(selectedLabel);
+        if (selectedItem != null)
+            visualElement.Add(CreateSelectedItemView(selectedItem));
+        return visualElement;
     }
 
 }
