@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d01977538d25470eaaf0bfc35647bfdc, type: 3}
+  m_Script: {fileID: 11500000, guid: 8764a888a1f3da34b85d5950a70b066c, type: 3}
   m_Name: Premium
   m_EditorClassIdentifier: 
   itemName: Premium

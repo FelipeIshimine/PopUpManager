@@ -20,7 +20,7 @@ public class MarketSystemWindow : EditorWindow
     private static MarketManager MarketManager=>MarketManager.Instance;
 
     private BaseItem selectedItem;
-    private BaseCatalog selectedCatalog;
+    private BaseCatalog selectedCatalog;    
     private BaseProduct selectedProduct;
 
     private List<string> selectedItemCategories = new List<string>();
@@ -29,7 +29,6 @@ public class MarketSystemWindow : EditorWindow
     private enum States{Items,Catalogs,Products}
 
     private States currentState;
-    
     
     [MenuItem("Window/Ishimine/MarketManager %#k", priority = 1)]
     public static void ShowWindow()
@@ -55,6 +54,23 @@ public class MarketSystemWindow : EditorWindow
         button = root.Q<ToolbarButton>("ProductsButton");
         button.clicked += () => ChangeTab(States.Products);
 
+        ToolbarMenu toolbarMenu = root.Q<ToolbarMenu>("ToolbarMenu");
+        toolbarMenu.variant = ToolbarMenu.Variant.Default;
+        toolbarMenu.menu.AppendAction("ScanForAssets", x=> ScanForAssets());
+        
+        toolbarMenu.menu.AppendAction("New Item Type", x=> OpenCreateItemType());
+
+        Render();
+    }
+
+    private void OpenCreateItemType()
+    {
+        CreateItemTypeWindow.Show(Render);
+    }
+
+    private void ScanForAssets()
+    {
+        MarketManager.ScanForAssets();
         Render();
     }
 
@@ -161,7 +177,9 @@ public class MarketSystemWindow : EditorWindow
 
         Label categoriesLabel = new Label(){ text = "ITEM TYPES"};
         categoriesLabel.style.fontSize = 20;
-        ListView selectionList = CreateListView(names, selectedProductCategories, OnProductTypeSelected);
+        
+        
+        ListView selectionList = CreateListView(names, selectedProductCategories, OnProductTypeSelected, "Product");
     
         selectionList.style.flexGrow = 1;
         selectionList.style.height = 100;
@@ -220,7 +238,6 @@ public class MarketSystemWindow : EditorWindow
             lowerPanel.contentContainer.Add(categoryContainer);
         }
         
-        
         leftUpperPanel.Add(selectionList);
         rightUpperPanel.Add(CreateSelectedProductView(selectedProduct));
 
@@ -249,7 +266,7 @@ public class MarketSystemWindow : EditorWindow
         
         nItem.name = assetName;
         
-        string filePath = CreateFoldersForAsset("Products", nItem);
+        string filePath = MarketManager.CreateFoldersForAsset("Products", nItem);
         AssetDatabase.CreateAsset(nItem,filePath + ".asset");
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
@@ -313,7 +330,7 @@ public class MarketSystemWindow : EditorWindow
         Dictionary<string, List<BaseItem>> itemsPerClass = MarketManager.GetItemsByClass();
         Label categoriesLabel = new Label(){ text = "ITEM TYPES"};
         categoriesLabel.style.fontSize = 20;
-        ListView selectionList = CreateListView(names, selectedItemCategories, OnItemCategorySelected);
+        ListView selectionList = CreateListView(names, selectedItemCategories, OnItemCategorySelected, "Item");
 
         selectionList.style.flexGrow = 1;
         selectionList.style.height = 100;
@@ -428,7 +445,7 @@ public class MarketSystemWindow : EditorWindow
 
         nItem.name = assetName;
 
-        string filePath = CreateFoldersForAsset("Items", nItem);
+        string filePath = MarketManager.CreateFoldersForAsset("Items", nItem);
 
         AssetDatabase.CreateAsset(nItem,filePath + ".asset");
         AssetDatabase.SaveAssets();
@@ -436,24 +453,7 @@ public class MarketSystemWindow : EditorWindow
         Render();
     }
 
-    private static string CreateFoldersForAsset(string folderName, ScriptableObject nItem)
-    {
-        string mainFolderPath = "Assets/" + MarketManager.folderName;
-        if (!AssetDatabase.IsValidFolder(mainFolderPath))
-            AssetDatabase.CreateFolder("Assets", MarketManager.folderName);
-
-        string itemsFolder = mainFolderPath + "/" + folderName;
-
-        if (!AssetDatabase.IsValidFolder(itemsFolder))
-            AssetDatabase.CreateFolder(mainFolderPath, folderName);
-
-        string itemTypeFolder = itemsFolder + "/" + nItem.GetType().Name;
-        string filePath = itemTypeFolder + "/" + nItem.name;
-
-        if (!AssetDatabase.IsValidFolder(itemTypeFolder))
-            AssetDatabase.CreateFolder(itemsFolder, nItem.GetType().Name);
-        return filePath;
-    }
+    
 
     private void OnAllCategorySelected(List<string> allCategories)
     {
@@ -500,11 +500,12 @@ public class MarketSystemWindow : EditorWindow
         Label fileNameLabel = new Label(){ text = "File Name:"};
         TextField objectFieldName = new TextField() { value = item.name};
         objectFieldName.style.flexGrow = 1;
+        objectFieldName.style.flexShrink = 0;
         
         Button deleteButton = new Button(){text = "X"};
         deleteButton.clicked += () => DestroyItem(item);
         deleteButton.AddToClassList("DangerButton");
-            
+        deleteButton.style.flexShrink = 0;
         Image image = new Image();
         if(item.icon != null)
             image.image = item.icon.texture;
@@ -514,7 +515,6 @@ public class MarketSystemWindow : EditorWindow
         image.style.height = 100;
         image.style.marginBottom = 10;
         image.style.alignSelf = new StyleEnum<Align>(Align.Center);
-
 
         T clone = Instantiate(item);
         clone.name = item.name;
@@ -544,7 +544,7 @@ public class MarketSystemWindow : EditorWindow
         cancelButton.clicked += Render;
         cancelButton.AddToClassList("DangerButton");
         cancelButton.style.width = 70;
-        saveButton.style.height = 25;
+        cancelButton.style.height = 25;
         
         objectNameContainer.Add(fileNameLabel);
         objectNameContainer.Add(objectFieldName);
@@ -656,7 +656,7 @@ public class MarketSystemWindow : EditorWindow
         Render();
     }
     
-    private static ListView CreateListView(List<string> items, List<string> activeItems, Action<bool, string> onToggleCallback)
+    private static ListView CreateListView(List<string> items, List<string> activeItems, Action<bool, string> onToggleCallback, string removeFromName = null)
     {
         ListView listView = new ListView();
         listView.style.width = StyleKeyword.Auto;
@@ -669,6 +669,7 @@ public class MarketSystemWindow : EditorWindow
         {
             string itemName = items[i];
             itemName = RemoveUntilFirstPoint(itemName);
+            if (removeFromName != null) itemName = itemName.Replace(removeFromName, string.Empty);
 
             Toggle toggle = new Toggle {text = itemName};
             int index = i;

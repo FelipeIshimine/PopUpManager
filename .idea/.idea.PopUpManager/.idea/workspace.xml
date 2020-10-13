@@ -1,51 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="76a39e8b-b539-4674-be20-edf389b91083" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyProduct.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyProduct.cs.meta" afterDir="false" />
+    <list default="true" id="4b6c3471-8288-4d49-9e35-3a5ffb41990b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/MarketManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/MarketManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PopUpManager/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Save&amp;LoadSystem/SaveLoadManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Save&amp;LoadSystem/SaveLoadManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/MarketSystemWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/MarketSystemWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/AudioItem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/AudioItem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/SpriteItem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/SpriteItem.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/Resources/MarketManager_Main.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/Resources/MarketManager_Main.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Items&amp;Products/AudioItem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Items&amp;Products/AudioItem.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Items&amp;Products/AudioProduct.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Items&amp;Products/AudioProduct.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Items&amp;Products/SpriteItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Items&amp;Products/SpriteItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Items&amp;Products/SpriteItem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Items&amp;Products/SpriteItem.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Items&amp;Products/SpriteProduct.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Items&amp;Products/SpriteProduct.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/MarketManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/MarketManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Product.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Product.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/Currency.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/Currency.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyItem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyCatalog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyCatalog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/AudioItem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Currency/Common Currency.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Currency/Common Currency.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Currency/Premium.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Currency/Premium.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Azul.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Azul.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Blanco.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Blanco.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Naranja.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Naranja.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Rojo.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Rojo.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Rosa.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Rosa.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Violeta.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/SpriteItem/Cuadrado Violeta.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/AnyItemProduct.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/AnyItemProduct.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/BaseProduct.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/BaseProduct.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyCatalog.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyCatalog.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyItem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyItem.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyProduct.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyProduct.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Items/AudioItem.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Items/AudioItem/new AudioItem 0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Items/AudioItem/new AudioItem 0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Items/CurrencyItem/Common.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MarketSystem/Items/CurrencyItem/Common.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Items/CurrencyItem/Premium.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MarketSystem/Items/CurrencyItem/Premium.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/AnyItemProduct/New AnyItemProduct 0.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MarketSystem/Products/AnyItemProduct/New AnyItemProduct 0.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/AnyItemProduct/New AnyItemProduct 1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/AnyItemProduct/New AnyItemProduct 1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/AnyItemProduct/New AnyItemProduct 2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/AnyItemProduct/New AnyItemProduct 2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/AnyItemProduct/New AnyItemProduct 3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/AnyItemProduct/New AnyItemProduct 3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/AnyItemProduct/New AnyItemProduct 4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/AnyItemProduct/New AnyItemProduct 4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/CurrencyProduct/New CurrencyProduct 0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/CurrencyProduct/New CurrencyProduct 0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/CurrencyProduct/New CurrencyProduct 1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/CurrencyProduct/New CurrencyProduct 1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/CurrencyProduct/New CurrencyProduct 2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/CurrencyProduct/New CurrencyProduct 2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/CurrencyProduct/New CurrencyProduct 3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/CurrencyProduct/New CurrencyProduct 3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/CurrencyProduct/New CurrencyProduct 4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/CurrencyProduct/New CurrencyProduct 4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,95 +66,56 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/MarketManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../NaughtyAttributes/Assets/NaughtyAttributes/Scripts/Test/EnableIfTest.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/PopUpManager/Runtime/Interface/IInitializeWith.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Wave Function Collapse Algorith V2/Assets/Scripts/Tilemap/QTile2D.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../NaughtyAttributes/Assets/NaughtyAttributes/Scripts/Test/_NaughtyScriptableObject.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../NaughtyAttributes/Assets/NaughtyAttributes/Scripts/Test/DropdownTest.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../NaughtyAttributes/Assets/NaughtyAttributes/Scripts/Test/AnimatorParamTest.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Wave Function Collapse Algorith V2/Assets/Scripts/EmptyTile.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/PopUpManager/Runtime/Components/GenericPopUpClip.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/MarketSystemWindow.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../NaughtyAttributes/Assets/NaughtyAttributes/Scripts/Test/CurveRangeTest.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../NaughtyAttributes/Assets/NaughtyAttributes/Scripts/Test/ExpandableTest.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB3709D4-3DAE-4F5F-B978-5D5202B86B97/b1/4cc5d726/String.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.ishimine.runetimescriptablesetting@23306d10ae/Runtime/RuntimeScriptableSingleton.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Save&amp;LoadSystem/SaveLoadManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptKeywordProcessor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptKeywordManualProcessor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptTemplateTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_MarketSystem/Classes/SkinProduct.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D7545A46-5169-41D4-B2F2-DEC578CD41EE/70/b6bb6151/ToolbarMenu.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/SpriteBaseItem.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Core/Items/NonGenericBaseItem.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Core/Items/BaseItem.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Core/GenericProduct.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Core/Product.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Live/Currency.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/SpriteProduct.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/SpriteItem.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Scripts/Live/CurrencyCatalog.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Interface/IInitializeWith.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/PopUp/BuyItemPopUp.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Configs/BasePopUpConfig.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Shop.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Items/BaseItem.cs" />
-        <option value="$PROJECT_DIR$/Assets/UI_InventoryItem.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/PopUps/BasePopUp.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/PopUpManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/PopUp/TwoOptionsOneImagePopUp.cs" />
-        <option value="$PROJECT_DIR$/Assets/UI_Product.cs" />
-        <option value="$PROJECT_DIR$/Assets/UI_PlayerInventory.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Components/BasePopUpClip.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Components/PopUpClipThree.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Components/PopUpClipTwo.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Components/PopUpClip.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/PopUp/TwoOptionsOneImageConfig.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Components/PopUpClipOne.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Components/PopUpClipComponent.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Test/MonoTester.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/PopUps/OneOptionPopUp.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/PopUps/TwoOptionPopUp.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/PopUps/ThreeOptionPopUp.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Configs/TwoOptionsOneImageConfig.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/PopUps/TwoOptionsOneImagePopUp.cs" />
-        <option value="$PROJECT_DIR$/Assets/PopUpManager/Runtime/Components/GenericPopUpClip.cs" />
-        <option value="$PROJECT_DIR$/Assets/Save&amp;LoadSystem/SaveLoadManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Requirement/ItemRequirement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Canvas/Canvas_MainShop.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/InventoryAndCatalog/Inventory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/ScriptableSettingsWindow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/ChangeTabNameWindow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/SpriteItem1.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/Resources/MarketManager_Style.uss" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Product.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/AudioItem.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/Product.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Shop/SpriteItem.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/Currency.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyItem.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Default/CurrencyCatalog.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/MarketManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/MarketSystemWindow.cs" />
-      </list>
-    </option>
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/UnityEditorExtensions.cs" />
+      <option value="$PROJECT_DIR$/Assets/_MarketSystem/ScriptTemplates/Script-GenericItemTemplate-NewItem.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptTemplates/100-ScriptableObject-NewGenericItemTemplate.cs" />
+      <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/UnityEditorUtilities.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptTemplates/82-Scriptable Object-NewGenericItemTemplate.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptTemplates/01-ShopSystem__New Item-NewItem.cs.txt" />
+      <option value="$PROJECT_DIR$/Assets/ScriptTemplates/01-ShopSystem__New Item Type-New Item.cs.txt" />
+      <option value="$PROJECT_DIR$/Assets/ScriptTemplates/02-ShopSystem__New Product Type-New Product.cs.txt" />
+      <option value="$PROJECT_DIR$/Assets/ScriptTemplates/03-ShopSystem__New Catalog Type-New Catalog.cs.txt" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ScriptKeywordManualProcessor.cs" />
+      <option value="$PROJECT_DIR$/Assets/CustomScriptTemplate/81-C# Custom Script-NewBehaviourScript.cs.txt" />
+      <option value="$PROJECT_DIR$/Assets/ScriptTemplates/01-ShopSystem__New Item Type-New Item.cs 1.txt" />
+      <option value="$PROJECT_DIR$/Assets/ScriptTemplates/01-ShopSystem__New Class -New Class.cs.txt" />
+      <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/MarketSystemWindow.cs" />
+      <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/MarketManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptTemplates/02-ShopSystem__New Class From Generic-New Item.cs.txt" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ScriptTemplateTest.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ScriptKeywordProcessor.cs" />
+      <option value="$PROJECT_DIR$/Assets/_MarketSystem/Classes/SkinProduct.cs" />
+      <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/BaseProduct.cs" />
+      <option value="$PROJECT_DIR$/Assets/_MarketSystem/Classes/01-ShopSystem__New Class -New Class.cs.txt" />
+      <option value="$PROJECT_DIR$/Assets/_MarketSystem/Classes/02-ShopSystem__New Class From Generic-New Item.cs.txt" />
+    </changedPaths>
   </component>
-  <component name="ProjectId" id="1iHjTczWshzfbptio1Fs21HQyVK" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1ipMKZ7jdj317jOWiDbTlCDg5WR" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -170,23 +141,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="76a39e8b-b539-4674-be20-edf389b91083" name="Default Changelist" comment="" />
-      <created>1601571427094</created>
+      <changelist id="4b6c3471-8288-4d49-9e35-3a5ffb41990b" name="Default Changelist" comment="" />
+      <created>1602600020300</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1601571427094</updated>
-      <workItem from="1601571441816" duration="9695000" />
-      <workItem from="1601581569934" duration="9180000" />
-      <workItem from="1601644623116" duration="5776000" />
-      <workItem from="1601650476909" duration="10249000" />
-      <workItem from="1601660785155" duration="8634000" />
-      <workItem from="1601674588683" duration="6637000" />
-      <workItem from="1601904995590" duration="4851000" />
-      <workItem from="1602080031052" duration="25969000" />
-      <workItem from="1602166611810" duration="12907000" />
-      <workItem from="1602188083918" duration="71000" />
-      <workItem from="1602188187479" duration="8645000" />
-      <workItem from="1602249345475" duration="32307000" />
+      <updated>1602600020300</updated>
+      <workItem from="1602600032425" duration="2416000" />
+      <workItem from="1602602741652" duration="8750000" />
     </task>
     <servers />
   </component>
@@ -209,31 +170,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="794" y="241" key="RiderGenerateDialog" timestamp="1602166857180">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="794" y="241" key="RiderGenerateDialog/-1440.278.1440.870/1920.172.1600.870/0.0.1920.1050@0.0.1920.1050" timestamp="1601667684205" />
-    <state x="794" y="241" key="RiderGenerateDialog/0.0.1920.1050/1920.668.1440.870@0.0.1920.1050" timestamp="1602166857180" />
-    <state x="794" y="241" key="RiderGenerateDialog/1920.186.1600.870/0.0.1920.1050@0.0.1920.1050" timestamp="1601676111797" />
-    <state x="606" y="140" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1601572235489">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="606" y="140" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-1440.278.1440.870/1920.172.1600.870/0.0.1920.1050@0.0.1920.1050" timestamp="1601572235489" />
-    <state x="980" y="359" width="1387" height="1037" key="dock-window-1" timestamp="1601650406150">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="980" y="359" width="1387" height="1037" key="dock-window-1/-1440.278.1440.870/1920.172.1600.870/0.0.1920.1050@0.0.1920.1050" timestamp="1601650406150" />
-    <state x="616" y="243" key="run.anything.popup" timestamp="1602273788307">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="616" y="243" key="run.anything.popup/-1440.278.1440.870/1920.172.1600.870/0.0.1920.1050@0.0.1920.1050" timestamp="1601653103972" />
-    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050/1920.668.1440.870@0.0.1920.1050" timestamp="1602273788307" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1602283606840">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/-1440.278.1440.870/1920.172.1600.870/0.0.1920.1050@0.0.1920.1050" timestamp="1601661100273" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.668.1440.870@0.0.1920.1050" timestamp="1602283606840" />
   </component>
 </project>

@@ -1,0 +1,9 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using MarketSystem;
+[CreateAssetMenu(menuName = "ShopSystem/#OTHER0#/#SCRIPTNAME#", fileName = "new #SCRIPTNAME#", order = 0)]
+public class #SCRIPTNAME# : #OTHER0#<#GENERICNAME#>
+{
+ #NOTRIM# 
+}

@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8764a888a1f3da34b85d5950a70b066c, type: 3}
-  m_Name: Common
+  m_Script: {fileID: 11500000, guid: 69f191e5a4cb426c873bd2d94dbef4b3, type: 3}
+  m_Name: Azul
   m_EditorClassIdentifier: 
-  itemName: Common
-  icon: {fileID: 21300000, guid: 9c801a0e21974554593aef24bb9af096, type: 3}
+  itemName: Azul a
+  icon: {fileID: 21300000, guid: 569187d51b56efa4d83f8e2884d62b3c, type: 3}
+  Value: {fileID: 21300000, guid: 569187d51b56efa4d83f8e2884d62b3c, type: 3}

@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Felipe Ishimine\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Felipe Ishimine\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_PopUpManager.-1130203483.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Felipe Ishimine\AppData\Roaming\JetBrains\Rider2020.2\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\Felipe Ishimine\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Felipe Ishimine\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_PopUpManager.-1130203483.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Felipe Ishimine\AppData\Roaming\JetBrains\Rider2020.3\scratches" t="IncludeRecursive" />
     <e p="E:\GIT\PopUpManager" t="IncludeRecursive">
       <e p="AmimalWorld.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="_MarketSystem" t="Include">
+          <e p="Classes" t="Include">
+            <e p="01-ShopSystem__New Class -New Class.cs.txt" t="Include" />
+            <e p="02-ShopSystem__New Class From Generic-New Item.cs.txt" t="Include" />
+            <e p="Skin.cs" t="Include" />
+            <e p="SkinCatalog.cs" t="Include" />
+            <e p="SkinItem.cs" t="Include" />
+            <e p="SkinProduct.cs" t="Include" />
+          </e>
+        </e>
+        <e p="_MarketSystemClasses01-ShopSystem__New Class -New Class Copy.cs.txt" t="Include" />
+        <e p="_MarketSystemClasses02-ShopSystem__New Class From Generic-New Item Copy.cs.txt" t="Include" />
         <e p="GenericAnimation" t="Include">
           <e p="AnchorPosition.cs" t="Include" />
           <e p="CanvasGroupAlpha.cs" t="Include" />
@@ -204,6 +216,18 @@
           <e p="ISaveLoadAsJson.cs" t="Include" />
           <e p="SaveLoadManager.cs" t="Include" />
         </e>
+        <e p="Scripts" t="Include">
+          <e p="ScriptKeywordManualProcessor.cs" t="Include" />
+          <e p="ScriptKeywordProcessor.cs" t="Include" />
+          <e p="ScriptTemplateTest.cs" t="Include" />
+        </e>
+        <e p="ScriptTemplates" t="Include">
+          <e p="01-ShopSystem__New Class -New Class.cs.txt" t="Include" />
+          <e p="02-ShopSystem__New Class From Generic-New Item.cs.txt" t="Include" />
+          <e p="02-ShopSystem__New Item Type-New Item.cs.txt" t="Include" />
+          <e p="03-ShopSystem__New Catalog Type-New Catalog.cs.txt" t="Include" />
+          <e p="04-ShopSystem__New Product Type-New Product.cs.txt" t="Include" />
+        </e>
         <e p="Shop&amp;CurrencyManager" t="Include">
           <e p="Editor" t="Include">
             <e p="ChangeTabNameWindow.cs" t="Include" />
@@ -225,10 +249,7 @@
                 <e p="UI_Product.cs" t="Include" />
               </e>
               <e p="Items&amp;Products" t="Include">
-                <e p="AudioItem.cs" t="Include" />
-                <e p="AudioProduct.cs" t="Include" />
                 <e p="SpriteItem.cs" t="Include" />
-                <e p="SpriteProduct.cs" t="Include" />
               </e>
             </e>
           </e>
@@ -259,12 +280,13 @@
                 </e>
                 <e p="Shop.cs" t="Include" />
               </e>
-              <e p="Default" t="Include">
+              <e p="Currency" t="Include">
                 <e p="CurrencyCatalog.cs" t="Include" />
                 <e p="CurrencyItem.cs" t="Include" />
                 <e p="CurrencyProduct.cs" t="Include" />
               </e>
             </e>
+            <e p="UnityEditorUtilities.cs" t="Include" />
           </e>
         </e>
         <e p="Textus" t="Include">

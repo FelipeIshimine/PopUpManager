@@ -20,7 +20,7 @@ public static class SaveLoadManager
         bf.Serialize(file, data);
         file.Close();
     }
-       
+
     public static T LoadBinary<T>(string fileName)
     {
         T data = default;

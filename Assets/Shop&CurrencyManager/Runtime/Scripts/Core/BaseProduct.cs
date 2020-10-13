@@ -16,7 +16,7 @@ namespace MarketSystem
     }
     
     [System.Serializable]
-    public abstract class Product<T> : BaseProduct where T : BaseItem
+    public abstract class GenericProduct<T> : BaseProduct where T : BaseItem
     {
         public override BaseItem Item => item;
         public T item;
