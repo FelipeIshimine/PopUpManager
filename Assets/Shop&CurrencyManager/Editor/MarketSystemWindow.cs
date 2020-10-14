@@ -19,9 +19,9 @@ public class MarketSystemWindow : EditorWindow
 
     private static MarketManager MarketManager=>MarketManager.Instance;
 
-    private BaseItem selectedItem;
-    private BaseCatalog selectedCatalog;    
-    private BaseProduct selectedProduct;
+    private BaseItem _selectedItem;
+    private BaseCatalog _selectedCatalog;    
+    private BaseProduct _selectedProduct;
 
     private List<string> selectedItemCategories = new List<string>();
     private List<string> selectedProductCategories = new List<string>();
@@ -35,8 +35,14 @@ public class MarketSystemWindow : EditorWindow
     {
         MarketSystemWindow wnd = GetWindow<MarketSystemWindow>();
         wnd.titleContent = new GUIContent("MarketManager");
+        wnd.ScanForAssets();
     }
 
+    private VisualTreeAsset catalogsVisualTree;
+    private VisualTreeAsset itemsVisualTree;
+    private VisualTreeAsset productsVisualTree;
+    private VisualTreeAsset scriptableObjectEdit_View;
+    
     public void OnEnable()
     {
         VisualElement root = rootVisualElement;
@@ -45,6 +51,11 @@ public class MarketSystemWindow : EditorWindow
         var styleSheet = Resources.Load<StyleSheet>("MarketManager_Style");
         root.styleSheets.Add(styleSheet);
 
+        catalogsVisualTree  = Resources.Load<VisualTreeAsset>("Catalogs_View");
+        itemsVisualTree  = Resources.Load<VisualTreeAsset>("Items_View");
+        productsVisualTree  = Resources.Load<VisualTreeAsset>("Products_View");
+        scriptableObjectEdit_View  = Resources.Load<VisualTreeAsset>("ScriptableObjectEdit_View");
+        
         ToolbarButton button = root.Q<ToolbarButton>("ItemsButton");
         button.clicked += () => ChangeTab(States.Items);
         
@@ -59,7 +70,7 @@ public class MarketSystemWindow : EditorWindow
         toolbarMenu.menu.AppendAction("ScanForAssets", x=> ScanForAssets());
         
         toolbarMenu.menu.AppendAction("New Item Type", x=> OpenCreateItemType());
-
+        
         Render();
     }
 
@@ -98,52 +109,186 @@ public class MarketSystemWindow : EditorWindow
                 throw new ArgumentOutOfRangeException();
         }
     }
-
     #region Catalogs
 
     private void RenderCatalogsPanel()
     {
         VisualElement body = rootVisualElement.Q<VisualElement>("body");
-        VisualElement leftPanel = new VisualElement();
-        body.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
-        body.Add(leftPanel);
-        leftPanel.style.borderRightWidth = 2;
-        leftPanel.style.borderRightColor = new StyleColor(new Color(.3f,.3f,.3f));
-        leftPanel.style.maxWidth = 160;
-        leftPanel.contentContainer.style.maxWidth = 200;
-        
-        VisualElement midPanel = new VisualElement();
-        midPanel.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
-        midPanel.style.borderLeftWidth = 1;
-        midPanel.style.borderLeftColor = new StyleColor(new Color(.33f,.33f,.33f));
-        midPanel.style.flexGrow = 1;
-        body.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
-        body.Add(midPanel);
-        
-        VisualElement rightPanel = new VisualElement();
-        rightPanel.style.flexGrow = 1;
-        body.Add(rightPanel);
-        
-        foreach (BaseCatalog catalog in MarketManager.Catalogs)
+        body.Clear();
+        catalogsVisualTree.CloneTree(body);
+
+        ListView listView = body.Q<ListView>("CatalogsList");
+
+        List<BaseCatalog> catalogs = new List<BaseCatalog>(MarketManager.catalogs);
+        catalogs.Sort(NameComparer);
+        for (int i = 0; i < catalogs.Count; i++)
         {
-            if (catalog == null) continue;
-            leftPanel.Add(CreateSelectCatalogButton(catalog));
+            Button button = new Button {text = catalogs[i].name};
+            int index = i;
+            button.clicked += () => OnCatalogSelected(catalogs[index]);
+            
+            button.AddManipulator( new ContextualMenuManipulator( new Action<ContextualMenuPopulateEvent>( x => x.menu.AppendAction("Delete", y => DestroyCatalog(catalogs[index])))));
+            
+            listView.Add(button);
         }
 
-        if (selectedCatalog == null) return;
-            
-        foreach (KeyValuePair<string, List<BaseProduct>> keyValuePair in MarketManager.GetItemsPerClassFromCatalog(selectedCatalog))
+        Button newCatalogButton = new Button {text = "+"};
+        newCatalogButton.clicked += CreateNewCatalogRequest;
+        newCatalogButton.style.width = 25;
+        newCatalogButton.style.height = 25;
+        newCatalogButton.style.alignSelf = new StyleEnum<Align>(Align.Center);
+        listView.Add(newCatalogButton);
+
+        ListView catalogContent = body.Q<ListView>("LeftContent");
+        catalogContent.style.flexGrow = 1;
+        catalogContent.contentContainer.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
+        catalogContent.contentContainer.style.flexWrap = new StyleEnum<Wrap>(Wrap.Wrap);
+        
+        
+        Label label = body.Q<Label>("CurrentCatalogLabel");
+
+        if (_selectedCatalog != null)
         {
-            VisualElement container = new VisualElement();
-            Label label = new Label(keyValuePair.Key.Replace("MarketSystem.", string.Empty));
-            label.AddToClassList("ItemTypeLabel");
-            container.Add(label);
-            foreach (BaseProduct baseProduct in keyValuePair.Value)
-                container.Add(CreateProductSelectionButton(baseProduct));
-            
-            midPanel.Add(container);
+            label.text = _selectedCatalog.name;
+            List<BaseProduct> baseProducts = new List<BaseProduct>(_selectedCatalog.Products);
+            baseProducts.Sort(NameComparer);
+            for (int i = 0; i < baseProducts.Count; i++)
+                catalogContent.Add(CreateProductSelectionButton(baseProducts[i], x=> RemoveFrom(x,_selectedCatalog)));
         }
+        else
+            label.text = "-";
+
+        #region SelectionList
+
+
+        GetProductNamesAndTypes(out List<Type> types, out List<string> names);
+        ListView typeSelectionList = body.Q<ListView>("TypesList");
+
+        Button allButton = new Button {text = "Select All"};
+        allButton.style.width = 70;
+        allButton.clicked += () => OnAllCategorySelected(selectedProductCategories, names);
+
+        FillListWithToggle(names, "Product", selectedProductCategories, typeSelectionList, OnProductTypeSelected);
+        typeSelectionList.contentContainer.Insert(0, allButton);
+        typeSelectionList.Insert(0, allButton);
+
+        #endregion
+
+        #region Preview
+        if (false)
+        {
+            VisualElement selectionRender = body.Q<VisualElement>("Right");
+            scriptableObjectEdit_View.CloneTree(selectionRender);
+            Image icon = new Image();
+            IMGUIContainer soRender = selectionRender.Q<IMGUIContainer>("Render");
+            icon.style.alignSelf = new StyleEnum<Align>(Align.Center);
+            icon.style.height = 100;
+            icon.style.width = 100;
+            icon.style.backgroundColor = new Color(.25f, .25f, .25f);
+            icon.style.marginTop = 10;
+            icon.style.marginBottom = 10;
+            selectionRender.Insert(0, icon);
+            BaseProduct selection = _selectedProduct;
+            if (selection != null)
+            {
+                BaseProduct clone = Instantiate(selection);
+                clone.name = selection.name;
+
+                Editor editor = Editor.CreateEditor(clone);
+                soRender.onGUIHandler = () => editor.OnInspectorGUI();
+                if (selection.Icon != null) icon.image = selection.Icon.texture;
+            }
+
+            VisualElement buttons = body.Q<VisualElement>("Buttons");
+            if (buttons != null)
+            {
+                buttons.style.opacity = 0;
+                buttons.SetEnabled(false);
+            }
+            soRender.SetEnabled(false);
+        }
+        #endregion
+
+        #region Add Selection
+        VisualElement lowerContent = body.Q<VisualElement>("LowerContent");
+        lowerContent.contentContainer.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
+        lowerContent.contentContainer.style.flexWrap = new StyleEnum<Wrap>(Wrap.Wrap);
+
+        HashSet<BaseProduct> products = new HashSet<BaseProduct>();
+        Dictionary<string, List<BaseProduct>> productsByClass = MarketManager.GetProductsByClass();
+
+        if(_selectedCatalog == null) return;
+        foreach (KeyValuePair<string,List<BaseProduct>> keyValuePair in productsByClass)
+        {
+            if(!selectedProductCategories.Contains(keyValuePair.Key)) continue;
+            for (int i = 0; i < keyValuePair.Value.Count; i++)
+                if(!_selectedCatalog.Products.Contains(keyValuePair.Value[i]))
+                    products.Add(keyValuePair.Value[i]);
+        }
+
+        foreach (BaseProduct baseProduct in products)
+            lowerContent.Add(CreateProductSelectionButton(baseProduct, x => AddTo(x, _selectedCatalog)));
+        
+        #endregion
     }
+
+    private void AddTo(BaseProduct baseProduct, BaseCatalog selectedCatalog)
+    {
+        if (!selectedCatalog.Products.Contains(baseProduct))
+            selectedCatalog.Products.Add(baseProduct);
+        Render();
+    }
+    
+    
+    private void AddTo<T,TB>(TB baseProduct, T selectedCatalog) where  T : GenericCatalog<TB> where TB : BaseProduct, new() 
+    {
+        if (!selectedCatalog.Products.Contains(baseProduct))
+            selectedCatalog.products.Add(baseProduct);
+        Render();
+    }
+    
+
+    private void RemoveFrom(BaseProduct baseProduct, BaseCatalog selectedCatalog)
+    {
+        Debug.Log($"Removing {baseProduct} to {selectedCatalog}");
+        if(selectedCatalog.Products.Contains(baseProduct)) 
+            selectedCatalog.Products.Remove(baseProduct);
+        Render();
+    }
+
+    private void CreateNewCatalogRequest()
+    {
+        AssetDatabase.Refresh();
+        BaseCatalog nCatalog = CreateInstance<BaseCatalog>();
+
+        int i = -1;
+        string assetName;
+        do
+        {
+            i++;
+            assetName = string.Format(nCatalog.DefaultNaming, i);
+        } while (MarketManager.DoesCatalogExists(assetName));
+
+        nCatalog.name = assetName;
+        MarketSystem.MarketManager.Instance.AddNewCatalog(nCatalog);
+
+        string filePath = MarketManager.CreateFoldersForAsset("Catalogs", nCatalog);
+
+        AssetDatabase.CreateAsset(nCatalog, filePath + ".asset");
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        Render();
+    }
+
+
+    private void OnCatalogSelected(BaseCatalog catalog)
+    {
+        _selectedCatalog = catalog;
+        Render();
+    }
+
+    private static int NameComparer(Object x, Object y) => string.Compare(x.name, y.name, StringComparison.Ordinal);
+
     #endregion
 
     #region Products Panel
@@ -152,80 +297,52 @@ public class MarketSystemWindow : EditorWindow
     {
         VisualElement body = rootVisualElement.Q<VisualElement>("body");
         body.Clear();
-
-        VisualElement upperPanel = new VisualElement {name = "upperPanel"};
-        upperPanel.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
-        upperPanel.style.flexGrow = 1;
-
-        ScrollView lowerPanel = new ScrollView {name = "lowerPanel"};
-        lowerPanel.style.flexGrow = 1;
-
-        VisualElement leftUpperPanel = new VisualElement {name = "leftUpperPanel"};
-        leftUpperPanel.style.flexGrow = 1;
-        leftUpperPanel.style.maxWidth = 300;
+        productsVisualTree.CloneTree(body);
         
-        VisualElement rightUpperPanel = new VisualElement {name = "rightUpperPanel"};
-        rightUpperPanel.style.flexGrow = 1;
-    
+        GetProductNamesAndTypes(out List<Type> types, out List<string> names);
+
+        #region SelectionList
+        ListView typeSelectionList = rootVisualElement.Q<ListView>("TypesList");
         
-        List<Type> types = new List<Type>(GetAllSubclassTypes<BaseProduct>(false));
-        List<string> names = new List<string>();
-        for (int i = 0; i < types.Count; i++)
-            names.Add(types[i].ToString());
+        Button allButton = new Button {text = "Select All"};
+        allButton.style.width = 70;
+        allButton.clicked += () => OnAllCategorySelected(selectedProductCategories, names);
+        
+        FillListWithToggle(names, "Product",selectedProductCategories , typeSelectionList, OnProductTypeSelected);
+        typeSelectionList.contentContainer.Insert(0, allButton);
+        typeSelectionList.Insert(0, allButton);
+        #endregion
+        
+        #region Selection Icons
+        ScrollView categoryContainer = body.Q<ScrollView>("Lower");
 
-        Dictionary<string, List<BaseProduct>> productsByClass = MarketManager.GetProductsByClass();
-
-        Label categoriesLabel = new Label(){ text = "ITEM TYPES"};
+        Dictionary<string, List<BaseProduct>> itemsPerClass = MarketManager.GetProductsByClass();
+        Label categoriesLabel = new Label() {text = "TYPES"};
         categoriesLabel.style.fontSize = 20;
-        
-        
-        ListView selectionList = CreateListView(names, selectedProductCategories, OnProductTypeSelected, "Product");
-    
-        selectionList.style.flexGrow = 1;
-        selectionList.style.height = 100;
-        selectionList.style.width = 160;
-        
         for (int i = 0; i < names.Count; i++)
         {
-            if(!selectedProductCategories.Contains(names[i])) continue;
-            
-            ScrollView categoryContainer = new ScrollView();
-            categoryContainer.style.flexGrow = 0;
-            categoryContainer.style.flexShrink = 1;
-            categoryContainer.contentContainer.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Column);
-            categoryContainer.style.flexWrap = new StyleEnum<Wrap>(Wrap.Wrap);
-            
-            categoryContainer.style.paddingBottom = 5;
-            categoryContainer.style.paddingLeft = 10;
-            categoryContainer.style.paddingRight = 10;
-            
-            categoryContainer.contentContainer.style.flexGrow = 1;
-            categoryContainer.contentContainer.style.height = new StyleLength(StyleKeyword.Auto);
-            categoryContainer.contentContainer.style.width = new StyleLength(StyleKeyword.Auto);
-            categoryContainer.name = "categoryContainer";
-            categoryContainer.contentContainer.name = "categoryContentContainer";
-            
-            Label label = new Label(RemoveUntilFirstPoint(names[i]).Replace("Product",string.Empty));
+            if (!selectedProductCategories.Contains(names[i])) continue;
+
+            Label label = new Label(RemoveUntilFirstPoint(names[i].Replace("MarketSystem.", string.Empty))
+                .Replace("Product", string.Empty));
             label.style.maxWidth = new StyleLength(StyleKeyword.Auto);
-            label.style.fontSize = 20;    
+            label.style.fontSize = 20;
             label.style.paddingBottom = 10;
             label.style.paddingLeft = 10;
-            
+
             VisualElement contentContainer = new VisualElement();
-            contentContainer.style.borderBottomColor = new StyleColor(new Color(.2f,.2f,.2f));
+            contentContainer.style.borderBottomColor = new StyleColor(new Color(.2f, .2f, .2f));
             contentContainer.style.borderBottomWidth = new StyleFloat(1);
             contentContainer.style.paddingBottom = new StyleLength(10);
             contentContainer.style.alignContent = new StyleEnum<Align>(Align.FlexStart);
             contentContainer.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
             contentContainer.style.flexWrap = new StyleEnum<Wrap>(Wrap.Wrap);
-            
-            categoryContainer.Add(label);
-            categoryContainer.Add(contentContainer);
-            
-            if (productsByClass.ContainsKey(names[i]))
+            contentContainer.style.maxWidth = 600;
+
+            if (itemsPerClass.ContainsKey(names[i]))
             {
-                foreach (BaseProduct baseProduct in productsByClass[names[i]])
-                    contentContainer.Add(CreateProductSelectionButton(baseProduct));
+                foreach (BaseProduct baseProduct in itemsPerClass[names[i]])
+                    contentContainer.Add(CreateProductSelectionButton(baseProduct, ProductSelected));
             }
 
             Type currentType = types[i];
@@ -235,18 +352,60 @@ public class MarketSystemWindow : EditorWindow
             addButton.style.alignSelf = new StyleEnum<Align>(Align.Center);
             addButton.AddToClassList("AddButton");
             contentContainer.Add(addButton);
-            lowerPanel.contentContainer.Add(categoryContainer);
-        }
-        
-        leftUpperPanel.Add(selectionList);
-        rightUpperPanel.Add(CreateSelectedProductView(selectedProduct));
 
-        body.Add(upperPanel);
-        body.Add(lowerPanel);
+            categoryContainer.Add(label);
+            categoryContainer.Add(contentContainer);
+        }
+        #endregion
         
-        upperPanel.Add(leftUpperPanel);
-        upperPanel.Add(rightUpperPanel);
+        #region Selection
+        VisualElement selectionRender = body.Q<VisualElement>("SelectionContainer");
+        scriptableObjectEdit_View.CloneTree(selectionRender);
+
+        Image icon = new Image();
+
+        IMGUIContainer soRender = selectionRender.Q<IMGUIContainer>("Render");
+        icon.style.alignSelf = new StyleEnum<Align>(Align.Center);
+        icon.style.height = 100;
+        icon.style.width = 100;
+        icon.style.backgroundColor = new Color(.25f, .25f, .25f);
+        icon.style.marginTop = 10;
+        icon.style.marginBottom = 10;
+        selectionRender.Insert(1, icon);
+
+        BaseProduct selection = _selectedProduct;
+
+        if (selection != null)
+        {
+            BaseProduct clone = Instantiate(selection);
+            clone.name = selection.name;
+            
+            Editor editor = Editor.CreateEditor(clone);
+            soRender.onGUIHandler = () => editor.OnInspectorGUI();
+            if (selection.Icon != null) icon.image = selection.Icon.texture;
+
+            Button deleteButton = body.Q<Button>("DeleteButton");
+            deleteButton.clicked += () => DestroyProduct(selection);
+
+            Button saveButton = body.Q<Button>("SaveButton");
+            saveButton.clicked += () => SaveScriptableObject(clone, selection);
+
+            Button cancelButton = body.Q<Button>("CancelButton");
+            cancelButton.clicked += Render;
+
+            Button changeIdButton = body.Q<Button>("ChangeIdButton");
+            changeIdButton.clicked += () => ChangeProductName(selection);
+        }
     }
+
+    private static void GetProductNamesAndTypes(out List<Type> types, out List<string> names)
+    {
+        types = new List<Type>(GetAllSubclassTypes<BaseProduct>(false));
+        names = new List<string>();
+        for (int i = 0; i < types.Count; i++) names.Add(types[i].ToString());
+    }
+
+    #endregion
 
     private void CreateNewProduct(Type type)
     {
@@ -259,9 +418,9 @@ public class MarketSystemWindow : EditorWindow
         string assetName;
         string baseName = RemoveUntilFirstPoint(type.Name);
         do
-        {
+        {   
             i++;
-            assetName = $"New {baseName} {i}";
+            assetName = string.Format(nItem.DefaultNaming, i);
         } while (MarketManager.DoesProductExists(assetName));
         
         nItem.name = assetName;
@@ -282,109 +441,57 @@ public class MarketSystemWindow : EditorWindow
         
         Render();
     }
-
     #endregion
 
     #region Items
-    
+
     private void RenderItemsPanel()
     {
         VisualElement body = rootVisualElement.Q<VisualElement>("body");
-        body.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Column);
-        
-        VisualElement upper = new VisualElement();
-        upper.style.flexGrow = 1;
-        upper.style.flexShrink = 1;
-        upper.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
-        upper.name = "upper";
-        upper.style.borderBottomColor = new StyleColor(new Color(.2f,.2f,.2f));
-        upper.style.borderBottomWidth = new StyleFloat(1);
-        body.Add(upper);
-
-        ScrollView lower = new ScrollView();
-        lower.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Column);
-        lower.style.flexWrap = new StyleEnum<Wrap>(Wrap.Wrap);
-        lower.style.flexGrow = 1;
-        lower.style.flexShrink = 1;
-        lower.name = "lower";
-
-        body.Add(lower);
-        
-        ScrollView leftPanel = new ScrollView();
-        leftPanel.style.flexGrow = 1;
-        leftPanel.style.borderRightColor = new StyleColor(new Color(.2f,.2f,.2f));
-        leftPanel.style.borderRightWidth = 1;
-        leftPanel.style.maxWidth = 180;
-        upper.Add(leftPanel);
-        
-        VisualElement rightPanel = new VisualElement();
-        rightPanel.style.flexGrow = 1;
-        rightPanel.style.flexShrink = 1;
-        upper.Add(rightPanel);
+        itemsVisualTree.CloneTree(body);
         
         List<Type> types = new List<Type>(GetAllSubclassTypes<BaseItem>(false));
         List<string> names = new List<string>();
-        for (int i = 0; i < types.Count; i++)
-            names.Add(types[i].ToString());
-        
-        Dictionary<string, List<BaseItem>> itemsPerClass = MarketManager.GetItemsByClass();
-        Label categoriesLabel = new Label(){ text = "ITEM TYPES"};
-        categoriesLabel.style.fontSize = 20;
-        ListView selectionList = CreateListView(names, selectedItemCategories, OnItemCategorySelected, "Item");
-
-        selectionList.style.flexGrow = 1;
-        selectionList.style.height = 100;
-        selectionList.style.width = 100;
-        
+        for (int i = 0; i < types.Count; i++) names.Add(types[i].ToString());
+                
+        #region SelectionList
+        ListView typeSelectionList = rootVisualElement.Q<ListView>("TypesList");
         Button allButton = new Button {text = "Select All"};
         allButton.style.width = 70;
-        allButton.clicked += ()=> OnAllCategorySelected(names);
-        selectionList.contentContainer.Insert(0,allButton);
+        allButton.clicked += () => OnAllCategorySelected(selectedItemCategories, names);
         
-        selectionList.Insert(0,allButton);
+        FillListWithToggle(names, "Item",selectedItemCategories, typeSelectionList, OnItemCategorySelected);
         
-        //listView.RegisterValueChangedCallback(x=> OnCategoryFoldoutChange(listView));
-        leftPanel.contentContainer.Add(categoriesLabel);
-        leftPanel.contentContainer.Add(selectionList);
+        typeSelectionList.contentContainer.Insert(0, allButton);
+        typeSelectionList.Insert(0, allButton);
+        #endregion
 
-        rightPanel.Add(RenderSelectedItem());
-        
+        #region Selection Icons
+        ScrollView categoryContainer = body.Q<ScrollView>("Lower");
+
+        Dictionary<string, List<BaseItem>> itemsPerClass = MarketManager.GetItemsByClass();
+        Label categoriesLabel = new Label() {text = "ITEM TYPES"};
+        categoriesLabel.style.fontSize = 20;
         for (int i = 0; i < names.Count; i++)
         {
-            if(!selectedItemCategories.Contains(names[i])) continue;
-            ScrollView categoryContainer = new ScrollView();
-            categoryContainer.style.flexGrow = 0;
-            categoryContainer.style.flexShrink = 1;
-            categoryContainer.contentContainer.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Column);
-            categoryContainer.style.flexWrap = new StyleEnum<Wrap>(Wrap.Wrap);
-            
-            categoryContainer.style.paddingBottom = 5;
-            categoryContainer.style.paddingLeft = 10;
-            categoryContainer.style.paddingRight = 10;
-            
-            categoryContainer.contentContainer.style.flexGrow = 1;
-            categoryContainer.contentContainer.style.height = new StyleLength(StyleKeyword.Auto);
-            categoryContainer.contentContainer.style.width = new StyleLength(StyleKeyword.Auto);
-            categoryContainer.name = "categoryContainer";
-            categoryContainer.contentContainer.name = "categoryContentContainer";
-            
-            Label label = new Label(RemoveUntilFirstPoint(names[i].Replace("MarketSystem.", string.Empty)).Replace("Item",string.Empty));
+            if (!selectedItemCategories.Contains(names[i])) continue;
+
+            Label label = new Label(RemoveUntilFirstPoint(names[i].Replace("MarketSystem.", string.Empty))
+                .Replace("Item", string.Empty));
             label.style.maxWidth = new StyleLength(StyleKeyword.Auto);
             label.style.fontSize = 20;
             label.style.paddingBottom = 10;
             label.style.paddingLeft = 10;
-            
+
             VisualElement contentContainer = new VisualElement();
-            contentContainer.style.borderBottomColor = new StyleColor(new Color(.2f,.2f,.2f));
+            contentContainer.style.borderBottomColor = new StyleColor(new Color(.2f, .2f, .2f));
             contentContainer.style.borderBottomWidth = new StyleFloat(1);
             contentContainer.style.paddingBottom = new StyleLength(10);
             contentContainer.style.alignContent = new StyleEnum<Align>(Align.FlexStart);
             contentContainer.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
             contentContainer.style.flexWrap = new StyleEnum<Wrap>(Wrap.Wrap);
-            
-            categoryContainer.Add(label);
-            categoryContainer.Add(contentContainer);
-            
+            contentContainer.style.maxWidth = 600;
+
             if (itemsPerClass.ContainsKey(names[i]))
             {
                 foreach (BaseItem baseItem in itemsPerClass[names[i]])
@@ -398,7 +505,77 @@ public class MarketSystemWindow : EditorWindow
             addButton.style.alignSelf = new StyleEnum<Align>(Align.Center);
             addButton.AddToClassList("AddButton");
             contentContainer.Add(addButton);
-            lower.contentContainer.Add(categoryContainer);
+
+            categoryContainer.Add(label);
+            categoryContainer.Add(contentContainer);
+        }
+        #endregion
+
+        #region Selection
+        VisualElement selectionRender = body.Q<VisualElement>("SelectionContainer");
+        scriptableObjectEdit_View.CloneTree(selectionRender);
+
+        Image icon = new Image();
+
+        IMGUIContainer soRender = selectionRender.Q<IMGUIContainer>("Render");
+        icon.style.alignSelf = new StyleEnum<Align>(Align.Center);
+        icon.style.height = 100;
+        icon.style.width = 100;
+        icon.style.backgroundColor = new Color(.25f, .25f, .25f);
+        icon.style.marginTop = 10;
+        icon.style.marginBottom = 10;
+        selectionRender.Insert(1, icon);
+
+        BaseItem selectedItem = _selectedItem;
+
+        if (selectedItem != null)
+        {
+            BaseItem clone = Instantiate(selectedItem);
+            clone.name = selectedItem.name;
+            
+            Editor editor = Editor.CreateEditor(clone);
+            soRender.onGUIHandler = () => editor.OnInspectorGUI();
+            if (selectedItem.icon != null) icon.image = selectedItem.icon.texture;
+
+            Button deleteButton = body.Q<Button>("DeleteButton");
+            deleteButton.clicked += () => DestroyItem(selectedItem);
+
+            Button saveButton = body.Q<Button>("SaveButton");
+            saveButton.clicked += () => SaveScriptableObject(clone, selectedItem);
+
+            Button cancelButton = body.Q<Button>("CancelButton");
+            cancelButton.clicked += Render;
+
+            Button changeIdButton = body.Q<Button>("ChangeIdButton");
+            changeIdButton.clicked += () => ChangeItemName(selectedItem);
+        }
+        #endregion
+    }
+
+    private void ChangeItemName(BaseItem selection) => ChangeTabNameWindow.Show(selection, nName => !MarketManager.ItemsByKey.ContainsKey(nName), Render);
+    private void ChangeProductName(BaseProduct selection) => ChangeTabNameWindow.Show(selection, nName => !MarketManager.ProductsByKey.ContainsKey(nName), Render);
+    private void ChangeCatalogName(BaseCatalog selection) => ChangeTabNameWindow.Show(selection, nName => !MarketManager.CatalogsByKey.ContainsKey(nName), Render);
+
+    private void SaveScriptableObject<T>(T clone, T selectedItem) where T : ScriptableObject
+    {
+        EditorUtility.CopySerialized(clone, selectedItem);
+        Render();
+    }
+
+    private void FillListWithToggle(List<string> names, string removeFromName, List<string> sourceList, ListView listView, Action<bool,string> OnSelected)
+    {
+        for (int i = 0; i < names.Count; i++)
+        {
+            string itemName = names[i];
+            itemName = RemoveUntilFirstPoint(itemName);
+            itemName = itemName.Replace(removeFromName, string.Empty);
+
+            Toggle toggle = new Toggle {text = itemName};
+            int index = i;
+            toggle.SetValueWithoutNotify(sourceList.Contains(names[index]));
+            string value = names[index];
+            toggle.RegisterValueChangedCallback(x => OnSelected.Invoke(x.newValue, value));
+            listView.contentContainer.Add(toggle);
         }
     }
 
@@ -420,14 +597,26 @@ public class MarketSystemWindow : EditorWindow
         visualElement.Add(label);
         button.clicked += ()=> SelectItem(baseItem);
         
-        Manipulator manipulator = new ContextualMenuManipulator(x=> MenuBuilder (x, baseItem)){ target = button};
-        button.AddManipulator(manipulator);
+        Manipulator manipulator = new ContextualMenuManipulator(
+                contextualMenuPopulateEvent => ItemMenuBuilder(baseItem, contextualMenuPopulateEvent)) {target = button};
         
+        button.AddManipulator(manipulator);
         return visualElement;
+    }
+
+    private void ItemMenuBuilder(BaseItem baseItem, ContextualMenuPopulateEvent contextualMenuPopulateEvent)
+    {
+        contextualMenuPopulateEvent.menu.AppendAction(
+            "Delete",
+            dropdownMenuAction => DestroyItem(baseItem));
     }
 
     private void MenuBuilder(ContextualMenuPopulateEvent obj, BaseItem baseItem) => obj.menu.AppendAction("Delete",x => DestroyItem(baseItem));
 
+    
+    
+    
+    
     private void CreateNewItem(Type type)
     {
         AssetDatabase.Refresh();
@@ -440,7 +629,7 @@ public class MarketSystemWindow : EditorWindow
         do
         {
             i++;
-            assetName = $"new {type.Name} {i}";
+            assetName = string.Format(nItem.DefaultNaming, i);
         } while (MarketManager.DoesItemExists(assetName));
 
         nItem.name = assetName;
@@ -452,18 +641,16 @@ public class MarketSystemWindow : EditorWindow
         AssetDatabase.Refresh();
         Render();
     }
-
     
-
-    private void OnAllCategorySelected(List<string> allCategories)
+    private void OnAllCategorySelected(List<string> selectedCategories, List<string> allCategories)
     {
-        if (selectedItemCategories.Count != allCategories.Count)
+        if (selectedCategories.Count != allCategories.Count)
         {
-            selectedItemCategories.Clear();
-            selectedItemCategories.AddRange(allCategories);
+            selectedCategories.Clear();
+            selectedCategories.AddRange(allCategories);
         }
         else
-            selectedItemCategories.Clear();
+            selectedCategories.Clear();
         Render();
     }
     
@@ -476,13 +663,12 @@ public class MarketSystemWindow : EditorWindow
         Render();
     }
      
-     
     #endregion
 
     
     private void SelectItem(BaseItem baseItem)
     {
-        selectedItem = baseItem;
+        _selectedItem = baseItem;
         Render();
     }
 
@@ -502,10 +688,7 @@ public class MarketSystemWindow : EditorWindow
         objectFieldName.style.flexGrow = 1;
         objectFieldName.style.flexShrink = 0;
         
-        Button deleteButton = new Button(){text = "X"};
-        deleteButton.clicked += () => DestroyItem(item);
-        deleteButton.AddToClassList("DangerButton");
-        deleteButton.style.flexShrink = 0;
+       
         Image image = new Image();
         if(item.icon != null)
             image.image = item.icon.texture;
@@ -526,53 +709,33 @@ public class MarketSystemWindow : EditorWindow
         buttonContainer.style.alignSelf = new StyleEnum<Align>(Align.Center);
         buttonContainer.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
         
-        Button saveButton = new Button(){text = "Save Changes"};
-
-        void OnSaveButtonOnclicked()
-        {
-            EditorUtility.CopySerialized(clone, item);
-            AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(item), objectFieldName.text);
-            Render();
-        }
-
-        saveButton.clicked += OnSaveButtonOnclicked;
-        saveButton.AddToClassList("SaveButton");
-        saveButton.style.width = 100;
-        saveButton.style.height = 25;
-        
-        Button cancelButton = new Button(){text = "Cancel"};
-        cancelButton.clicked += Render;
-        cancelButton.AddToClassList("DangerButton");
-        cancelButton.style.width = 70;
-        cancelButton.style.height = 25;
-        
-        objectNameContainer.Add(fileNameLabel);
-        objectNameContainer.Add(objectFieldName);
-        objectNameContainer.Add(deleteButton);
-        
-        
-        buttonContainer.Add(saveButton);
-        buttonContainer.Add(cancelButton);
-        buttonContainer.style.marginBottom = 10;
-        buttonContainer.style.marginTop = 10;
-        
-        container.Add(objectNameContainer);
-        container.Add(image);
-        container.Add(imguiContainer);
-        container.Add(buttonContainer);
-        
         return container;
     }
 
-    private void DestroyProduct<T>(T product) where T : BaseProduct
-    {
-           if (!EditorUtility.DisplayDialog("Are you sure?", $"Are you sure you want to permanently delete {product}?",
+    
+    
+    private void DestroyCatalog(BaseCatalog catalog)
+    {    
+        if (!EditorUtility.DisplayDialog("Are you sure?", $"Are you sure you want to permanently delete {catalog}?",
             "Delete", "Cancel")) return;
-        MarketManager.RemoveProduct(product);
-        AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(product));
+        
+        MarketManager.RemoveCatalog(catalog);
+        AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(catalog));
         Render();
     }
 
+    
+    
+    private void DestroyProduct(BaseProduct item)
+    {
+        if (!EditorUtility.DisplayDialog("Are you sure?", $"Are you sure you want to permanently delete {item}?",
+            "Delete", "Cancel")) return;
+        
+        MarketManager.RemoveProduct(item);
+        AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(item));
+        Render();
+    }
+    
     private void DestroyItem<T>(T item) where T : BaseItem
     {
         if (!EditorUtility.DisplayDialog("Are you sure?", $"Are you sure you want to permanently delete {item}?",
@@ -591,7 +754,7 @@ public class MarketSystemWindow : EditorWindow
         label.style.alignSelf = new StyleEnum<Align>(Align.Auto);
         container.Add(label);
         
-        if (selectedProduct != null)
+        if (_selectedProduct != null)
         {
             IMGUIContainer imguiContainer = new IMGUIContainer();
             Editor editor = UnityEditor.Editor.CreateEditor(baseItem);
@@ -603,7 +766,6 @@ public class MarketSystemWindow : EditorWindow
         return container;
     }
 
-    
     private static IEnumerable<Type> GetAllSubclassTypes<T>(bool keepAbstracts) 
     {
         return from assembly in AppDomain.CurrentDomain.GetAssemblies()
@@ -612,73 +774,45 @@ public class MarketSystemWindow : EditorWindow
             select type;
     }
 
-    private VisualElement CreateProductSelectionButton(BaseProduct baseProduct)
+    private VisualElement CreateProductSelectionButton(BaseProduct baseProduct, Action<BaseProduct> OnProductSelected)
     {
         VisualElement visualElement = new VisualElement();
         Button button = new Button();
         button.style.height = 50;
         button.style.width = 50;
         button.text = string.Empty;
-
+        button.style.alignSelf = new StyleEnum<Align>(Align.Center);
         Sprite icon = baseProduct.Icon;
         button.style.backgroundImage = new StyleBackground(icon?icon.texture:null);
         Label label = new Label {text = RemoveUntilFirstPoint(baseProduct.name)};
+        label.style.alignSelf = new StyleEnum<Align>(Align.Center);
+        button.style.alignSelf = new StyleEnum<Align>(Align.Center);
         
         visualElement.Add(button);
         visualElement.Add(label);
-        button.clicked += ()=> ProductButtonPressed(baseProduct);
+        button.clicked += ()=> OnProductSelected.Invoke(baseProduct);
+
+        Manipulator manipulator = new ContextualMenuManipulator(
+            contextualMenuPopulateEvent =>  contextualMenuPopulateEvent.menu.AppendAction(
+                                                "Delete", 
+                                                dropdownMenuAction => DestroyProduct(baseProduct)))
+            {target = button};
         
-        Manipulator manipulator = new ContextualMenuManipulator(x=> ProductMenuBuilder (x, baseProduct)){ target = button};
         button.AddManipulator(manipulator);
-    
         return visualElement;
     }
 
-    private void ProductMenuBuilder(ContextualMenuPopulateEvent obj, BaseProduct baseItem) => obj.menu.AppendAction("Delete",x => DestroyProduct(baseItem));
-
-    private VisualElement CreateSelectCatalogButton(BaseCatalog catalog)
-    {
-        Button button = new Button();
-        button.text = catalog.name;
-        button.clicked += () => SelectCatalog(catalog);
-        return button;
-    }
 
     private void SelectCatalog(BaseCatalog catalog)
     {
-        selectedCatalog = catalog;
+        _selectedCatalog = catalog;
         Render();
     }
 
-    private void ProductButtonPressed(BaseProduct baseProduct)
+    private void ProductSelected(BaseProduct baseProduct)
     {
-        selectedProduct = baseProduct;
+        _selectedProduct = baseProduct;
         Render();
-    }
-    
-    private static ListView CreateListView(List<string> items, List<string> activeItems, Action<bool, string> onToggleCallback, string removeFromName = null)
-    {
-        ListView listView = new ListView();
-        listView.style.width = StyleKeyword.Auto;
-        listView.style.flexShrink = 0;
-        listView.style.flexGrow = 1;
-        listView.style.height = new StyleLength(StyleKeyword.Auto);
-        listView.contentContainer.style.flexBasis = new StyleLength(StyleKeyword.Auto);
-     
-        for (int i = 0; i < items.Count; i++)
-        {
-            string itemName = items[i];
-            itemName = RemoveUntilFirstPoint(itemName);
-            if (removeFromName != null) itemName = itemName.Replace(removeFromName, string.Empty);
-
-            Toggle toggle = new Toggle {text = itemName};
-            int index = i;
-            toggle.SetValueWithoutNotify(activeItems.Contains(items[index]));
-            string value = items[index];
-            toggle.RegisterValueChangedCallback(x => onToggleCallback.Invoke(x.newValue, value));
-            listView.contentContainer.Add(toggle);
-        }
-        return listView;
     }
 
     private static string RemoveUntilFirstPoint(string itemName)
@@ -689,16 +823,5 @@ public class MarketSystemWindow : EditorWindow
         return itemName;
     }
 
-    private VisualElement RenderSelectedItem()
-    {
-        VisualElement visualElement = new VisualElement();
-        
-        Label selectedLabel = new Label(){text = "Selection"};
-        selectedLabel.style.fontSize = 20;
-        visualElement.Add(selectedLabel);
-        if (selectedItem != null)
-            visualElement.Add(CreateSelectedItemView(selectedItem));
-        return visualElement;
-    }
 
 }

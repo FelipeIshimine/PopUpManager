@@ -4,6 +4,8 @@ namespace MarketSystem
 {
     public abstract class BaseProduct : ScriptableObject
     {
+        public virtual string DefaultNaming => "{0} - " + GetType().Name;
+
         [SerializeField]private string productName;
         public string ProductName => string.IsNullOrEmpty(productName) ? (Item?Item.itemName:null) : productName;
         [SerializeField]private Sprite icon;

@@ -51,17 +51,17 @@ namespace MarketSystem
             Items = new Dictionary<BaseItem, int>();
             for (int i = 0; i < json.Keys.Length; i++)
             {
-                BaseItem item = FindItem();
+                BaseItem item = FindItem(json.Keys[i]);
                 if(item != null)
-                    Items.Add(item, json.GetInt(json.Keys[i]));
+                    Set(item, json.GetInt(json.Keys[i]));
             }
         }
 
-        private BaseItem FindItem()
+        private BaseItem FindItem(string key)
         {
-            throw new NotImplementedException();
+            Debug.Log($"Searching for key:{key}");
+           return MarketManager.Instance.ItemsByKey[key];
         }
-
         public bool TryConsume(BaseItem id, int ammount)
         {
              //No tiene suficiente

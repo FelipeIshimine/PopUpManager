@@ -11,16 +11,36 @@
       <e p="Assets" t="Include">
         <e p="_MarketSystem" t="Include">
           <e p="Classes" t="Include">
-            <e p="01-ShopSystem__New Class -New Class.cs.txt" t="Include" />
-            <e p="02-ShopSystem__New Class From Generic-New Item.cs.txt" t="Include" />
-            <e p="Skin.cs" t="Include" />
-            <e p="SkinCatalog.cs" t="Include" />
-            <e p="SkinItem.cs" t="Include" />
-            <e p="SkinProduct.cs" t="Include" />
+            <e p="AudioClip" t="Include">
+              <e p="AudioClipCatalog.cs" t="Include" />
+              <e p="AudioClipItem.cs" t="Include" />
+              <e p="AudioClipProduct.cs" t="Include" />
+            </e>
+            <e p="Currency" t="Include">
+              <e p="Currency.cs" t="Include" />
+              <e p="CurrencyCatalog.cs" t="Include" />
+              <e p="CurrencyItem.cs" t="Include" />
+              <e p="CurrencyProduct.cs" t="Include" />
+            </e>
+            <e p="Other" t="Include">
+              <e p="Other.cs" t="Include" />
+              <e p="OtherCatalog.cs" t="Include" />
+              <e p="OtherItem.cs" t="Include" />
+              <e p="OtherProduct.cs" t="Include" />
+            </e>
+            <e p="Pet" t="Include">
+              <e p="Pet.cs" t="Include" />
+              <e p="PetCatalog.cs" t="Include" />
+              <e p="PetItem.cs" t="Include" />
+              <e p="PetProduct.cs" t="Include" />
+            </e>
+            <e p="Sprite" t="Include">
+              <e p="SpriteCatalog.cs" t="Include" />
+              <e p="SpriteItem.cs" t="Include" />
+              <e p="SpriteProduct.cs" t="Include" />
+            </e>
           </e>
         </e>
-        <e p="_MarketSystemClasses01-ShopSystem__New Class -New Class Copy.cs.txt" t="Include" />
-        <e p="_MarketSystemClasses02-ShopSystem__New Class From Generic-New Item Copy.cs.txt" t="Include" />
         <e p="GenericAnimation" t="Include">
           <e p="AnchorPosition.cs" t="Include" />
           <e p="CanvasGroupAlpha.cs" t="Include" />
@@ -216,28 +236,26 @@
           <e p="ISaveLoadAsJson.cs" t="Include" />
           <e p="SaveLoadManager.cs" t="Include" />
         </e>
-        <e p="Scripts" t="Include">
-          <e p="ScriptKeywordManualProcessor.cs" t="Include" />
-          <e p="ScriptKeywordProcessor.cs" t="Include" />
-          <e p="ScriptTemplateTest.cs" t="Include" />
-        </e>
         <e p="ScriptTemplates" t="Include">
           <e p="01-ShopSystem__New Class -New Class.cs.txt" t="Include" />
           <e p="02-ShopSystem__New Class From Generic-New Item.cs.txt" t="Include" />
-          <e p="02-ShopSystem__New Item Type-New Item.cs.txt" t="Include" />
-          <e p="03-ShopSystem__New Catalog Type-New Catalog.cs.txt" t="Include" />
-          <e p="04-ShopSystem__New Product Type-New Product.cs.txt" t="Include" />
         </e>
         <e p="Shop&amp;CurrencyManager" t="Include">
           <e p="Editor" t="Include">
             <e p="ChangeTabNameWindow.cs" t="Include" />
+            <e p="CreateItemTypeWindow.cs" t="Include" />
             <e p="CreateNewTagWindow.cs" t="Include" />
             <e p="MarketSystemWindow.cs" t="Include" />
             <e p="Resources" t="Include">
+              <e p="Catalogs_View.uxml" t="Include" />
+              <e p="Items_View.uxml" t="Include" />
               <e p="MarketManager_Main.uxml" t="Include" />
               <e p="MarketManager_Style.uss" t="Include" />
+              <e p="NewItemType_Main.uxml" t="Include" />
               <e p="NewTag_Main.uxml" t="Include" />
+              <e p="Products_View.uxml" t="Include" />
               <e p="RenameTab_Main.uxml" t="Include" />
+              <e p="ScriptableObjectEdit_View.uxml" t="Include" />
             </e>
           </e>
           <e p="Examples" t="Include">
@@ -248,22 +266,21 @@
                 <e p="UI_PlayerInventory.cs" t="Include" />
                 <e p="UI_Product.cs" t="Include" />
               </e>
-              <e p="Items&amp;Products" t="Include">
-                <e p="SpriteItem.cs" t="Include" />
-              </e>
             </e>
           </e>
           <e p="Runtime" t="Include">
+            <e p="ItemScriptsCreator.cs" t="Include" />
             <e p="MarketManager.cs" t="Include" />
             <e p="Scripts" t="Include">
               <e p="Core" t="Include">
                 <e p="AnyItemProduct.cs" t="Include" />
                 <e p="BaseProduct.cs" t="Include" />
                 <e p="Catalog" t="Include">
-                  <e p="GenericProductCatalog.cs" t="Include" />
+                  <e p="AnyProductCatalog.cs" t="Include" />
                 </e>
                 <e p="InventoryAndCatalog" t="Include">
-                  <e p="Catalog.cs" t="Include" />
+                  <e p="BaseCatalog.cs" t="Include" />
+                  <e p="GenericCatalog.cs" t="Include" />
                   <e p="Inventory.cs" t="Include" />
                 </e>
                 <e p="Items" t="Include">
@@ -279,11 +296,6 @@
                   <e p="ScriptableShop.cs" t="Include" />
                 </e>
                 <e p="Shop.cs" t="Include" />
-              </e>
-              <e p="Currency" t="Include">
-                <e p="CurrencyCatalog.cs" t="Include" />
-                <e p="CurrencyItem.cs" t="Include" />
-                <e p="CurrencyProduct.cs" t="Include" />
               </e>
             </e>
             <e p="UnityEditorUtilities.cs" t="Include" />

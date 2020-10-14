@@ -1,12 +1,13 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
     <ui:VisualElement style="flex-grow: 1;">
         <uie:Toolbar style="flex-shrink: 0;">
+            <uie:ToolbarSpacer style="flex-grow: 1;" />
             <uie:ToolbarButton text="Items" name="ItemsButton" />
             <uie:ToolbarButton text="Products" name="ProductsButton" />
             <uie:ToolbarButton text="Catalogs" name="CatalogsButton" />
             <ui:VisualElement style="flex-grow: 1;" />
             <uie:ToolbarMenu name="ToolbarMenu" style="-unity-background-image-tint-color: rgba(255, 255, 255, 0); flex-grow: 0;" />
         </uie:Toolbar>
-        <ui:VisualElement name="body" />
+        <ui:VisualElement name="body" style="flex-grow: 1;" />
     </ui:VisualElement>
 </ui:UXML>

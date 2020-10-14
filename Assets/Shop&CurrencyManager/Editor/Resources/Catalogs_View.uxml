@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="body" style="flex-grow: 1; flex-direction: row;">
+        <ui:VisualElement name="ProductsContainer" style="flex-grow: 1; flex-basis: 140px; border-bottom-color: rgb(35, 35, 35); border-bottom-width: 1px; flex-direction: column;">
+            <ui:VisualElement name="Upper" style="flex-direction: row; flex-basis: 55%; margin-bottom: 1px; border-bottom-color: rgb(35, 35, 35);">
+                <ui:ListView focusable="True" name="CatalogsList" style="width: 100px; align-items: center; border-right-width: 1px; border-right-color: rgb(40, 40, 40); flex-grow: 0;" />
+                <ui:VisualElement name="Left" style="border-right-width: 1px; border-bottom-width: 1px; border-bottom-color: rgb(35, 35, 35); border-right-color: rgb(35, 35, 35); flex-grow: 1; flex-wrap: wrap; flex-direction: column; align-items: stretch;">
+                    <ui:Label text="Label" name="CurrentCatalogLabel" style="font-size: 22px; -unity-text-align: upper-center;" />
+                    <ui:ListView focusable="True" name="LeftContent" />
+                </ui:VisualElement>
+                <ui:VisualElement name="Right" style="flex-grow: 0;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Lower" style="flex-grow: 1; flex-basis: 45%; flex-direction: row;">
+                <ui:ListView focusable="True" name="TypesList" style="border-right-width: 1px; border-right-color: rgb(30, 30, 30); min-width: 90px;">
+                    <ui:Label text="Label" name="Types" mode="VerticalAndHorizontal" />
+                </ui:ListView>
+                <ui:ListView focusable="True" name="LowerContent" style="flex-grow: 1;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

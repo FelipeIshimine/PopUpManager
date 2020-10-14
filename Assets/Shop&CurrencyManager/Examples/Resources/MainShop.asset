@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     catalogs:
-    - {fileID: 11400000, guid: e7620ac18d8d8aa4b9822d825efe24ee, type: 2}
+    - {fileID: 11400000, guid: 80913722a5681994cada06a646f28a41, type: 2}
+    allProducts: []
+    availableProducts: []
+    unavailableProducts: []

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Leguar.TotalJSON;
 using PopUp;
 using MarketSystem;
 using UnityEngine;
@@ -79,7 +80,6 @@ public class Canvas_MainShop : MonoBehaviour
 
     private void BuyProduct(BaseProduct product)
     {
-        
         if (PlayerInventory.TryBuy(product))
             buySuccessPopUp.Show(
                 new OneOptionConfig(
@@ -87,6 +87,20 @@ public class Canvas_MainShop : MonoBehaviour
                     new PopUpOption("OK", null)));
         else
             ShowCantBuyPopUp(product);
+    }
+
+    public void Save()
+    {
+        JSON json= new JSON();
+        json.Add(SaveLoadManagerWithVersion.VersionKey, SaveLoadManagerWithVersion.CurrentVersion);
+        json.Add("inventory", playerInventory.value.GetSaveData());
+        SaveLoadManagerWithVersion.Save(json, "PlayerInventory", 47);
+    }
+
+    public void Load()
+    {
+        JSON json = SaveLoadManagerWithVersion.Load("PlayerInventory", 47);
+        playerInventory.value.LoadSaveData(json.GetJSON("inventory"));
     }
 }
 

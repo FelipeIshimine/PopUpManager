@@ -12,9 +12,9 @@ namespace MarketSystem
     public class MarketManager : RuntimeScriptableSingleton<MarketManager>
     {
         public override MarketManager Myself => this;
-        public List<BaseItem> Items = new List<BaseItem>();
-        public List<BaseProduct> Products = new List<BaseProduct>();
-        public List<BaseCatalog> Catalogs = new List<BaseCatalog>();
+        public List<BaseItem> items;
+        public List<BaseProduct> products;
+        public List<BaseCatalog> catalogs;
 
         public string mainFolderName = "_MarketSystem";
         public static string MainFolderName => Instance.mainFolderName;
@@ -24,10 +24,46 @@ namespace MarketSystem
         public static string ClassesFolderName => Instance.classesFolderName;
         public static string ClassesFolderPath => MainFolderPath + "/" + ClassesFolderName;
 
+        private Dictionary<string,BaseItem> _baseItems;
+        public Dictionary<string,BaseItem> ItemsByKey
+        {
+            get
+            {
+                if (_baseItems == null) InitializeDictionaryFromList(out _baseItems, items);
+                return _baseItems;
+            }
+        }
+        
+        private Dictionary<string,BaseProduct> _baseProducts;
+        public Dictionary<string,BaseProduct> ProductsByKey
+        {
+            get
+            {
+                if (_baseProducts == null) InitializeDictionaryFromList(out _baseProducts, products);
+                return _baseProducts;
+            }
+        }
+        
+        private Dictionary<string,BaseCatalog> _baseCatalogs;
+        public Dictionary<string,BaseCatalog> CatalogsByKey
+        {
+            get
+            {
+                if (_baseCatalogs == null) InitializeDictionaryFromList(out _baseCatalogs, catalogs);
+                return _baseCatalogs;
+            }
+        }
+
+        private static void InitializeDictionaryFromList<T>(out Dictionary<string, T> dictionary, IReadOnlyList<T> list) where T : ScriptableObject
+        {
+            dictionary = new Dictionary<string, T>();
+            for (int i = 0; i < list.Count; i++) dictionary.Add(list[i].name, list[i]);
+        }
+
         public Dictionary<string, List<BaseProduct>> GetItemsPerClassFromCatalog(BaseCatalog catalog)
         {
-            RemoveNullEmpty(Catalogs);
-            Catalogs.Sort(ScriptableObjectComparer);
+            RemoveNullEmpty(catalogs);
+            catalogs.Sort(ScriptableObjectComparer);
             Dictionary<string, List<BaseProduct>> products = new Dictionary<string, List<BaseProduct>>();
             foreach (BaseProduct baseProduct in catalog.Products)
             {
@@ -41,40 +77,38 @@ namespace MarketSystem
 
         public Dictionary<string, List<BaseItem>> GetItemsByClass()
         {
-            RemoveNullEmpty(Items);
-            Items.Sort(ScriptableObjectComparer);
-            Dictionary<string, List<BaseItem>> items = new Dictionary<string, List<BaseItem>>();
-            foreach (BaseItem baseItem in Items)
+            RemoveNullEmpty(this.items);
+            this.items.Sort(ScriptableObjectComparer);
+            Dictionary<string, List<BaseItem>> itemsByClass = new Dictionary<string, List<BaseItem>>();
+            foreach (BaseItem baseItem in this.items)
             {
                 string key = baseItem.GetType().FullName;
-                if (!items.ContainsKey(key))
-                    items.Add(key, new List<BaseItem>());
-                items[key].Add(baseItem);
+                if (!itemsByClass.ContainsKey(key))
+                    itemsByClass.Add(key, new List<BaseItem>());
+                itemsByClass[key].Add(baseItem);
             }
-
-            return items;
+            return itemsByClass;
         }
 
         public Dictionary<string, List<BaseProduct>> GetProductsByClass()
         {
-            RemoveNullEmpty(Products);
-            Products.Sort(ScriptableObjectComparer);
-            Dictionary<string, List<BaseProduct>> items = new Dictionary<string, List<BaseProduct>>();
-            foreach (BaseProduct product in Products)
+            RemoveNullEmpty(products);
+            products.Sort(ScriptableObjectComparer);
+            Dictionary<string, List<BaseProduct>> productsByClass = new Dictionary<string, List<BaseProduct>>();
+            foreach (BaseProduct product in products)
             {
                 string key = product.GetType().ToString();
-                if (!items.ContainsKey(key))
-                    items.Add(key, new List<BaseProduct>());
-                items[key].Add(product);
+                if (!productsByClass.ContainsKey(key))
+                    productsByClass.Add(key, new List<BaseProduct>());
+                productsByClass[key].Add(product);
             }
-
-            return items;
+            return productsByClass;
         }
 
         private static int ScriptableObjectComparer(ScriptableObject x, ScriptableObject y) =>
             string.Compare(x.name, y.name, StringComparison.Ordinal);
 
-        private void RemoveNullEmpty<T>(List<T> list)
+        private static void RemoveNullEmpty<T>(List<T> list)
         {
             for (int i = list.Count - 1; i >= 0; i--)
                 if (list[i] == null)
@@ -83,42 +117,69 @@ namespace MarketSystem
 
         public void AddNewItem(BaseItem uObject)
         {
-            if (Items.Contains(uObject))
+            if (items.Contains(uObject))
                 Debug.LogError("El objeto ya existe");
             else
-                Items.Add(uObject);
+                items.Add(uObject);
+            
+            if(!ItemsByKey.ContainsKey(uObject.name))
+                ItemsByKey.Add(uObject.name, uObject);
         }
 
         public void RemoveItem<T>(T item) where T : BaseItem
         {
-            if (Items.Contains(item))
-                Items.Remove(item);
+            if (items.Contains(item))
+                items.Remove(item);
         }
 
         public void AddNewProduct(BaseProduct uObject)
         {
-            if (Products.Contains(uObject))
+            if (products.Contains(uObject))
                 Debug.LogError("El objeto ya existe");
             else
-                Products.Add(uObject);
+                products.Add(uObject);
+            
+            if(!ProductsByKey.ContainsKey(uObject.name))
+                ProductsByKey.Add(uObject.name, uObject);
+        }
+        
+        public void AddNewCatalog(BaseCatalog nCatalog)
+        {
+            if (catalogs.Contains(nCatalog))
+                Debug.LogError("El objeto ya existe");
+            else
+                catalogs.Add(nCatalog);
+            
+            if(!CatalogsByKey.ContainsKey(nCatalog.name))
+                CatalogsByKey.Add(nCatalog.name, nCatalog);
         }
 
-        public bool DoesItemExists(string assetName) => Items.Find(x => x.name == assetName) != null;
+        public bool DoesItemExists(string assetName) => items.Find(x => x.name == assetName) != null;
 
-        public bool DoesProductExists(string assetName) => Products.Find(x => x.name == assetName) != null;
+        public bool DoesProductExists(string assetName) => products.Find(x => x.name == assetName) != null;
 
+        public bool DoesCatalogExists(string assetName) => catalogs.Find(x => x.name == assetName) != null;
+        
         public void RemoveProduct<T>(T product) where T : BaseProduct
         {
-            if (Products.Contains(product))
-                Products.Remove(product);
+            if (products.Contains(product))
+                products.Remove(product);
         }
+
+        public void RemoveCatalog(BaseCatalog catalog)
+        {
+            if (catalogs.Contains(catalog))
+                catalogs.Remove(catalog);
+        }
+
+#if UNITY_EDITOR
 
         public void ScanForAssets()
         {
-            Items = new List<BaseItem>(UnityEditorUtilities.FindScriptableObjectsRecursibly<BaseItem>(mainFolderName));
-            Products = new List<BaseProduct>(
+            items = new List<BaseItem>(UnityEditorUtilities.FindScriptableObjectsRecursibly<BaseItem>(mainFolderName));
+            products = new List<BaseProduct>(
                 UnityEditorUtilities.FindScriptableObjectsRecursibly<BaseProduct>(mainFolderName));
-            Catalogs = new List<BaseCatalog>(
+            catalogs = new List<BaseCatalog>(
                 UnityEditorUtilities.FindScriptableObjectsRecursibly<BaseCatalog>(mainFolderName));
         }
 
@@ -150,5 +211,9 @@ namespace MarketSystem
                 AssetDatabase.CreateFolder(itemsFolder, nItem.GetType().Name);
             return filePath;
         }
+        #endif
+
+
+      
     }
 }

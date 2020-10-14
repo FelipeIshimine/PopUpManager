@@ -22,10 +22,7 @@ public static class UnityEditorUtilities
             string path = "Assets/"  + files[i].Replace(ProjectPath,string.Empty);
             T value = AssetDatabase.LoadAssetAtPath<T>(path);
             if (value != null)
-            {
-                Debug.Log($"Found:{path} is of type {value.GetType()}");
                 found.Add(value);
-            }
         }
         return found.ToArray();
     }

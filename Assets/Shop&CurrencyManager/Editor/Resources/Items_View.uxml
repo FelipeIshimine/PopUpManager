@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:ScrollView mode="VerticalAndHorizontal" show-horizontal-scroller="false" show-vertical-scroller="false" style="flex-grow: 1; flex-direction: row; align-items: stretch; justify-content: flex-start;">
+        <ui:VisualElement name="items_body" style="flex-grow: 1; flex-basis: 35%;">
+            <ui:Label text="ITEMS" name="Label" style="font-size: 22px; -unity-text-align: upper-center; border-bottom-width: 1px; border-bottom-color: rgba(35, 35, 35, 0.49); -unity-font-style: bold; padding-bottom: 2px; padding-top: 2px;" />
+            <ui:VisualElement name="Upper" style="flex-grow: 0; flex-basis: auto; flex-direction: row; border-bottom-width: 1px; border-bottom-color: rgb(48, 48, 48); flex-shrink: 0;">
+                <ui:VisualElement name="TypesContainer" style="flex-grow: 1; flex-basis: 35px; border-right-color: rgb(48, 48, 48); border-right-width: 1px; flex-shrink: 0;">
+                    <ui:Label text="Types" name="Label" style="font-size: 24px;" />
+                    <ui:ListView focusable="True" name="TypesList" style="flex-grow: 1;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="SelectionContainer" style="flex-basis: 65%;">
+                    <ui:Label text="Selection" style="font-size: 20px; -unity-text-align: upper-center; -unity-font-style: normal;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:ScrollView name="Lower" style="flex-grow: 1;">
+                <ui:ScrollView name="Search" mode="VerticalAndHorizontal" style="flex-grow: 0; width: 33%;" />
+            </ui:ScrollView>
+        </ui:VisualElement>
+    </ui:ScrollView>
+</ui:UXML>
