@@ -12,8 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dff4144a4c0b99449c8761619cd93a9, type: 3}
   m_Name: MarketManager
   m_EditorClassIdentifier: 
-  Items: []
-  Products: []
-  Catalogs:
-  - {fileID: 11400000, guid: e7620ac18d8d8aa4b9822d825efe24ee, type: 2}
-  folderName: _MarketSystem
+  items:
+  - {fileID: 11400000, guid: d963dc974e6922c4b93d6448622067fc, type: 2}
+  - {fileID: 11400000, guid: a8d92383b4a6b52479aced64b592b75a, type: 2}
+  - {fileID: 11400000, guid: 3f99fc6634494c0419f2bb676f95af92, type: 2}
+  - {fileID: 11400000, guid: eb201faab5daf1541af813094ac37d2a, type: 2}
+  - {fileID: 11400000, guid: db3999f60a64ef942bcaca26cf10f9b6, type: 2}
+  - {fileID: 11400000, guid: cb9a678ccff54704cbc73822b219040b, type: 2}
+  products:
+  - {fileID: 11400000, guid: 96a95be77e9bc9a45ab2d62fce8d4e05, type: 2}
+  - {fileID: 11400000, guid: a2f0fa4e3e7a48b4da0b8d896434fb2f, type: 2}
+  - {fileID: 11400000, guid: df046be91b0bee145b51fbf1842336c4, type: 2}
+  - {fileID: 11400000, guid: bd96670fa66c0134aa757bec8af08884, type: 2}
+  - {fileID: 11400000, guid: 0c3acb3072b080f4fbabb89dc7cd4a39, type: 2}
+  - {fileID: 11400000, guid: 963cfc88238b3a847af6df091fce4c81, type: 2}
+  - {fileID: 11400000, guid: 2cc826d15dbe85844bddfcd57ffd7bbe, type: 2}
+  catalogs:
+  - {fileID: 11400000, guid: 80913722a5681994cada06a646f28a41, type: 2}
+  - {fileID: 11400000, guid: 35f7bc880687d044f9cbca20323d37c8, type: 2}
+  mainFolderName: _MarketSystem
+  classesFolderName: Classes

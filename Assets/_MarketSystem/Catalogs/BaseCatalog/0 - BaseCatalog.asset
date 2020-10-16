@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f1b703a07bc4e129395a28abe217487, type: 3}
   m_Name: 0 - BaseCatalog
   m_EditorClassIdentifier: Assembly-CSharp:MarketSystem:BaseCatalog
+  products:
+  - {fileID: 11400000, guid: a2f0fa4e3e7a48b4da0b8d896434fb2f, type: 2}
+  - {fileID: 11400000, guid: 0c3acb3072b080f4fbabb89dc7cd4a39, type: 2}
+  - {fileID: 11400000, guid: 963cfc88238b3a847af6df091fce4c81, type: 2}
+  - {fileID: 11400000, guid: 2cc826d15dbe85844bddfcd57ffd7bbe, type: 2}

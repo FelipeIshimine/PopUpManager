@@ -94,12 +94,12 @@ public class Canvas_MainShop : MonoBehaviour
         JSON json= new JSON();
         json.Add(SaveLoadManagerWithVersion.VersionKey, SaveLoadManagerWithVersion.CurrentVersion);
         json.Add("inventory", playerInventory.value.GetSaveData());
-        SaveLoadManagerWithVersion.Save(json, "PlayerInventory", 47);
+        SaveLoadManagerWithVersion.Save(json, "PlayerInventory", 0);
     }
 
     public void Load()
     {
-        JSON json = SaveLoadManagerWithVersion.Load("PlayerInventory", 47);
+        JSON json = SaveLoadManagerWithVersion.Load("PlayerInventory", 0);
         playerInventory.value.LoadSaveData(json.GetJSON("inventory"));
     }
 }

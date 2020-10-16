@@ -22,6 +22,7 @@ public class MarketSystemWindow : EditorWindow
     private BaseItem _selectedItem;
     private BaseCatalog _selectedCatalog;    
     private BaseProduct _selectedProduct;
+    private BaseProduct _selectedPreviewProduct;
 
     private List<string> selectedItemCategories = new List<string>();
     private List<string> selectedProductCategories = new List<string>();
@@ -127,8 +128,16 @@ public class MarketSystemWindow : EditorWindow
             int index = i;
             button.clicked += () => OnCatalogSelected(catalogs[index]);
             
-            button.AddManipulator( new ContextualMenuManipulator( new Action<ContextualMenuPopulateEvent>( x => x.menu.AppendAction("Delete", y => DestroyCatalog(catalogs[index])))));
-            
+            button.AddManipulator( 
+                new ContextualMenuManipulator( 
+                     x => 
+                         AddContextMenuOptions(
+                             x.menu, 
+                             new []
+                             {
+                                 new Tuple<string, Action>("ChangeID", () => ChangeCatalogName(catalogs[index])),
+                                 new Tuple<string, Action>("Delete", () => DestroyCatalog(catalogs[index])),
+                             })));
             listView.Add(button);
         }
 
@@ -144,7 +153,6 @@ public class MarketSystemWindow : EditorWindow
         catalogContent.contentContainer.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
         catalogContent.contentContainer.style.flexWrap = new StyleEnum<Wrap>(Wrap.Wrap);
         
-        
         Label label = body.Q<Label>("CurrentCatalogLabel");
 
         if (_selectedCatalog != null)
@@ -153,13 +161,24 @@ public class MarketSystemWindow : EditorWindow
             List<BaseProduct> baseProducts = new List<BaseProduct>(_selectedCatalog.Products);
             baseProducts.Sort(NameComparer);
             for (int i = 0; i < baseProducts.Count; i++)
-                catalogContent.Add(CreateProductSelectionButton(baseProducts[i], x=> RemoveFrom(x,_selectedCatalog)));
-        }
+            {
+                int localIndex = i;
+                VisualElement prodSelection = CreateProductSelectionButton(
+                    baseProducts[i], 
+                    baseProduct => RemoveFrom(baseProduct, _selectedCatalog),
+                    new []
+                    {
+                        new Tuple<string, Action>("Preview", ()=> PreviewProduct(baseProducts[localIndex])),
+                        new Tuple<string, Action>("Edit", ()=> GoToProductEdit(baseProducts[localIndex])),
+                        new Tuple<string, Action>("Delete", ()=> DestroyProduct(baseProducts[localIndex]))
+                    });
+                catalogContent.Add(prodSelection);
+            }
+        }   
         else
             label.text = "-";
 
         #region SelectionList
-
 
         GetProductNamesAndTypes(out List<Type> types, out List<string> names);
         ListView typeSelectionList = body.Q<ListView>("TypesList");
@@ -175,9 +194,24 @@ public class MarketSystemWindow : EditorWindow
         #endregion
 
         #region Preview
-        if (false)
+        if (_selectedPreviewProduct != null)
         {
             VisualElement selectionRender = body.Q<VisualElement>("Right");
+
+            selectionRender.style.paddingLeft = 5;
+            selectionRender.style.paddingRight = 5;
+            selectionRender.style.paddingTop = 5;
+            selectionRender.style.paddingBottom = 5;
+            
+            Button closeButton = new Button() {text = "X"};
+            closeButton.clicked += () =>
+            {
+                _selectedPreviewProduct = null;
+                Render();
+            };
+            closeButton.style.width = 20;
+            closeButton.style.height = 20;
+
             scriptableObjectEdit_View.CloneTree(selectionRender);
             Image icon = new Image();
             IMGUIContainer soRender = selectionRender.Q<IMGUIContainer>("Render");
@@ -187,16 +221,15 @@ public class MarketSystemWindow : EditorWindow
             icon.style.backgroundColor = new Color(.25f, .25f, .25f);
             icon.style.marginTop = 10;
             icon.style.marginBottom = 10;
-            selectionRender.Insert(0, icon);
-            BaseProduct selection = _selectedProduct;
-            if (selection != null)
+            
+            selectionRender.Insert(0,icon);
+            selectionRender.Insert(0,closeButton);
+            
+            if (_selectedPreviewProduct != null)
             {
-                BaseProduct clone = Instantiate(selection);
-                clone.name = selection.name;
-
-                Editor editor = Editor.CreateEditor(clone);
+                Editor editor = Editor.CreateEditor(_selectedPreviewProduct);
                 soRender.onGUIHandler = () => editor.OnInspectorGUI();
-                if (selection.Icon != null) icon.image = selection.Icon.texture;
+                if (_selectedPreviewProduct.Icon != null) icon.image = _selectedPreviewProduct.Icon.texture;
             }
 
             VisualElement buttons = body.Q<VisualElement>("Buttons");
@@ -218,6 +251,7 @@ public class MarketSystemWindow : EditorWindow
         Dictionary<string, List<BaseProduct>> productsByClass = MarketManager.GetProductsByClass();
 
         if(_selectedCatalog == null) return;
+        
         foreach (KeyValuePair<string,List<BaseProduct>> keyValuePair in productsByClass)
         {
             if(!selectedProductCategories.Contains(keyValuePair.Key)) continue;
@@ -226,32 +260,40 @@ public class MarketSystemWindow : EditorWindow
                     products.Add(keyValuePair.Value[i]);
         }
 
-        foreach (BaseProduct baseProduct in products)
-            lowerContent.Add(CreateProductSelectionButton(baseProduct, x => AddTo(x, _selectedCatalog)));
+        foreach (BaseProduct itemProduct in products)
+            lowerContent.Add(
+                CreateProductSelectionButton(
+                    itemProduct, 
+                    baseProduct => AddTo(itemProduct, _selectedCatalog),
+                    new []
+                    {
+                        new Tuple<string, Action>("Preview", ()=> PreviewProduct(itemProduct)),
+                        new Tuple<string, Action>("Edit", ()=> GoToProductEdit(itemProduct)),
+                        new Tuple<string, Action>("Delete", ()=> DestroyProduct(itemProduct))
+                    }));
         
         #endregion
     }
 
+    private void GoToProductEdit(BaseProduct itemProduct)
+    {
+        _selectedProduct = itemProduct;
+        ChangeTab(States.Products);
+    }
+
     private void AddTo(BaseProduct baseProduct, BaseCatalog selectedCatalog)
     {
+        _selectedPreviewProduct = null;
         if (!selectedCatalog.Products.Contains(baseProduct))
             selectedCatalog.Products.Add(baseProduct);
         Render();
     }
-    
-    
-    private void AddTo<T,TB>(TB baseProduct, T selectedCatalog) where  T : GenericCatalog<TB> where TB : BaseProduct, new() 
-    {
-        if (!selectedCatalog.Products.Contains(baseProduct))
-            selectedCatalog.products.Add(baseProduct);
-        Render();
-    }
-    
 
     private void RemoveFrom(BaseProduct baseProduct, BaseCatalog selectedCatalog)
     {
+        _selectedPreviewProduct = null;
         Debug.Log($"Removing {baseProduct} to {selectedCatalog}");
-        if(selectedCatalog.Products.Contains(baseProduct)) 
+        if (selectedCatalog.Products.Contains(baseProduct))
             selectedCatalog.Products.Remove(baseProduct);
         Render();
     }
@@ -267,7 +309,7 @@ public class MarketSystemWindow : EditorWindow
         {
             i++;
             assetName = string.Format(nCatalog.DefaultNaming, i);
-        } while (MarketManager.DoesCatalogExists(assetName));
+        } while (MarketManager.DoesCatalogIDExists(assetName));
 
         nCatalog.name = assetName;
         MarketSystem.MarketManager.Instance.AddNewCatalog(nCatalog);
@@ -342,7 +384,15 @@ public class MarketSystemWindow : EditorWindow
             if (itemsPerClass.ContainsKey(names[i]))
             {
                 foreach (BaseProduct baseProduct in itemsPerClass[names[i]])
-                    contentContainer.Add(CreateProductSelectionButton(baseProduct, ProductSelected));
+                    contentContainer.Add(
+                        CreateProductSelectionButton(
+                            baseProduct, 
+                            ProductSelected,
+                            new[]
+                            {
+                                new Tuple<string, Action>("ChangeID",()=> ChangeProductName(baseProduct)),
+                                new Tuple<string, Action>("Delete",()=> DestroyProduct(baseProduct))
+                            }));
             }
 
             Type currentType = types[i];
@@ -398,6 +448,12 @@ public class MarketSystemWindow : EditorWindow
         }
     }
 
+    private void PreviewProduct(BaseProduct baseProduct)
+    {
+        _selectedPreviewProduct = baseProduct;
+        Render();
+    }
+
     private static void GetProductNamesAndTypes(out List<Type> types, out List<string> names)
     {
         types = new List<Type>(GetAllSubclassTypes<BaseProduct>(false));
@@ -421,7 +477,7 @@ public class MarketSystemWindow : EditorWindow
         {   
             i++;
             assetName = string.Format(nItem.DefaultNaming, i);
-        } while (MarketManager.DoesProductExists(assetName));
+        } while (MarketManager.DoesProductIDExists(assetName));
         
         nItem.name = assetName;
         
@@ -552,9 +608,9 @@ public class MarketSystemWindow : EditorWindow
         #endregion
     }
 
-    private void ChangeItemName(BaseItem selection) => ChangeTabNameWindow.Show(selection, nName => !MarketManager.ItemsByKey.ContainsKey(nName), Render);
-    private void ChangeProductName(BaseProduct selection) => ChangeTabNameWindow.Show(selection, nName => !MarketManager.ProductsByKey.ContainsKey(nName), Render);
-    private void ChangeCatalogName(BaseCatalog selection) => ChangeTabNameWindow.Show(selection, nName => !MarketManager.CatalogsByKey.ContainsKey(nName), Render);
+    private void ChangeItemName(BaseItem selection) => ChangeTabNameWindow.Show(selection, nName => !MarketManager.DoesItemIDExists(nName), Render);
+    private void ChangeProductName(BaseProduct selection) => ChangeTabNameWindow.Show(selection, nName => !MarketManager.DoesProductIDExists(nName), Render);
+    private void ChangeCatalogName(BaseCatalog selection) => ChangeTabNameWindow.Show(selection, nName => !MarketManager.DoesCatalogIDExists(nName), Render);
 
     private void SaveScriptableObject<T>(T clone, T selectedItem) where T : ScriptableObject
     {
@@ -598,25 +654,24 @@ public class MarketSystemWindow : EditorWindow
         button.clicked += ()=> SelectItem(baseItem);
         
         Manipulator manipulator = new ContextualMenuManipulator(
-                contextualMenuPopulateEvent => ItemMenuBuilder(baseItem, contextualMenuPopulateEvent)) {target = button};
+                contextualMenuPopulateEvent => 
+                    AddContextMenuOptions(
+                        contextualMenuPopulateEvent,
+                        new []
+                        {
+                            new Tuple<string, Action>("ChangeID", ()=>ChangeItemName(baseItem)),
+                            new Tuple<string, Action>("Delete", ()=>DestroyItem(baseItem))
+                        }
+                        )) {target = button};
         
         button.AddManipulator(manipulator);
         return visualElement;
     }
 
-    private void ItemMenuBuilder(BaseItem baseItem, ContextualMenuPopulateEvent contextualMenuPopulateEvent)
-    {
-        contextualMenuPopulateEvent.menu.AppendAction(
-            "Delete",
-            dropdownMenuAction => DestroyItem(baseItem));
-    }
+    private void AddContextMenuOptions(ContextualMenuPopulateEvent contextualMenuPopulateEvent,
+        Tuple<string, Action>[] contextualMenuOptions) =>
+        AddContextMenuOptions(contextualMenuPopulateEvent.menu, contextualMenuOptions);
 
-    private void MenuBuilder(ContextualMenuPopulateEvent obj, BaseItem baseItem) => obj.menu.AppendAction("Delete",x => DestroyItem(baseItem));
-
-    
-    
-    
-    
     private void CreateNewItem(Type type)
     {
         AssetDatabase.Refresh();
@@ -630,7 +685,7 @@ public class MarketSystemWindow : EditorWindow
         {
             i++;
             assetName = string.Format(nItem.DefaultNaming, i);
-        } while (MarketManager.DoesItemExists(assetName));
+        } while (MarketManager.DoesItemIDExists(assetName));
 
         nItem.name = assetName;
 
@@ -745,27 +800,6 @@ public class MarketSystemWindow : EditorWindow
         Render();
     }
 
-    private VisualElement CreateSelectedProductView(ScriptableObject baseItem)
-    {
-        VisualElement container = new VisualElement();
-        container.style.flexGrow = 1;
-        Label label = new Label("Selection");
-        label.style.fontSize = 25;
-        label.style.alignSelf = new StyleEnum<Align>(Align.Auto);
-        container.Add(label);
-        
-        if (_selectedProduct != null)
-        {
-            IMGUIContainer imguiContainer = new IMGUIContainer();
-            Editor editor = UnityEditor.Editor.CreateEditor(baseItem);
-            imguiContainer.onGUIHandler = () => editor.OnInspectorGUI();
-            imguiContainer.style.alignSelf = new StyleEnum<Align>(Align.Auto);
-            container.Add(imguiContainer);
-        }
-
-        return container;
-    }
-
     private static IEnumerable<Type> GetAllSubclassTypes<T>(bool keepAbstracts) 
     {
         return from assembly in AppDomain.CurrentDomain.GetAssemblies()
@@ -774,7 +808,7 @@ public class MarketSystemWindow : EditorWindow
             select type;
     }
 
-    private VisualElement CreateProductSelectionButton(BaseProduct baseProduct, Action<BaseProduct> OnProductSelected)
+    private VisualElement CreateProductSelectionButton(BaseProduct baseProduct, Action<BaseProduct> OnProductSelected, Tuple<string,Action>[] contextualMenuOptions)
     {
         VisualElement visualElement = new VisualElement();
         Button button = new Button();
@@ -792,16 +826,23 @@ public class MarketSystemWindow : EditorWindow
         visualElement.Add(label);
         button.clicked += ()=> OnProductSelected.Invoke(baseProduct);
 
-        Manipulator manipulator = new ContextualMenuManipulator(
-            contextualMenuPopulateEvent =>  contextualMenuPopulateEvent.menu.AppendAction(
-                                                "Delete", 
-                                                dropdownMenuAction => DestroyProduct(baseProduct)))
-            {target = button};
+        if (contextualMenuOptions == null) return visualElement;
         
+        
+        Manipulator manipulator = new ContextualMenuManipulator(contextualMenuPopulateEvent => AddContextMenuOptions(contextualMenuPopulateEvent.menu, contextualMenuOptions)) {target = button};
         button.AddManipulator(manipulator);
+        
         return visualElement;
     }
 
+    private void AddContextMenuOptions(DropdownMenu objMenu, Tuple<string, Action>[] contextualMenuOptions)
+    {
+        for (int i = 0; i < contextualMenuOptions.Length; i++)
+        {
+            int localIndex = i;
+            objMenu.AppendAction(contextualMenuOptions[i].Item1, dropdownMenuAction => contextualMenuOptions[localIndex].Item2.Invoke());
+        }
+    }
 
     private void SelectCatalog(BaseCatalog catalog)
     {

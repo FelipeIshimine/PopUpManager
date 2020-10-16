@@ -1,37 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="4b6c3471-8288-4d49-9e35-3a5ffb41990b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/InventoryAndCatalog/BaseCatalog.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/InventoryAndCatalog/BaseCatalog.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PopUpManager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Save&amp;LoadSystem/SaveLoadManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Save&amp;LoadSystem/SaveLoadManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/MarketManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/MarketManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/MarketSystemWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/MarketSystemWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/Resources/MarketManager_Main.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/Resources/MarketManager_Main.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/Resources/MarketManager_Style.uss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/Resources/MarketManager_Style.uss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Prefabs/Canvas_Shop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Prefabs/Canvas_Shop.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Catalog.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Catalog/GenericItemCatalog.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/Catalog/GenericItemCatalog.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/MainShop.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Resources/MainShop.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/Resources/Catalogs_View.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/Resources/Catalogs_View.uxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Canvas/Canvas_MainShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Canvas/Canvas_MainShop.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/MarketManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/MarketManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/BaseProduct.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/BaseProduct.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Catalog/GenericProductCatalog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Catalog/AnyProductCatalog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Catalog/GenericProductCatalog.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Catalog/AnyProductCatalog.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/InventoryAndCatalog/GenericCatalog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/InventoryAndCatalog/GenericCatalog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/InventoryAndCatalog/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/InventoryAndCatalog/Inventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Items/BaseItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Items/BaseItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/UnityEditorUtilities.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/UnityEditorUtilities.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Items/SpriteItem/new SpriteItem 0.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Items/SpriteItem/new SpriteItem 0.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/AnyItemProduct/New AnyItemProduct 0.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/AnyItemProduct/New AnyItemProduct 0.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/SpriteProduct/New SpriteProduct 0.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Products/SpriteProduct/New SpriteProduct 0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Catalogs/BaseCatalog/0 - BaseCatalog.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MarketSystem/Catalogs/BaseCatalog/0 - BaseCatalog.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Catalogs/BaseCatalog/2 - BaseCatalog.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Catalogs/BaseCatalog/2 - BaseCatalog.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Catalogs/BaseCatalog/3 - BaseCatalog.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MarketSystem/Catalogs/BaseCatalog/3 - BaseCatalog.asset.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +33,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_MarketSystem/Classes/Currency/Currency.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.ishimine.runetimescriptablesetting@23306d10ae/Runtime/RuntimeScriptableSingleton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D7545A46-5169-41D4-B2F2-DEC578CD41EE/70/b6bb6151/ToolbarMenu.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.15/Editor/State/WindowState.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -84,15 +69,15 @@
       <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/BaseProduct.cs" />
       <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/UnityEditorUtilities.cs" />
       <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/Resources/MarketManager_Style.uss" />
-      <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/MarketSystemWindow.cs" />
       <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/InventoryAndCatalog/GenericCatalog.cs" />
       <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/InventoryAndCatalog/BaseCatalog.cs" />
-      <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/MarketManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/Items/BaseItem.cs" />
       <option value="$PROJECT_DIR$/Library/PackageCache/com.ishimine.runetimescriptablesetting@23306d10ae/Runtime/RuntimeScriptableSingleton.cs" />
-      <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Canvas/Canvas_MainShop.cs" />
       <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/Scripts/Core/InventoryAndCatalog/Inventory.cs" />
       <option value="$PROJECT_DIR$/Assets/Save&amp;LoadSystem/SaveLoadManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Runtime/MarketManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Editor/MarketSystemWindow.cs" />
+      <option value="$PROJECT_DIR$/Assets/Shop&amp;CurrencyManager/Examples/Script/Canvas/Canvas_MainShop.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ipMKZ7jdj317jOWiDbTlCDg5WR" />
@@ -146,7 +131,8 @@
       <updated>1602600020300</updated>
       <workItem from="1602600032425" duration="2416000" />
       <workItem from="1602602741652" duration="14451000" />
-      <workItem from="1602683092399" duration="29173000" />
+      <workItem from="1602683092399" duration="29590000" />
+      <workItem from="1602775139897" duration="10305000" />
     </task>
     <servers />
   </component>

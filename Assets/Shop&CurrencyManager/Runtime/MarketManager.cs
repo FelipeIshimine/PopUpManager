@@ -154,11 +154,11 @@ namespace MarketSystem
                 CatalogsByKey.Add(nCatalog.name, nCatalog);
         }
 
-        public bool DoesItemExists(string assetName) => items.Find(x => x.name == assetName) != null;
+        public bool DoesItemIDExists(string assetName) => items.Find(x => x.name == assetName) != null;
 
-        public bool DoesProductExists(string assetName) => products.Find(x => x.name == assetName) != null;
+        public bool DoesProductIDExists(string assetName) => products.Find(x => x.name == assetName) != null;
 
-        public bool DoesCatalogExists(string assetName) => catalogs.Find(x => x.name == assetName) != null;
+        public bool DoesCatalogIDExists(string assetName) => catalogs.Find(x => x.name == assetName) != null;
         
         public void RemoveProduct<T>(T product) where T : BaseProduct
         {
@@ -181,6 +181,10 @@ namespace MarketSystem
                 UnityEditorUtilities.FindScriptableObjectsRecursibly<BaseProduct>(mainFolderName));
             catalogs = new List<BaseCatalog>(
                 UnityEditorUtilities.FindScriptableObjectsRecursibly<BaseCatalog>(mainFolderName));
+            
+            EditorUtility.SetDirty(this);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
         }
 
         public static void InitializeFolders()
